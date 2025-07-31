@@ -1,0 +1,1169 @@
+{
+    "@@locale": "vi",
+    "adminEmail": "support@codingwitht.com",
+    "@adminEmail": {
+        "description": "Default admin email"
+    },
+    "adminPassword": "Admin@123",
+    "@adminPassword": {
+        "description": "Default admin password"
+    },
+    "bannersStoragePath": "/Banner",
+    "@bannersStoragePath": {
+        "description": "Storage path for banners"
+    },
+    "brandsStoragePath": "/Cộng đồng",
+    "@brandsStoragePath": {
+        "description": "Storage path for brands"
+    },
+    "categoriesStoragePath": "/Danh mục",
+    "@categoriesStoragePath": {
+        "description": "Storage path for categories"
+    },
+    "productsStoragePath": "/Sản phẩm",
+    "@productsStoragePath": {
+        "description": "Storage path for products"
+    },
+    "usersStoragePath": "/Người dùng",
+    "@usersStoragePath": {
+        "description": "Storage path for users"
+    },
+    "ordersStoragePath": "/Đơn hàng",
+    "@ordersStoragePath": {
+        "description": "Storage path for users"
+    },
+    "settingStoragePath": "/Cài đặt",
+    "@settingStoragePath": {
+        "description": "Storage path for users"
+    },
+    "users": "Người dùng",
+    "@users": {
+        "description": "Storage path for users"
+    },
+    "and": "và",
+    "@and": {
+        "description": "The word 'and'"
+    },
+    "skip": "Bỏ qua",
+    "@skip": {
+        "description": "Skip button"
+    },
+    "done": "Hoàn thành",
+    "@done": {
+        "description": "Done button"
+    },
+    "submit": "Gửi",
+    "@submit": {
+        "description": "Submit button"
+    },
+    "appName": "Cửa hàng T",
+    "@appName": {
+        "description": "Application name"
+    },
+    "tContinue": "Tiếp tục",
+    "@tContinue": {
+        "description": "Continue button"
+    },
+    "onBoardingTitle1": "Chọn sản phẩm của bạn",
+    "@onBoardingTitle1": {
+        "description": "Onboarding step 1 title"
+    },
+    "onBoardingTitle2": "Chọn phương thức thanh toán",
+    "@onBoardingTitle2": {
+        "description": "Onboarding step 2 title"
+    },
+    "onBoardingTitle3": "Giao hàng tận nơi",
+    "@onBoardingTitle3": {
+        "description": "Onboarding step 3 title"
+    },
+    "onBoardingSubTitle1": "Chào mừng đến với thế giới lựa chọn không giới hạn - Sản phẩm hoàn hảo đang chờ bạn!",
+    "@onBoardingSubTitle1": {
+        "description": "Onboarding step 1 subtitle"
+    },
+    "onBoardingSubTitle2": "Để giao dịch thuận tiện, hãy chọn phương thức thanh toán phù hợp - Sự tiện lợi của bạn là ưu tiên của chúng tôi!",
+    "@onBoardingSubTitle2": {
+        "description": "Onboarding step 2 subtitle"
+    },
+    "onBoardingSubTitle3": "Từ cửa hàng đến tận nhà bạn - Giao hàng nhanh chóng, an toàn và không tiếp xúc!",
+    "@onBoardingSubTitle3": {
+        "description": "Onboarding step 3 subtitle"
+    },
+    "firstName": "Họ",
+    "@firstName": {
+        "description": "First name field"
+    },
+    "lastName": "Tên",
+    "@lastName": {
+        "description": "Last name field"
+    },
+    "email": "Email",
+    "@email": {
+        "description": "Email field"
+    },
+    "password": "Mật khẩu",
+    "@password": {
+        "description": "Password field"
+    },
+    "newPassword": "Mật khẩu mới",
+    "@newPassword": {
+        "description": "New password field"
+    },
+    "username": "Tên đăng nhập",
+    "@username": {
+        "description": "Username field"
+    },
+    "phoneNo": "Số điện thoại",
+    "@phoneNo": {
+        "description": "Phone number field"
+    },
+    "rememberMe": "Ghi nhớ đăng nhập",
+    "@rememberMe": {
+        "description": "Remember me checkbox"
+    },
+    "forgetPassword": "Quên mật khẩu?",
+    "@forgetPassword": {
+        "description": "Forgot password link"
+    },
+    "signIn": "Đăng nhập",
+    "@signIn": {
+        "description": "Sign in button"
+    },
+    "createAccount": "Tạo tài khoản",
+    "@createAccount": {
+        "description": "Create account button"
+    },
+    "orSignInWith": "hoặc đăng nhập bằng",
+    "@orSignInWith": {
+        "description": "Or sign in with text"
+    },
+    "orSignUpWith": "hoặc đăng ký bằng",
+    "@orSignUpWith": {
+        "description": "Or sign up with text"
+    },
+    "iAgreeTo": "Tôi đồng ý với",
+    "@iAgreeTo": {
+        "description": "I agree to text"
+    },
+    "privacyPolicy": "Chính sách bảo mật",
+    "@privacyPolicy": {
+        "description": "Privacy policy link"
+    },
+    "termsOfUse": "Điều khoản sử dụng",
+    "@termsOfUse": {
+        "description": "Terms of use link"
+    },
+    "verificationCode": "Mã xác thực",
+    "@verificationCode": {
+        "description": "Verification code label"
+    },
+    "resendEmail": "Gửi lại email",
+    "@resendEmail": {
+        "description": "Resend email button"
+    },
+    "resendEmailIn": "Gửi lại email sau",
+    "@resendEmailIn": {
+        "description": "Resend email in text"
+    },
+    "loginTitle": "Chào mừng trở lại,",
+    "@loginTitle": {
+        "description": "Login screen title"
+    },
+    "loginSubTitle": "Khám phá vô vàn lựa chọn và sự tiện lợi vượt trội.",
+    "@loginSubTitle": {
+        "description": "Login screen subtitle"
+    },
+    "signupTitle": "Tạo tài khoản của bạn",
+    "@signupTitle": {
+        "description": "Signup screen title"
+    },
+    "forgetPasswordTitle": "Quên mật khẩu",
+    "@forgetPasswordTitle": {
+        "description": "Forgot password screen title"
+    },
+    "forgetPasswordSubTitle": "Đừng lo, đôi khi mọi người cũng quên, hãy nhập email và chúng tôi sẽ gửi liên kết đặt lại mật khẩu cho bạn.",
+    "@forgetPasswordSubTitle": {
+        "description": "Forgot password screen subtitle"
+    },
+    "changeYourPasswordTitle": "Đã gửi email đặt lại mật khẩu",
+    "@changeYourPasswordTitle": {
+        "description": "Password reset email sent title"
+    },
+    "changeYourPasswordSubTitle": "Bảo mật tài khoản của bạn là ưu tiên của chúng tôi! Chúng tôi đã gửi cho bạn một liên kết an toàn để thay đổi mật khẩu và bảo vệ tài khoản.",
+    "@changeYourPasswordSubTitle": {
+        "description": "Password reset email sent subtitle"
+    },
+    "confirmEmail": "Xác minh địa chỉ email của bạn!",
+    "@confirmEmail": {
+        "description": "Confirm email title"
+    },
+    "confirmEmailSubTitle": "Chúc mừng! Tài khoản của bạn đã sẵn sàng: Xác minh email để bắt đầu mua sắm và trải nghiệm ưu đãi tuyệt vời.",
+    "@confirmEmailSubTitle": {
+        "description": "Confirm email subtitle"
+    },
+    "emailNotReceivedMessage": "Không nhận được email? Kiểm tra thư rác hoặc gửi lại.",
+    "@emailNotReceivedMessage": {
+        "description": "Email not received message"
+    },
+    "yourAccountCreatedTitle": "Tạo tài khoản thành công!",
+    "@yourAccountCreatedTitle": {
+        "description": "Account created title"
+    },
+    "yourAccountCreatedSubTitle": "Chào mừng đến với điểm đến mua sắm tuyệt vời: Tài khoản của bạn đã được tạo, hãy tận hưởng mua sắm trực tuyến dễ dàng!",
+    "@yourAccountCreatedSubTitle": {
+        "description": "Account created subtitle"
+    },
+    "popularProducts": "Sản phẩm phổ biến",
+    "@popularProducts": {
+        "description": "Popular products section title"
+    },
+    "homeAppbarTitle": "Ngày tuyệt vời để mua sắm",
+    "@homeAppbarTitle": {
+        "description": "Home app bar title"
+    },
+    "homeAppbarSubTitle": "Taimoor Sikander",
+    "@homeAppbarSubTitle": {
+        "description": "Home app bar subtitle"
+    },
+    "menu": "DANH MỤC",
+    "@menu": {
+        "description": "Sidebar menu title"
+    },
+    "other": "KHÁC",
+    "@other": {
+        "description": "Sidebar other section title"
+    },
+    "dashboard": "Bảng điều khiển",
+    "@dashboard": {
+        "description": "Dashboard menu item"
+    },
+    "media": "Thư viện",
+    "@media": {
+        "description": "Media menu item"
+    },
+    "categories": "Danh mục",
+    "@categories": {
+        "description": "Categories menu item"
+    },
+    "products": "Sản phẩm",
+    "@products": {
+        "description": "Products menu item"
+    },
+    "customers": "Khách hàng",
+    "@customers": {
+        "description": "Customers menu item"
+    },
+    "banners": "Banner",
+    "@banners": {
+        "description": "Banners menu item"
+    },
+    "orders": "Đơn hàng",
+    "@orders": {
+        "description": "Orders menu item"
+    },
+    "brands": "Cộng đồng",
+    "@brands": {
+        "description": "Brands menu item"
+    },
+    "profile": "Hồ sơ",
+    "@profile": {
+        "description": "Profile menu item"
+    },
+    "settings": "Cài đặt",
+    "@settings": {
+        "description": "Settings menu item"
+    },
+    "logout": "Đăng xuất",
+    "@logout": {
+        "description": "Logout menu item"
+    },
+    "dashboardTitle": "Bảng điều khiển",
+    "@dashboardTitle": {
+        "description": "Tiêu đề cho màn hình bảng điều khiển"
+    },
+    "salesTotal": "Tổng doanh số",
+    "@salesTotal": {
+        "description": "Tiêu đề cho thẻ tổng doanh số"
+    },
+    "averageOrder": "Trung bình",
+    "@averageOrder": {
+        "description": "Tiêu đề cho thẻ đơn hàng trung bình"
+    },
+    "totalOrders": "Tổng số đơn hàng",
+    "@totalOrders": {
+        "description": "Tiêu đề cho thẻ tổng số đơn hàng"
+    },
+    "visitors": "Khách truy cập",
+    "@visitors": {
+        "description": "Tiêu đề cho thẻ khách truy cập"
+    },
+    "comparedTo": "So với tháng 12/2025",
+    "@comparedTo": {
+        "description": "Nội dung so sánh kỳ trước"
+    },
+    "weeklySales": "Doanh số tuần",
+    "@weeklySales": {
+        "description": "Tiêu đề cho biểu đồ doanh số tuần"
+    },
+    "monday": "T2",
+    "@monday": {
+        "description": "Viết tắt Thứ Hai"
+    },
+    "tuesday": "T3",
+    "@tuesday": {
+        "description": "Viết tắt Thứ Ba"
+    },
+    "wednesday": "T4",
+    "@wednesday": {
+        "description": "Viết tắt Thứ Tư"
+    },
+    "thursday": "T5",
+    "@thursday": {
+        "description": "Viết tắt Thứ Năm"
+    },
+    "friday": "T6",
+    "@friday": {
+        "description": "Viết tắt Thứ Sáu"
+    },
+    "saturday": "T7",
+    "@saturday": {
+        "description": "Viết tắt Thứ Bảy"
+    },
+    "sunday": "CN",
+    "@sunday": {
+        "description": "Viết tắt Chủ Nhật"
+    },
+    "recentOrders": "Đơn hàng gần đây",
+    "@recentOrders": {
+        "description": "Tiêu đề đơn hàng gần đây"
+    },
+    "orderId": "Mã đơn",
+    "@orderId": {
+        "description": "Cột mã đơn hàng"
+    },
+    "orderDate": "Ngày đặt",
+    "@orderDate": {
+        "description": "Cột ngày đặt hàng"
+    },
+    "orderItems": "Số lượng",
+    "@orderItems": {
+        "description": "Cột số lượng sản phẩm"
+    },
+    "orderStatus": "Trạng thái",
+    "@orderStatus": {
+        "description": "Cột trạng thái đơn hàng"
+    },
+    "orderTotal": "Tổng tiền",
+    "@orderTotal": {
+        "description": "Cột tổng tiền đơn hàng"
+    },
+    "statusPending": "Chờ xử lý",
+    "@statusPending": {
+        "description": "Trạng thái: Chờ xử lý"
+    },
+    "statusProcessing": "Đang xử lý",
+    "@statusProcessing": {
+        "description": "Trạng thái: Đang xử lý"
+    },
+    "statusShipped": "Đã gửi",
+    "@statusShipped": {
+        "description": "Trạng thái: Đã gửi"
+    },
+    "statusDelivered": "Đã giao",
+    "@statusDelivered": {
+        "description": "Trạng thái: Đã giao"
+    },
+    "statusCancelled": "Đã hủy",
+    "@statusCancelled": {
+        "description": "Trạng thái: Đã hủy"
+    },
+    "orderStatusChart": "Trạng thái đơn hàng",
+    "@orderStatusChart": {
+        "description": "Tiêu đề biểu đồ trạng thái đơn hàng"
+    },
+    "details": "Chi tiết",
+    "@details": {
+        "description": "Breadcrumb chi tiết cho thư viện"
+    },
+    "uploadImages": "Tải ảnh lên",
+    "@uploadImages": {
+        "description": "Nút tải ảnh lên"
+    },
+    "dragDropImagesHere": "Kéo và thả ảnh vào đây",
+    "@dragDropImagesHere": {
+        "description": "Hướng dẫn cho khu vực kéo thả ảnh"
+    },
+    "selectImages": "Chọn ảnh",
+    "@selectImages": {
+        "description": "Nút chọn ảnh"
+    },
+    "galleryFolder": "Thư mục ảnh",
+    "@galleryFolder": {
+        "description": "Nhãn cho dropdown thư mục ảnh"
+    },
+    "removeAll": "Xóa tất cả",
+    "@removeAll": {
+        "description": "Nút xóa tất cả ảnh đã chọn"
+    },
+    "upload": "Tải lên",
+    "@upload": {
+        "description": "Nút tải ảnh đã chọn lên"
+    },
+    "mediaFolderAll": "Thư mục",
+    "@mediaFolderAll": {
+        "description": "Tùy chọn tất cả thư mục ảnh"
+    },
+    "mediaNoMediaFound": "Không tìm thấy ảnh.",
+    "@mediaNoMediaFound": {
+        "description": "Thông báo không tìm thấy ảnh"
+    },
+    "mediaSearchHint": "Tìm kiếm ảnh...",
+    "@mediaSearchHint": {
+        "description": "Gợi ý tìm kiếm ảnh"
+    },
+    "mediaEmptySelection": "Chưa chọn ảnh nào.",
+    "@mediaEmptySelection": {
+        "description": "Thông báo chưa chọn ảnh"
+    },
+    "mediaSelect": "Tải lên",
+    "@mediaSelect": {
+        "description": "Nút chọn"
+    },
+    "mediaCancel": "Hủy",
+    "@mediaCancel": {
+        "description": "Nút hủy"
+    },
+    "mediaDelete": "Xóa",
+    "@mediaDelete": {
+        "description": "Nút xóa"
+    },
+    "mediaConfirmDelete": "Bạn có chắc muốn xóa ảnh này không?",
+    "@mediaConfirmDelete": {
+        "description": "Xác nhận xóa ảnh"
+    },
+    "mediaYes": "Có",
+    "@mediaYes": {
+        "description": "Nút đồng ý"
+    },
+    "mediaNo": "Không",
+    "@mediaNo": {
+        "description": "Nút không đồng ý"
+    },
+    "productCreateHeading": "Tạo sản phẩm",
+    "@productCreateHeading": {
+        "description": "Tiêu đề trang tạo sản phẩm"
+    },
+    "productEditHeading": "Chỉnh sửa sản phẩm",
+    "@productEditHeading": {
+        "description": "Tiêu đề trang chỉnh sửa sản phẩm"
+    },
+    "bannerCreateHeading": "Tạo banner",
+    "@bannerCreateHeading": {
+        "description": "Tiêu đề trang tạo banner"
+    },
+    "bannerEditHeading": "Cập nhật banner",
+    "@bannerEditHeading": {
+        "description": "Tiêu đề trang cập nhật/chỉnh sửa banner"
+    },
+    "brandCreateHeading": "Tạo thương hiệu",
+    "@brandCreateHeading": {
+        "description": "Tiêu đề trang tạo thương hiệu"
+    },
+    "brandEditHeading": "Cập nhật thương hiệu",
+    "@brandEditHeading": {
+        "description": "Tiêu đề trang cập nhật/chỉnh sửa thương hiệu"
+    },
+    "customerDetailsBreadcrumb": "Chi tiết khách hàng",
+    "@customerDetailsBreadcrumb": {
+        "description": "Breadcrumb cho trang chi tiết khách hàng"
+    },
+    "orderDetailsBreadcrumb": "Chi tiết đơn hàng",
+    "@orderDetailsBreadcrumb": {
+        "description": "Breadcrumb cho trang chi tiết đơn hàng"
+    },
+    "categoryBreadcrumbCreate": "Tạo danh mục",
+    "@categoryBreadcrumbCreate": {
+        "description": "Breadcrumb cho trang tạo danh mục"
+    },
+    "categoryBreadcrumbEdit": "Cập nhật danh mục",
+    "@categoryBreadcrumbEdit": {
+        "description": "Breadcrumb cho trang cập nhật/chỉnh sửa danh mục"
+    },
+    "categoryCreateHeading": "Tạo danh mục",
+    "@categoryCreateHeading": {
+        "description": "Tiêu đề trang tạo danh mục"
+    },
+    "categoryEditHeading": "Cập nhật danh mục",
+    "@categoryEditHeading": {
+        "description": "Tiêu đề trang cập nhật/chỉnh sửa danh mục"
+    },
+    "header_search_hint": "Tìm kiếm...",
+    "@header_search_hint": {
+        "description": "Gợi ý cho ô tìm kiếm ở header"
+    },
+    "media_error_title": "Có lỗi",
+    "@media_error_title": {
+        "description": "Tiêu đề snackbar lỗi trong media"
+    },
+    "media_error_fetch": "Không thể tải ảnh, đã xảy ra lỗi. Vui lòng thử lại",
+    "@media_error_fetch": {
+        "description": "Thông báo lỗi khi tải ảnh"
+    },
+    "media_select_folder_title": "Chọn thư mục",
+    "@media_select_folder_title": {
+        "description": "Tiêu đề cảnh báo chọn thư mục"
+    },
+    "media_select_folder_message": "Vui lòng chọn thư mục để tải ảnh lên.",
+    "@media_select_folder_message": {
+        "description": "Thông báo cảnh báo chọn thư mục"
+    },
+    "media_upload_confirm_title": "Tải ảnh lên",
+    "@media_upload_confirm_title": {
+        "description": "Tiêu đề xác nhận tải ảnh lên"
+    },
+    "media_upload_confirm_message": "Bạn có chắc muốn tải tất cả ảnh vào thư mục  không?",
+    "@media_upload_confirm_message": {
+        "description": "Nội dung xác nhận tải ảnh lên"
+    },
+    "media_upload_confirm_button": "Tải lên",
+    "@media_upload_confirm_button": {
+        "description": "Nút xác nhận tải ảnh lên"
+    },
+    "media_uploading_title": "Đang tải ảnh lên",
+    "@media_uploading_title": {
+        "description": "Tiêu đề dialog đang tải ảnh lên"
+    },
+    "media_uploading_content": "Vui lòng chờ, ảnh của bạn đang được tải lên",
+    "@media_uploading_content": {
+        "description": "Nội dung dialog đang tải ảnh lên"
+    },
+    "media_error_upload_title": "Lỗi tải ảnh",
+    "@media_error_upload_title": {
+        "description": "Tiêu đề lỗi tải ảnh"
+    },
+    "media_error_upload_message": "Có lỗi khi tải ảnh:",
+    "@media_error_upload_message": {
+        "description": "Thông báo lỗi khi tải ảnh"
+    },
+    "media_delete_confirm": "Bạn có chắc muốn xóa ảnh này không?",
+    "@media_delete_confirm": {
+        "description": "Xác nhận xóa ảnh"
+    },
+    "media_delete_success_title": "Đã xóa ảnh",
+    "@media_delete_success_title": {
+        "description": "Tiêu đề xóa ảnh thành công"
+    },
+    "media_delete_success_message": "Ảnh đã được xóa khỏi lưu trữ đám mây",
+    "@media_delete_success_message": {
+        "description": "Thông báo xóa ảnh thành công"
+    },
+    "language": "Ngôn ngữ",
+    "@language": {
+        "description": "Menu đổi ngôn ngữ"
+    },
+    "loginLoadingMessage": "Đang đăng nhập tài khoản Admin...",
+    "@loginLoadingMessage": {
+        "description": "Thông báo loading khi đăng nhập"
+    },
+    "registerLoadingMessage": "Đang đăng ký tài khoản Admin...",
+    "@registerLoadingMessage": {
+        "description": "Thông báo loading khi đăng ký"
+    },
+    "notAuthorized": "Không có quyền truy cập",
+    "@notAuthorized": {
+        "description": "Tiêu đề lỗi không có quyền"
+    },
+    "notAuthorizedMessage": "Bạn không có quyền truy cập hoặc không được phép. Liên hệ Admin",
+    "@notAuthorizedMessage": {
+        "description": "Thông báo lỗi không có quyền"
+    },
+    "ohSnap": "Có lỗi",
+    "@ohSnap": {
+        "description": "Tiêu đề lỗi chung"
+    },
+    "adminAccountCreated": "Đã tạo tài khoản Admin",
+    "@adminAccountCreated": {
+        "description": "Thông báo thành công khi đăng ký admin"
+    },
+    "adminAccountCreatedMessage": "Tài khoản Admin đã được tạo thành công",
+    "@adminAccountCreatedMessage": {
+        "description": "Thông báo chi tiết thành công khi đăng ký admin"
+    },
+    "loginSuccess": "Đăng nhập thành công",
+    "@loginSuccess": {
+        "description": "Thông báo thành công khi đăng nhập"
+    },
+    "createNewBrands": "Tạo thương hiệu mới",
+    "@createNewBrands": {
+        "description": "Nút tạo thương hiệu mới"
+    },
+    "updateBrands": "Cập nhật thương hiệu",
+    "@updateBrands": {
+        "description": "Tiêu đề form cập nhật thương hiệu"
+    },
+    "profileDetails": "Chi tiết hồ sơ",
+    "@profileDetails": {
+        "description": "Tiêu đề cho phần chi tiết hồ sơ"
+    },
+    "firstNameHint": "Tên",
+    "@firstNameHint": {
+        "description": "Gợi ý cho trường tên"
+    },
+    "lastNameHint": "Họ",
+    "@lastNameHint": {
+        "description": "Gợi ý cho trường họ"
+    },
+    "emailHint": "Email",
+    "@emailHint": {
+        "description": "Gợi ý cho trường email"
+    },
+    "phoneNumberHint": "Số điện thoại",
+    "@phoneNumberHint": {
+        "description": "Gợi ý cho trường số điện thoại"
+    },
+    "updateProfile": "Cập nhật hồ sơ",
+    "@updateProfile": {
+        "description": "Nút cập nhật hồ sơ"
+    },
+    "appSettings": "Cài đặt ứng dụng",
+    "@appSettings": {
+        "description": "Tiêu đề cho phần cài đặt ứng dụng"
+    },
+    "appNameHint": "Tên ứng dụng",
+    "@appNameHint": {
+        "description": "Gợi ý cho trường tên ứng dụng"
+    },
+    "taxPercentHint": "Thuế %",
+    "@taxPercentHint": {
+        "description": "Gợi ý cho trường phần trăm thuế"
+    },
+    "taxRateLabel": "Thuế suất (%)",
+    "@taxRateLabel": {
+        "description": "Nhãn cho trường thuế suất"
+    },
+    "shippingCostHint": "Phí vận chuyển",
+    "@shippingCostHint": {
+        "description": "Gợi ý cho trường phí vận chuyển"
+    },
+    "shippingCostLabel": "Phí vận chuyển ($)",
+    "@shippingCostLabel": {
+        "description": "Nhãn cho trường phí vận chuyển"
+    },
+    "freeShippingAfter": "Miễn phí vận chuyển sau",
+    "@freeShippingAfter": {
+        "description": "Nhãn và gợi ý cho trường ngưỡng miễn phí vận chuyển"
+    },
+    "updateAppSetting": "Cập nhật cài đặt ứng dụng",
+    "@updateAppSetting": {
+        "description": "Nút cập nhật cài đặt ứng dụng"
+    },
+    "selectLanguage": "Chọn ngôn ngữ",
+    "@selectLanguage": {
+        "description": "Tiêu đề màn hình chọn ngôn ngữ"
+    },
+    "chooseYourLanguage": "Chọn ngôn ngữ của bạn",
+    "@chooseYourLanguage": {
+        "description": "Tiêu đề chọn ngôn ngữ"
+    },
+    "vietnameseLanguage": "Tiếng Việt",
+    "@vietnameseLanguage": {
+        "description": "Tùy chọn ngôn ngữ Việt"
+    },
+    "englishLanguage": "English",
+    "@englishLanguage": {
+        "description": "Tùy chọn ngôn ngữ Anh"
+    },
+    "logoutTitle": "Đăng xuất",
+    "@logoutTitle": {
+        "description": "Tiêu đề màn hình đăng xuất"
+    },
+    "logoutConfirmMessage": "Bạn có chắc chắn muốn đăng xuất không?",
+    "@logoutConfirmMessage": {
+        "description": "Thông báo xác nhận đăng xuất"
+    },
+    "logoutButton": "Đăng xuất",
+    "@logoutButton": {
+        "description": "Nút đăng xuất"
+    },
+    "brandsName": "Tên thương hiệu",
+    "@brandsName": {
+        "description": "Nhãn cho trường nhập tên thương hiệu"
+    },
+    "name": "Tên",
+    "@name": {
+        "description": "Trường tên cho xác thực"
+    },
+    "selectedCategories": "Danh mục đã chọn",
+    "@selectedCategories": {
+        "description": "Tiêu đề cho phần danh mục đã chọn"
+    },
+    "featured": "Nổi bật",
+    "@featured": {
+        "description": "Nhãn cho checkbox nổi bật"
+    },
+    "create": "Tạo",
+    "@create": {
+        "description": "Nút tạo"
+    },
+    "loginSuccessMessage": "Chào mừng trở lại, Admin!",
+    "@loginSuccessMessage": {
+        "description": "Thông báo chi tiết thành công khi đăng nhập"
+    },
+    "networkError": "Lỗi mạng",
+    "@networkError": {
+        "description": "Tiêu đề lỗi kết nối mạng"
+    },
+    "networkErrorMessage": "Vui lòng kiểm tra kết nối internet và thử lại",
+    "@networkErrorMessage": {
+        "description": "Thông báo lỗi kết nối mạng"
+    },
+    "formValidationError": "Lỗi xác thực form",
+    "@formValidationError": {
+        "description": "Tiêu đề lỗi xác thực form"
+    },
+    "formValidationErrorMessage": "Vui lòng điền đúng tất cả các trường bắt buộc",
+    "@formValidationErrorMessage": {
+        "description": "Thông báo lỗi xác thực form"
+    },
+    "orderInformation": "Thông tin đơn hàng",
+    "@orderInformation": {
+        "description": "Tiêu đề cho phần thông tin đơn hàng"
+    },
+    "updated": "Đã cập nhật",
+    "@updated": {
+        "description": "Tiêu đề cho cập nhật thành công"
+    },
+    "orderStatusUpdated": "Trạng thái đơn hàng đã được cập nhật",
+    "@orderStatusUpdated": {
+        "description": "Thông báo khi trạng thái đơn hàng được cập nhật thành công"
+    },
+    "items": "Sản phẩm",
+    "@items": {
+        "description": "Tiêu đề cho phần sản phẩm"
+    },
+    "subtotal": "Tạm tính",
+    "@subtotal": {
+        "description": "Nhãn cho số tiền tạm tính"
+    },
+    "discount": "Giảm giá",
+    "@discount": {
+        "description": "Nhãn cho số tiền giảm giá"
+    },
+    "shipping": "Phí vận chuyển",
+    "@shipping": {
+        "description": "Nhãn cho phí vận chuyển"
+    },
+    "tax": "Thuế",
+    "@tax": {
+        "description": "Nhãn cho số tiền thuế"
+    },
+    "transactions": "Giao dịch",
+    "@transactions": {
+        "description": "Tiêu đề cho phần giao dịch"
+    },
+    "paymentVia": "Thanh toán qua",
+    "@paymentVia": {
+        "description": "Tiền tố cho văn bản phương thức thanh toán"
+    },
+    "fee": "phí",
+    "@fee": {
+        "description": "Hậu tố cho phí phương thức thanh toán"
+    },
+    "contactPerson": "Người liên hệ",
+    "@contactPerson": {
+        "description": "Tiêu đề cho phần người liên hệ"
+    },
+    "shippingAddress": "Địa chỉ giao hàng",
+    "@shippingAddress": {
+        "description": "Tiêu đề cho phần địa chỉ giao hàng"
+    },
+    "billingAddress": "Địa chỉ thanh toán",
+    "@billingAddress": {
+        "description": "Tiêu đề cho phần địa chỉ thanh toán"
+    },
+    "action": "Hành động",
+    "@action": {
+        "description": "Nhãn cho cột hành động trong bảng dữ liệu"
+    },
+    "registered": "Đã đăng ký",
+    "@registered": {
+        "description": "Nhãn cho cột ngày đăng ký trong bảng khách hàng"
+    },
+    "createBanners": "Tạo Banner",
+    "@createBanners": {
+        "description": "Văn bản nút để tạo banner"
+    },
+    "deleteItem": "Xóa mục",
+    "@deleteItem": {
+        "description": "Tiêu đề dialog xóa mục"
+    },
+    "deleteItemConfirmation": "Bạn có chắc muốn xóa mục này không?",
+    "@deleteItemConfirmation": {
+        "description": "Thông báo xác nhận xóa mục"
+    },
+    "ok": "Đồng ý",
+    "@ok": {
+        "description": "Nút đồng ý"
+    },
+    "cancel": "Hủy",
+    "@cancel": {
+        "description": "Nút hủy"
+    },
+    "itemDeleted": "Đã xóa mục",
+    "@itemDeleted": {
+        "description": "Tiêu đề thành công khi xóa mục"
+    },
+    "itemDeletedMessage": "Mục của bạn đã được xóa thành công",
+    "@itemDeletedMessage": {
+        "description": "Thông báo thành công khi xóa mục"
+    },
+    "banner": "Banner",
+    "@banner": {
+        "description": "Tiêu đề cột banner trong bảng dữ liệu"
+    },
+    "redirectScreen": "Màn hình chuyển hướng",
+    "@redirectScreen": {
+        "description": "Tiêu đề cột màn hình chuyển hướng trong bảng banner"
+    },
+    "active": "Kích hoạt",
+    "@active": {
+        "description": "Tiêu đề cột trạng thái kích hoạt trong bảng dữ liệu"
+    },
+    "createNewBanners": "Tạo Banner Mới",
+    "@createNewBanners": {
+        "description": "Tiêu đề cho form tạo banner mới"
+    },
+    "selectedImages": "Chọn Ảnh",
+    "@selectedImages": {
+        "description": "Văn bản nút để chọn ảnh"
+    },
+    "bannerActiveDescription": "Đặt Banner của bạn ở trạng thái Kích hoạt hoặc Không kích hoạt",
+    "@bannerActiveDescription": {
+        "description": "Văn bản mô tả cho cài đặt kích hoạt/không kích hoạt banner"
+    },
+    "congratulations": "Chúc mừng",
+    "@congratulations": {
+        "description": "Tiêu đề thông báo thành công"
+    },
+    "newRecordAdded": "Đã thêm bản ghi mới",
+    "@newRecordAdded": {
+        "description": "Thông báo thành công khi tạo bản ghi mới"
+    },
+    "updateBanners": "Cập nhật Banner",
+    "@updateBanners": {
+        "description": "Tiêu đề cho form cập nhật banner"
+    },
+    "update": "Cập nhật",
+    "@update": {
+        "description": "Văn bản nút cập nhật"
+    },
+    "recordUpdated": "Bản ghi đã được cập nhật thành công",
+    "@recordUpdated": {
+        "description": "Thông báo thành công khi cập nhật bản ghi"
+    },
+    "customerInformation": "Thông tin khách hàng",
+    "@customerInformation": {
+        "description": "Tiêu đề cho phần thông tin khách hàng"
+    },
+    "country": "Quốc gia",
+    "@country": {
+        "description": "Nhãn cho trường quốc gia"
+    },
+    "phoneNumber": "Số điện thoại",
+    "@phoneNumber": {
+        "description": "Nhãn cho trường số điện thoại"
+    },
+    "lastOrder": "Đơn hàng cuối",
+    "@lastOrder": {
+        "description": "Nhãn cho thông tin đơn hàng cuối cùng"
+    },
+    "averageOrderValue": "Tiền trung bình",
+    "@averageOrderValue": {
+        "description": "Nhãn cho giá trị đơn hàng trung bình"
+    },
+    "emailMarketing": "Email Marketing",
+    "@emailMarketing": {
+        "description": "Nhãn cho trạng thái email marketing"
+    },
+    "subscribed": "Đã đăng ký",
+    "@subscribed": {
+        "description": "Trạng thái cho biết người dùng đã đăng ký email marketing"
+    },
+    "vietnamCountry": "Việt Nam",
+    "@vietnamCountry": {
+        "description": "Tên quốc gia Việt Nam"
+    },
+    "daysAgoOrder": "7 ngày trước, #[36d54]",
+    "@daysAgoOrder": {
+        "description": "Văn bản mẫu cho thông tin đơn hàng cuối cùng"
+    },
+    "address": "Địa chỉ",
+    "@address": {
+        "description": "Nhãn cho phần địa chỉ hoặc trường địa chỉ"
+    },
+    "noOrdersFound": "Không tìm thấy đơn hàng",
+    "@noOrdersFound": {
+        "description": "Thông báo khi không tìm thấy đơn hàng nào của khách hàng"
+    },
+    "order": "Đơn hàng",
+    "@order": {
+        "description": "Nhãn cho phần đơn hàng hoặc đơn hàng đơn lẻ"
+    },
+    "totalSpent": "Tổng chi tiêu",
+    "@totalSpent": {
+        "description": "Nhãn cho tổng số tiền đã chi tiêu của khách hàng"
+    },
+    "onOrders": "cho {count} đơn hàng",
+    "@onOrders": {
+        "description": "Văn bản hiển thị số lượng đơn hàng",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "5"
+            }
+        }
+    },
+    "searchOrders": "Tìm kiếm đơn hàng",
+    "@searchOrders": {
+        "description": "Văn bản gợi ý để tìm kiếm đơn hàng"
+    },
+    "createNewCategory": "Tạo danh mục mới",
+    "@createNewCategory": {
+        "description": "Văn bản nút để tạo danh mục mới"
+    },
+    "categoryColumn": "Danh mục",
+    "@categoryColumn": {
+        "description": "Tiêu đề cột danh mục trong bảng dữ liệu"
+    },
+    "parentCategoryColumn": "Danh mục cha",
+    "@parentCategoryColumn": {
+        "description": "Tiêu đề cột danh mục cha trong bảng dữ liệu"
+    },
+    "featuredColumn": "Nổi bật",
+    "@featuredColumn": {
+        "description": "Tiêu đề cột nổi bật trong bảng dữ liệu"
+    },
+    "dateColumn": "Ngày",
+    "@dateColumn": {
+        "description": "Tiêu đề cột ngày trong bảng dữ liệu"
+    },
+    "updateCategory": "Cập nhật danh mục",
+    "@updateCategory": {
+        "description": "Tiêu đề cho form cập nhật danh mục"
+    },
+    "categoryName": "Tên danh mục",
+    "@categoryName": {
+        "description": "Nhãn cho trường tên danh mục"
+    },
+    "recordUpdatedSuccessfully": "Bản ghi đã được cập nhật thành công",
+    "@recordUpdatedSuccessfully": {
+        "description": "Thông báo thành công khi cập nhật bản ghi"
+    },
+    "parentCategory": "Danh mục cha",
+    "@parentCategory": {
+        "description": "Nhãn cho dropdown danh mục cha trong form"
+    },
+    "addProduct": "Thêm sản phẩm",
+    "@addProduct": {
+        "description": "Nút thêm/tạo sản phẩm mới"
+    },
+    "stock": "Tồn kho",
+    "@stock": {
+        "description": "Tiêu đề cột tồn kho trong bảng sản phẩm"
+    },
+    "sold": "Đã bán",
+    "@sold": {
+        "description": "Tiêu đề cột đã bán trong bảng sản phẩm"
+    },
+    "price": "Giá",
+    "@price": {
+        "description": "Tiêu đề cột giá trong bảng sản phẩm"
+    },
+    "stockAndPricing": "Tồn kho & Giá cả",
+    "@stockAndPricing": {
+        "description": "Tiêu đề phần thông tin tồn kho và giá cả"
+    },
+    "allProductImages": "Tất cả ảnh sản phẩm",
+    "@allProductImages": {
+        "description": "Tiêu đề phần tất cả ảnh sản phẩm"
+    },
+    "basicInformation": "Thông tin cơ bản",
+    "@basicInformation": {
+        "description": "Tiêu đề phần thông tin cơ bản"
+    },
+    "productTitle": "Tên sản phẩm",
+    "@productTitle": {
+        "description": "Nhãn trường tên sản phẩm"
+    },
+    "productDescription": "Mô tả sản phẩm",
+    "@productDescription": {
+        "description": "Nhãn trường mô tả sản phẩm"
+    },
+    "addProductDescriptionHint": "Thêm mô tả sản phẩm vào đây...",
+    "@addProductDescriptionHint": {
+        "description": "Gợi ý cho trường mô tả sản phẩm"
+    },
+    "addAdditionalProductImages": "Thêm ảnh sản phẩm bổ sung",
+    "@addAdditionalProductImages": {
+        "description": "Văn bản cho việc thêm ảnh sản phẩm bổ sung"
+    },
+    "discard": "Hủy bỏ",
+    "@discard": {
+        "description": "Văn bản nút hủy bỏ"
+    },
+    "saveChanges": "Lưu thay đổi",
+    "@saveChanges": {
+        "description": "Văn bản nút lưu thay đổi"
+    },
+    "brand": "Thương hiệu",
+    "@brand": {
+        "description": "Tiêu đề phần thương hiệu"
+    },
+    "selectBrand": "Chọn thương hiệu",
+    "@selectBrand": {
+        "description": "Nhãn trường chọn thương hiệu"
+    },
+    "addProductAttributes": "Thêm thuộc tính sản phẩm",
+    "@addProductAttributes": {
+        "description": "Tiêu đề phần thêm thuộc tính sản phẩm"
+    },
+    "add": "Thêm",
+    "@add": {
+        "description": "Văn bản nút thêm"
+    },
+    "attributeName": "Tên thuộc tính",
+    "@attributeName": {
+        "description": "Nhãn trường tên thuộc tính"
+    },
+    "attributeNameHint": "Màu sắc, Kích cỡ, Chất liệu",
+    "@attributeNameHint": {
+        "description": "Gợi ý cho trường tên thuộc tính"
+    },
+    "attribute": "Thuộc tính",
+    "@attribute": {
+        "description": "Nhãn trường thuộc tính"
+    },
+    "attributeHint": "Thêm thuộc tính cách nhau bằng | Ví dụ: Xanh lá | Xanh dương | Vàng",
+    "@attributeHint": {
+        "description": "Gợi ý cho trường thuộc tính"
+    },
+    "attributeField": "Trường thuộc tính",
+    "@attributeField": {
+        "description": "Văn bản xác thực trường thuộc tính"
+    },
+    "noAttributesAdded": "Chưa có thuộc tính nào được thêm cho sản phẩm này",
+    "@noAttributesAdded": {
+        "description": "Thông báo khi chưa có thuộc tính nào được thêm"
+    },
+    "generateVariations": "Tạo biến thể",
+    "@generateVariations": {
+        "description": "Văn bản nút tạo biến thể"
+    },
+    "allAttribute": "Tất cả thuộc tính",
+    "@allAttribute": {
+        "description": "Tiêu đề phần tất cả thuộc tính"
+    },
+    "selectCategories": "Chọn danh mục",
+    "@selectCategories": {
+        "description": "Văn bản nút chọn danh mục"
+    },
+    "stockLabel": "Tồn kho",
+    "@stockLabel": {
+        "description": "Nhãn trường tồn kho"
+    },
+    "stockHint": "Thêm số lượng tồn kho, chỉ cho phép số",
+    "@stockHint": {
+        "description": "Gợi ý cho trường tồn kho"
+    },
+    "priceLabel": "Giá",
+    "@priceLabel": {
+        "description": "Nhãn trường giá"
+    },
+    "priceHint": "Giá với tối đa 2 chữ số thập phân",
+    "@priceHint": {
+        "description": "Gợi ý cho trường giá"
+    },
+    "discountedPrice": "Giá giảm",
+    "@discountedPrice": {
+        "description": "Nhãn trường giá giảm"
+    },
+    "productThumbnail": "Ảnh đại diện sản phẩm",
+    "@productThumbnail": {
+        "description": "Tiêu đề phần ảnh đại diện sản phẩm"
+    },
+    "addThumbnail": "Thêm ảnh đại diện",
+    "@addThumbnail": {
+        "description": "Văn bản nút thêm ảnh đại diện"
+    },
+    "productType": "Loại sản phẩm",
+    "@productType": {
+        "description": "Nhãn loại sản phẩm"
+    },
+    "single": "Đơn lẻ",
+    "@single": {
+        "description": "Loại sản phẩm đơn lẻ"
+    },
+    "variable": "Biến thể",
+    "@variable": {
+        "description": "Loại sản phẩm có biến thể"
+    },
+    "productVariations": "Biến thể sản phẩm",
+    "@productVariations": {
+        "description": "Tiêu đề biến thể sản phẩm"
+    },
+    "removeVariations": "Xóa biến thể",
+    "@removeVariations": {
+        "description": "Nút xóa biến thể sản phẩm"
+    },
+    "noVariationsMessage": "Chưa có biến thể nào được thêm cho sản phẩm này",
+    "@noVariationsMessage": {
+        "description": "Thông báo khi chưa có biến thể nào được thêm"
+    },
+    "description": "Mô tả",
+    "@description": {
+        "description": "Nhãn mô tả"
+    },
+    "addDescriptionVariationHint": "Thêm mô tả cho biến thể này...",
+    "@addDescriptionVariationHint": {
+        "description": "Gợi ý cho trường mô tả biến thể"
+    },
+    "visibility": "Hiển thị",
+    "@visibility": {
+        "description": "Tiêu đề hiển thị sản phẩm"
+    },
+    "published": "Đã công bố",
+    "@published": {
+        "description": "Tùy chọn hiển thị đã công bố"
+    },
+    "hidden": "Ẩn",
+    "@hidden": {
+        "description": "Tùy chọn hiển thị ẩn"
+    },
+    "media_error_upload_images_title": "Lỗi tải ảnh lên",
+    "@media_error_upload_images_title": {
+        "description": "Tiêu đề lỗi khi tải ảnh lên"
+    },
+    "media_error_upload_images_message": "Có lỗi khi tải ảnh lên",
+    "@media_error_upload_images_message": {
+        "description": "Thông báo lỗi khi tải ảnh lên"
+    },
+    "media_delete_image_confirmation": "Bạn có chắc muốn xóa ảnh này không?",
+    "@media_delete_image_confirmation": {
+        "description": "Thông báo xác nhận xóa ảnh"
+    },
+    "media_image_deleted_title": "Đã xóa ảnh",
+    "@media_image_deleted_title": {
+        "description": "Tiêu đề khi xóa ảnh thành công"
+    },
+    "media_image_deleted_message": "Ảnh đã được xóa khỏi lưu trữ đám mây",
+    "@media_image_deleted_message": {
+        "description": "Thông báo khi xóa ảnh thành công"
+    },
+    "media_error_general_title": "Có lỗi",
+    "@media_error_general_title": {
+        "description": "Tiêu đề lỗi chung"
+    },
+    "media_folder_others": "Khác",
+    "@media_folder_others": {
+        "description": "Tên thư mục mặc định cho ảnh khác"
+    }
+}

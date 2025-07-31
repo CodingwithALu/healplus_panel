@@ -1,0 +1,1169 @@
+{
+    "@@locale": "en",
+    "adminEmail": "support@codingwitht.com",
+    "@adminEmail": {
+        "description": "Default admin email"
+    },
+    "adminPassword": "Admin@123",
+    "@adminPassword": {
+        "description": "Default admin password"
+    },
+    "bannersStoragePath": "/Banners",
+    "@bannersStoragePath": {
+        "description": "Storage path for banners"
+    },
+    "brandsStoragePath": "/Communitys",
+    "@brandsStoragePath": {
+        "description": "Storage path for brands"
+    },
+    "categoriesStoragePath": "/Categories",
+    "@categoriesStoragePath": {
+        "description": "Storage path for categories"
+    },
+    "productsStoragePath": "/Products",
+    "@productsStoragePath": {
+        "description": "Storage path for products"
+    },
+    "usersStoragePath": "/Users",
+    "@usersStoragePath": {
+        "description": "Storage path for users"
+    },
+    "ordersStoragePath": "/Orders",
+    "@ordersStoragePath": {
+        "description": "Storage path for users"
+    },
+    "settingStoragePath": "/Settings",
+    "@settingStoragePath": {
+        "description": "Storage path for users"
+    },
+    "users": "Users",
+    "@users": {
+        "description": "Storage path for users"
+    },
+    "and": "and",
+    "@and": {
+        "description": "The word 'and'"
+    },
+    "skip": "Skip",
+    "@skip": {
+        "description": "Skip button"
+    },
+    "done": "Done",
+    "@done": {
+        "description": "Done button"
+    },
+    "submit": "Submit",
+    "@submit": {
+        "description": "Submit button"
+    },
+    "appName": "T Store",
+    "@appName": {
+        "description": "Application name"
+    },
+    "tContinue": "Continue",
+    "@tContinue": {
+        "description": "Continue button"
+    },
+    "onBoardingTitle1": "Choose your product",
+    "@onBoardingTitle1": {
+        "description": "Onboarding step 1 title"
+    },
+    "onBoardingTitle2": "Select Payment Method",
+    "@onBoardingTitle2": {
+        "description": "Onboarding step 2 title"
+    },
+    "onBoardingTitle3": "Deliver at your door step",
+    "@onBoardingTitle3": {
+        "description": "Onboarding step 3 title"
+    },
+    "onBoardingSubTitle1": "Welcome to a World of Limitless Choices - Your Perfect Product Awaits!",
+    "@onBoardingSubTitle1": {
+        "description": "Onboarding step 1 subtitle"
+    },
+    "onBoardingSubTitle2": "For Seamless Transactions, Choose Your Payment Path - Your Convenience, Our Priority!",
+    "@onBoardingSubTitle2": {
+        "description": "Onboarding step 2 subtitle"
+    },
+    "onBoardingSubTitle3": "From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!",
+    "@onBoardingSubTitle3": {
+        "description": "Onboarding step 3 subtitle"
+    },
+    "firstName": "First Name",
+    "@firstName": {
+        "description": "First name field"
+    },
+    "lastName": "Last Name",
+    "@lastName": {
+        "description": "Last name field"
+    },
+    "email": "E-Mail",
+    "@email": {
+        "description": "Email field"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Password field"
+    },
+    "newPassword": "New Password",
+    "@newPassword": {
+        "description": "New password field"
+    },
+    "username": "Username",
+    "@username": {
+        "description": "Username field"
+    },
+    "phoneNo": "Phone Number",
+    "@phoneNo": {
+        "description": "Phone number field"
+    },
+    "rememberMe": "Remember Me",
+    "@rememberMe": {
+        "description": "Remember me checkbox"
+    },
+    "forgetPassword": "Forget Password?",
+    "@forgetPassword": {
+        "description": "Forgot password link"
+    },
+    "signIn": "Sign In",
+    "@signIn": {
+        "description": "Sign in button"
+    },
+    "createAccount": "Create Account",
+    "@createAccount": {
+        "description": "Create account button"
+    },
+    "orSignInWith": "or sign in with",
+    "@orSignInWith": {
+        "description": "Or sign in with text"
+    },
+    "orSignUpWith": "or sign up with",
+    "@orSignUpWith": {
+        "description": "Or sign up with text"
+    },
+    "iAgreeTo": "I agree to",
+    "@iAgreeTo": {
+        "description": "I agree to text"
+    },
+    "privacyPolicy": "Privacy Policy",
+    "@privacyPolicy": {
+        "description": "Privacy policy link"
+    },
+    "termsOfUse": "Terms of use",
+    "@termsOfUse": {
+        "description": "Terms of use link"
+    },
+    "verificationCode": "verificationCode",
+    "@verificationCode": {
+        "description": "Verification code label"
+    },
+    "resendEmail": "Resend Email",
+    "@resendEmail": {
+        "description": "Resend email button"
+    },
+    "resendEmailIn": "Resend email in",
+    "@resendEmailIn": {
+        "description": "Resend email in text"
+    },
+    "loginTitle": "Welcome back,",
+    "@loginTitle": {
+        "description": "Login screen title"
+    },
+    "loginSubTitle": "Discover Limitless Choices and Unmatched Convenience.",
+    "@loginSubTitle": {
+        "description": "Login screen subtitle"
+    },
+    "signupTitle": "Let’s create your account",
+    "@signupTitle": {
+        "description": "Signup screen title"
+    },
+    "forgetPasswordTitle": "Forget password",
+    "@forgetPasswordTitle": {
+        "description": "Forgot password screen title"
+    },
+    "forgetPasswordSubTitle": "Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.",
+    "@forgetPasswordSubTitle": {
+        "description": "Forgot password screen subtitle"
+    },
+    "changeYourPasswordTitle": "Password Reset Email Sent",
+    "@changeYourPasswordTitle": {
+        "description": "Password reset email sent title"
+    },
+    "changeYourPasswordSubTitle": "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.",
+    "@changeYourPasswordSubTitle": {
+        "description": "Password reset email sent subtitle"
+    },
+    "confirmEmail": "Verify your email address!",
+    "@confirmEmail": {
+        "description": "Confirm email title"
+    },
+    "confirmEmailSubTitle": "Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.",
+    "@confirmEmailSubTitle": {
+        "description": "Confirm email subtitle"
+    },
+    "emailNotReceivedMessage": "Didn’t get the email? Check your junk/spam or resend it.",
+    "@emailNotReceivedMessage": {
+        "description": "Email not received message"
+    },
+    "yourAccountCreatedTitle": "Your account successfully created!",
+    "@yourAccountCreatedTitle": {
+        "description": "Account created title"
+    },
+    "yourAccountCreatedSubTitle": "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!",
+    "@yourAccountCreatedSubTitle": {
+        "description": "Account created subtitle"
+    },
+    "popularProducts": "Popular Products",
+    "@popularProducts": {
+        "description": "Popular products section title"
+    },
+    "homeAppbarTitle": "Good day for shopping",
+    "@homeAppbarTitle": {
+        "description": "Home app bar title"
+    },
+    "homeAppbarSubTitle": "Taimoor Sikander",
+    "@homeAppbarSubTitle": {
+        "description": "Home app bar subtitle"
+    },
+    "menu": "MENU",
+    "@menu": {
+        "description": "Sidebar menu title"
+    },
+    "other": "OTHER",
+    "@other": {
+        "description": "Sidebar other section title"
+    },
+    "dashboard": "Dashboard",
+    "@dashboard": {
+        "description": "Dashboard menu item"
+    },
+    "media": "Media",
+    "@media": {
+        "description": "Media menu item"
+    },
+    "categories": "Categories",
+    "@categories": {
+        "description": "Categories menu item"
+    },
+    "products": "Products",
+    "@products": {
+        "description": "Products menu item"
+    },
+    "customers": "Customers",
+    "@customers": {
+        "description": "Customers menu item"
+    },
+    "banners": "Banners",
+    "@banners": {
+        "description": "Banners menu item"
+    },
+    "orders": "Orders",
+    "@orders": {
+        "description": "Orders menu item"
+    },
+    "brands": "Communitys",
+    "@brands": {
+        "description": "Brands menu item"
+    },
+    "profile": "Profile",
+    "@profile": {
+        "description": "Profile menu item"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Settings menu item"
+    },
+    "logout": "Logout",
+    "@logout": {
+        "description": "Logout menu item"
+    },
+    "dashboardTitle": "Dashboard",
+    "@dashboardTitle": {
+        "description": "Title for the dashboard screen"
+    },
+    "salesTotal": "Sales Total",
+    "@salesTotal": {
+        "description": "Title for total sales card"
+    },
+    "averageOrder": "Average",
+    "@averageOrder": {
+        "description": "Title for average order card"
+    },
+    "totalOrders": "Total Orders",
+    "@totalOrders": {
+        "description": "Title for total orders card"
+    },
+    "visitors": "Visitors",
+    "@visitors": {
+        "description": "Title for visitors card"
+    },
+    "comparedTo": "Compared to Dec 2025",
+    "@comparedTo": {
+        "description": "Text for comparison period"
+    },
+    "weeklySales": "Weekly Sales",
+    "@weeklySales": {
+        "description": "Title for the weekly sales graph"
+    },
+    "monday": "Mon",
+    "@monday": {
+        "description": "Short for Monday"
+    },
+    "tuesday": "Tue",
+    "@tuesday": {
+        "description": "Short for Tuesday"
+    },
+    "wednesday": "Wed",
+    "@wednesday": {
+        "description": "Short for Wednesday"
+    },
+    "thursday": "Thu",
+    "@thursday": {
+        "description": "Short for Thursday"
+    },
+    "friday": "Fri",
+    "@friday": {
+        "description": "Short for Friday"
+    },
+    "saturday": "Sat",
+    "@saturday": {
+        "description": "Short for Saturday"
+    },
+    "sunday": "Sun",
+    "@sunday": {
+        "description": "Short for Sunday"
+    },
+    "recentOrders": "Recent Orders",
+    "@recentOrders": {
+        "description": "Title for recent orders section"
+    },
+    "orderId": "Order ID",
+    "@orderId": {
+        "description": "Order ID column"
+    },
+    "orderDate": "Order Date",
+    "@orderDate": {
+        "description": "Order date column"
+    },
+    "orderItems": "Items",
+    "@orderItems": {
+        "description": "Order items column"
+    },
+    "orderStatus": "Status",
+    "@orderStatus": {
+        "description": "Order status column"
+    },
+    "orderTotal": "Total",
+    "@orderTotal": {
+        "description": "Order total column"
+    },
+    "statusPending": "Pending",
+    "@statusPending": {
+        "description": "Order status: Pending"
+    },
+    "statusProcessing": "Processing",
+    "@statusProcessing": {
+        "description": "Order status: Processing"
+    },
+    "statusShipped": "Shipped",
+    "@statusShipped": {
+        "description": "Order status: Shipped"
+    },
+    "statusDelivered": "Delivered",
+    "@statusDelivered": {
+        "description": "Order status: Delivered"
+    },
+    "statusCancelled": "Cancelled",
+    "@statusCancelled": {
+        "description": "Order status: Cancelled"
+    },
+    "orderStatusChart": "Order Status",
+    "@orderStatusChart": {
+        "description": "Title for order status pie chart"
+    },
+    "details": "Details",
+    "@details": {
+        "description": "Breadcrumb details for media"
+    },
+    "uploadImages": "Upload Images",
+    "@uploadImages": {
+        "description": "Button to upload images"
+    },
+    "dragDropImagesHere": "Drag and Drop Images here",
+    "@dragDropImagesHere": {
+        "description": "Instruction for drag and drop area"
+    },
+    "selectImages": "Select Images",
+    "@selectImages": {
+        "description": "Button to select images"
+    },
+    "galleryFolder": "Gallery Folder",
+    "@galleryFolder": {
+        "description": "Label for gallery folder dropdown"
+    },
+    "removeAll": "Remove All",
+    "@removeAll": {
+        "description": "Button to remove all selected images"
+    },
+    "upload": "Upload",
+    "@upload": {
+        "description": "Button to upload selected images"
+    },
+    "mediaFolderAll": "Folders",
+    "@mediaFolderAll": {
+        "description": "Option for all media folders"
+    },
+    "mediaNoMediaFound": "No media found.",
+    "@mediaNoMediaFound": {
+        "description": "Message when no media is found"
+    },
+    "mediaSearchHint": "Search images...",
+    "@mediaSearchHint": {
+        "description": "Hint text for searching images"
+    },
+    "mediaEmptySelection": "No image selected.",
+    "@mediaEmptySelection": {
+        "description": "Message when no image is selected"
+    },
+    "mediaSelect": "Mores",
+    "@mediaSelect": {
+        "description": "Button to select"
+    },
+    "mediaCancel": "Cancel",
+    "@mediaCancel": {
+        "description": "Button to cancel"
+    },
+    "mediaDelete": "Delete",
+    "@mediaDelete": {
+        "description": "Button to delete"
+    },
+    "mediaConfirmDelete": "Are you sure you want to delete this image?",
+    "@mediaConfirmDelete": {
+        "description": "Confirmation message for deleting image"
+    },
+    "mediaYes": "Yes",
+    "@mediaYes": {
+        "description": "Button for yes/confirm"
+    },
+    "mediaNo": "No",
+    "@mediaNo": {
+        "description": "Button for no/cancel"
+    },
+    "productCreateHeading": "Create Product",
+    "@productCreateHeading": {
+        "description": "Heading for create product page"
+    },
+    "productEditHeading": "Edit Product",
+    "@productEditHeading": {
+        "description": "Heading for edit product page"
+    },
+    "bannerCreateHeading": "Create Banner",
+    "@bannerCreateHeading": {
+        "description": "Heading for create banner page"
+    },
+    "bannerEditHeading": "Update Banner",
+    "@bannerEditHeading": {
+        "description": "Heading for update/edit banner page"
+    },
+    "brandCreateHeading": "Create Brand",
+    "@brandCreateHeading": {
+        "description": "Heading for create brand page"
+    },
+    "brandEditHeading": "Update Brand",
+    "@brandEditHeading": {
+        "description": "Heading for update/edit brand page"
+    },
+    "customerDetailsBreadcrumb": "Customer Details",
+    "@customerDetailsBreadcrumb": {
+        "description": "Breadcrumb for customer details page"
+    },
+    "orderDetailsBreadcrumb": "Order Details",
+    "@orderDetailsBreadcrumb": {
+        "description": "Breadcrumb for order details page"
+    },
+    "categoryBreadcrumbCreate": "Create Category",
+    "@categoryBreadcrumbCreate": {
+        "description": "Breadcrumb for create category page"
+    },
+    "categoryBreadcrumbEdit": "Update Category",
+    "@categoryBreadcrumbEdit": {
+        "description": "Breadcrumb for update/edit category page"
+    },
+    "categoryCreateHeading": "Create Category",
+    "@categoryCreateHeading": {
+        "description": "Heading for create category page"
+    },
+    "categoryEditHeading": "Update Category",
+    "@categoryEditHeading": {
+        "description": "Heading for update/edit category page"
+    },
+    "header_search_hint": "Search anything...",
+    "@header_search_hint": {
+        "description": "Hint text for the search field in the header"
+    },
+    "media_error_title": "Oh snap",
+    "@media_error_title": {
+        "description": "Title for error snackbar in media"
+    },
+    "media_error_fetch": "Unable to fetch Images, Something went wrong. Try again",
+    "@media_error_fetch": {
+        "description": "Message for error fetching images"
+    },
+    "media_select_folder_title": "Select Folder",
+    "@media_select_folder_title": {
+        "description": "Title for select folder warning"
+    },
+    "media_select_folder_message": "Please select the Folder in Order to upload the Images.",
+    "@media_select_folder_message": {
+        "description": "Message for select folder warning"
+    },
+    "media_upload_confirm_title": "Upload Images",
+    "@media_upload_confirm_title": {
+        "description": "Title for upload images confirmation dialog"
+    },
+    "media_upload_confirm_message": "Are you sure you want to upload all the Image in ",
+    "@media_upload_confirm_message": {
+        "description": "Content for upload images confirmation dialog"
+    },
+    "media_upload_confirm_button": "Upload",
+    "@media_upload_confirm_button": {
+        "description": "Confirm button for upload images"
+    },
+    "media_uploading_title": "Uploading Images",
+    "@media_uploading_title": {
+        "description": "Title for uploading images dialog"
+    },
+    "media_uploading_content": "Sit Tight, Your images are uploading",
+    "@media_uploading_content": {
+        "description": "Content for uploading images dialog"
+    },
+    "media_error_upload_title": "Error Uploading Images",
+    "@media_error_upload_title": {
+        "description": "Title for error uploading images"
+    },
+    "media_error_upload_message": "Something went wrong while uploading your images:",
+    "@media_error_upload_message": {
+        "description": "Message for error uploading images"
+    },
+    "media_delete_confirm": "Are you sure you want to delete this image?",
+    "@media_delete_confirm": {
+        "description": "Confirmation message for deleting image"
+    },
+    "media_delete_success_title": "Image Deleted",
+    "@media_delete_success_title": {
+        "description": "Title for successful image deletion"
+    },
+    "media_delete_success_message": "Image successfully deleted from your cloud storage",
+    "@media_delete_success_message": {
+        "description": "Message for successful image deletion"
+    },
+    "language": "Language",
+    "@language": {
+        "description": "Menu item for changing language"
+    },
+    "loginLoadingMessage": "Logging Admin account...",
+    "@loginLoadingMessage": {
+        "description": "Loading message during login"
+    },
+    "registerLoadingMessage": "Registering Admin account...",
+    "@registerLoadingMessage": {
+        "description": "Loading message during registration"
+    },
+    "notAuthorized": "Not Authorized",
+    "@notAuthorized": {
+        "description": "Title for authorization error"
+    },
+    "notAuthorizedMessage": "You are not authorized or do not have access. Contact Admin",
+    "@notAuthorizedMessage": {
+        "description": "Message for authorization error"
+    },
+    "ohSnap": "Oh Snap",
+    "@ohSnap": {
+        "description": "Generic error title"
+    },
+    "adminAccountCreated": "Admin Account Created",
+    "@adminAccountCreated": {
+        "description": "Success message for admin registration"
+    },
+    "adminAccountCreatedMessage": "Admin account has been successfully created",
+    "@adminAccountCreatedMessage": {
+        "description": "Detailed success message for admin registration"
+    },
+    "createNewBrands": "Create New Brands",
+    "@createNewBrands": {
+        "description": "Button text for creating new brands"
+    },
+    "updateBrands": "Update Brands",
+    "@updateBrands": {
+        "description": "Heading for update brands form"
+    },
+    "profileDetails": "Profile Details",
+    "@profileDetails": {
+        "description": "Heading for profile details section"
+    },
+    "firstNameHint": "First Name",
+    "@firstNameHint": {
+        "description": "Hint text for first name field"
+    },
+    "lastNameHint": "Last Name",
+    "@lastNameHint": {
+        "description": "Hint text for last name field"
+    },
+    "emailHint": "Email",
+    "@emailHint": {
+        "description": "Hint text for email field"
+    },
+    "phoneNumberHint": "Phone Number",
+    "@phoneNumberHint": {
+        "description": "Hint text for phone number field"
+    },
+    "updateProfile": "Update Profile",
+    "@updateProfile": {
+        "description": "Button text for updating profile"
+    },
+    "appSettings": "App Settings",
+    "@appSettings": {
+        "description": "Heading for app settings section"
+    },
+    "appNameHint": "App Name",
+    "@appNameHint": {
+        "description": "Hint text for app name field"
+    },
+    "taxPercentHint": "Tax %",
+    "@taxPercentHint": {
+        "description": "Hint text for tax percentage field"
+    },
+    "taxRateLabel": "Tax Rate (%)",
+    "@taxRateLabel": {
+        "description": "Label for tax rate field"
+    },
+    "shippingCostHint": "Shipping Cost",
+    "@shippingCostHint": {
+        "description": "Hint text for shipping cost field"
+    },
+    "shippingCostLabel": "Shipping Cost ($)",
+    "@shippingCostLabel": {
+        "description": "Label for shipping cost field"
+    },
+    "freeShippingAfter": "Free Shipping After",
+    "@freeShippingAfter": {
+        "description": "Label and hint for free shipping threshold field"
+    },
+    "updateAppSetting": "Update App Setting",
+    "@updateAppSetting": {
+        "description": "Button text for updating app settings"
+    },
+    "selectLanguage": "Select Language",
+    "@selectLanguage": {
+        "description": "Title for language selection screen"
+    },
+    "chooseYourLanguage": "Choose your language",
+    "@chooseYourLanguage": {
+        "description": "Heading for language selection"
+    },
+    "vietnameseLanguage": "Tiếng Việt",
+    "@vietnameseLanguage": {
+        "description": "Vietnamese language option"
+    },
+    "englishLanguage": "English",
+    "@englishLanguage": {
+        "description": "English language option"
+    },
+    "logoutTitle": "Logout",
+    "@logoutTitle": {
+        "description": "Title for logout screen"
+    },
+    "logoutConfirmMessage": "Are you sure you want to logout?",
+    "@logoutConfirmMessage": {
+        "description": "Confirmation message for logout"
+    },
+    "logoutButton": "Logout",
+    "@logoutButton": {
+        "description": "Logout button text"
+    },
+    "loginSuccess": "Login Successful",
+    "@loginSuccess": {
+        "description": "Success message for login"
+    },
+    "brandsName": "Brands Name",
+    "@brandsName": {
+        "description": "Label for brands name input field"
+    },
+    "selectedCategories": "Selected Categories",
+    "@selectedCategories": {
+        "description": "Title for selected categories section"
+    },
+    "loginSuccessMessage": "Welcome back, Admin!",
+    "@loginSuccessMessage": {
+        "description": "Detailed success message for login"
+    },
+    "networkError": "Network Error",
+    "@networkError": {
+        "description": "Network connection error title"
+    },
+    "networkErrorMessage": "Please check your internet connection and try again",
+    "@networkErrorMessage": {
+        "description": "Network connection error message"
+    },
+    "formValidationError": "Form Validation Error",
+    "@formValidationError": {
+        "description": "Form validation error title"
+    },
+    "formValidationErrorMessage": "Please fill in all required fields correctly",
+    "@formValidationErrorMessage": {
+        "description": "Form validation error message"
+    },
+    "orderInformation": "Order Information",
+    "@orderInformation": {
+        "description": "Title for order information section"
+    },
+    "updated": "Updated",
+    "@updated": {
+        "description": "Title for successful update"
+    },
+    "orderStatusUpdated": "Order Status Updated",
+    "@orderStatusUpdated": {
+        "description": "Message when order status is successfully updated"
+    },
+    "items": "Items",
+    "@items": {
+        "description": "Title for items section"
+    },
+    "subtotal": "Subtotal",
+    "@subtotal": {
+        "description": "Label for subtotal amount"
+    },
+    "discount": "Discount",
+    "@discount": {
+        "description": "Label for discount amount"
+    },
+    "shipping": "Shipping",
+    "@shipping": {
+        "description": "Label for shipping cost"
+    },
+    "tax": "Tax",
+    "@tax": {
+        "description": "Label for tax amount"
+    },
+    "transactions": "Transactions",
+    "@transactions": {
+        "description": "Title for transactions section"
+    },
+    "paymentVia": "Payment via",
+    "@paymentVia": {
+        "description": "Prefix for payment method text"
+    },
+    "fee": "fee",
+    "@fee": {
+        "description": "Suffix for payment method fee"
+    },
+    "contactPerson": "Contact Person",
+    "@contactPerson": {
+        "description": "Title for contact person section"
+    },
+    "shippingAddress": "Shipping Address",
+    "@shippingAddress": {
+        "description": "Title for shipping address section"
+    },
+    "billingAddress": "Billing Address",
+    "@billingAddress": {
+        "description": "Title for billing address section"
+    },
+    "action": "Action",
+    "@action": {
+        "description": "Label for action column in data tables"
+    },
+    "registered": "Registered",
+    "@registered": {
+        "description": "Label for registered date column in customer table"
+    },
+    "createBanners": "Create Banners",
+    "@createBanners": {
+        "description": "Button text for creating banners"
+    },
+    "deleteItem": "Delete Item",
+    "@deleteItem": {
+        "description": "Title for delete item dialog"
+    },
+    "deleteItemConfirmation": "Are you sure you want to delete this item?",
+    "@deleteItemConfirmation": {
+        "description": "Confirmation message for deleting item"
+    },
+    "ok": "OK",
+    "@ok": {
+        "description": "OK button text"
+    },
+    "cancel": "Cancel",
+    "@cancel": {
+        "description": "Cancel button text"
+    },
+    "itemDeleted": "Item Deleted",
+    "@itemDeleted": {
+        "description": "Success title when item is deleted"
+    },
+    "itemDeletedMessage": "Your item has been deleted successfully",
+    "@itemDeletedMessage": {
+        "description": "Success message when item is deleted"
+    },
+    "banner": "Banner",
+    "@banner": {
+        "description": "Banner column header in data table"
+    },
+    "redirectScreen": "Redirect Screen",
+    "@redirectScreen": {
+        "description": "Redirect screen column header in banner table"
+    },
+    "active": "Active",
+    "@active": {
+        "description": "Active status column header in data table"
+    },
+    "createNewBanners": "Create New Banners",
+    "@createNewBanners": {
+        "description": "Heading for create new banners form"
+    },
+    "selectedImages": "Select Images",
+    "@selectedImages": {
+        "description": "Button text for selecting images"
+    },
+    "bannerActiveDescription": "Make your Banner Active or Inactive",
+    "@bannerActiveDescription": {
+        "description": "Description text for banner active/inactive setting"
+    },
+    "create": "Create",
+    "@create": {
+        "description": "Create button text"
+    },
+    "congratulations": "Congratulations",
+    "@congratulations": {
+        "description": "Success title message"
+    },
+    "newRecordAdded": "New record has been added",
+    "@newRecordAdded": {
+        "description": "Success message when new record is created"
+    },
+    "updateBanners": "Update Banners",
+    "@updateBanners": {
+        "description": "Heading for update banners form"
+    },
+    "update": "Update",
+    "@update": {
+        "description": "Update button text"
+    },
+    "recordUpdated": "Record has been updated successfully",
+    "@recordUpdated": {
+        "description": "Success message when record is updated"
+    },
+    "customerInformation": "Customer Information",
+    "@customerInformation": {
+        "description": "Title for customer information section"
+    },
+    "country": "Country",
+    "@country": {
+        "description": "Label for country field"
+    },
+    "phoneNumber": "Phone Number",
+    "@phoneNumber": {
+        "description": "Label for phone number field"
+    },
+    "lastOrder": "Last Order",
+    "@lastOrder": {
+        "description": "Label for last order information"
+    },
+    "averageOrderValue": "Average Order Value",
+    "@averageOrderValue": {
+        "description": "Label for average order value"
+    },
+    "emailMarketing": "Email Marketing",
+    "@emailMarketing": {
+        "description": "Label for email marketing status"
+    },
+    "subscribed": "Subscribed",
+    "@subscribed": {
+        "description": "Status indicating user is subscribed to email marketing"
+    },
+    "vietnamCountry": "Viet Nam",
+    "@vietnamCountry": {
+        "description": "Country name for Vietnam"
+    },
+    "daysAgoOrder": "7 Days Ago, #[36d54]",
+    "@daysAgoOrder": {
+        "description": "Sample text for last order information"
+    },
+    "address": "Address",
+    "@address": {
+        "description": "Label for address section or field"
+    },
+    "name": "Name",
+    "@name": {
+        "description": "Label for name field"
+    },
+    "noOrdersFound": "No Orders Found",
+    "@noOrdersFound": {
+        "description": "Message when no orders are found for customer"
+    },
+    "order": "Order",
+    "@order": {
+        "description": "Label for order section or single order"
+    },
+    "totalSpent": "Total Spent",
+    "@totalSpent": {
+        "description": "Label for total amount spent by customer"
+    },
+    "onOrders": "on {count} Order",
+    "@onOrders": {
+        "description": "Text showing number of orders",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "5"
+            }
+        }
+    },
+    "searchOrders": "Search Orders",
+    "@searchOrders": {
+        "description": "Hint text for searching orders"
+    },
+    "createNewCategory": "Create New Category",
+    "@createNewCategory": {
+        "description": "Button text for creating a new category"
+    },
+    "categoryColumn": "Category",
+    "@categoryColumn": {
+        "description": "Category column header in data table"
+    },
+    "parentCategoryColumn": "Parent Category",
+    "@parentCategoryColumn": {
+        "description": "Parent category column header in data table"
+    },
+    "featuredColumn": "Featured",
+    "@featuredColumn": {
+        "description": "Featured column header in data table"
+    },
+    "dateColumn": "Date",
+    "@dateColumn": {
+        "description": "Date column header in data table"
+    },
+    "updateCategory": "Update Category",
+    "@updateCategory": {
+        "description": "Heading for update category form"
+    },
+    "categoryName": "Category Name",
+    "@categoryName": {
+        "description": "Label for category name field"
+    },
+    "recordUpdatedSuccessfully": "Record has been updated successfully",
+    "@recordUpdatedSuccessfully": {
+        "description": "Success message when updating a record"
+    },
+    "parentCategory": "Parent Category",
+    "@parentCategory": {
+        "description": "Label for parent category dropdown in forms"
+    },
+    "featured": "Featured",
+    "@featured": {
+        "description": "Label for featured checkbox in forms"
+    },
+    "addProduct": "Add Product",
+    "@addProduct": {
+        "description": "Button text to add/create new product"
+    },
+    "stock": "Stock",
+    "@stock": {
+        "description": "Column header for stock/inventory in product table"
+    },
+    "sold": "Sold",
+    "@sold": {
+        "description": "Column header for sold items in product table"
+    },
+    "price": "Price",
+    "@price": {
+        "description": "Column header for price in product table"
+    },
+    "stockAndPricing": "Stock & Pricing",
+    "@stockAndPricing": {
+        "description": "Section heading for stock and pricing information"
+    },
+    "allProductImages": "All Product Images",
+    "@allProductImages": {
+        "description": "Section heading for all product images"
+    },
+    "basicInformation": "Basic Information",
+    "@basicInformation": {
+        "description": "Basic information section heading"
+    },
+    "productTitle": "Product Title",
+    "@productTitle": {
+        "description": "Product title field label"
+    },
+    "productDescription": "Product Description",
+    "@productDescription": {
+        "description": "Product description field label"
+    },
+    "addProductDescriptionHint": "Add your Product Description here...",
+    "@addProductDescriptionHint": {
+        "description": "Hint text for product description field"
+    },
+    "addAdditionalProductImages": "Add Additional Product images",
+    "@addAdditionalProductImages": {
+        "description": "Text for adding additional product images"
+    },
+    "discard": "Discard",
+    "@discard": {
+        "description": "Discard button text"
+    },
+    "saveChanges": "Save Changes",
+    "@saveChanges": {
+        "description": "Save changes button text"
+    },
+    "brand": "Brand",
+    "@brand": {
+        "description": "Brand section heading"
+    },
+    "selectBrand": "Select Brand",
+    "@selectBrand": {
+        "description": "Select brand field label"
+    },
+    "addProductAttributes": "Add Product Attributes",
+    "@addProductAttributes": {
+        "description": "Add product attributes section heading"
+    },
+    "add": "Add",
+    "@add": {
+        "description": "Add button text"
+    },
+    "attributeName": "Attribute Name",
+    "@attributeName": {
+        "description": "Attribute name field label"
+    },
+    "attributeNameHint": "Colors, Sizes, Material",
+    "@attributeNameHint": {
+        "description": "Hint text for attribute name field"
+    },
+    "attribute": "Attribute",
+    "@attribute": {
+        "description": "Attribute field label"
+    },
+    "attributeHint": "Add attribute separted by | Example: Green | Blue | Yellow",
+    "@attributeHint": {
+        "description": "Hint text for attribute field"
+    },
+    "attributeField": "Attribute Field",
+    "@attributeField": {
+        "description": "Attribute field validation text"
+    },
+    "noAttributesAdded": "There are no attributes added for this products",
+    "@noAttributesAdded": {
+        "description": "Message when no attributes are added"
+    },
+    "generateVariations": "Generate Variations",
+    "@generateVariations": {
+        "description": "Generate variations button text"
+    },
+    "allAttribute": "All Attribute",
+    "@allAttribute": {
+        "description": "All attributes section heading"
+    },
+    "selectCategories": "Select Categories",
+    "@selectCategories": {
+        "description": "Select categories button text"
+    },
+    "stockLabel": "Stock",
+    "@stockLabel": {
+        "description": "Stock field label"
+    },
+    "stockHint": "Add Stock, only numbers are allowed",
+    "@stockHint": {
+        "description": "Stock field hint text"
+    },
+    "priceLabel": "Price",
+    "@priceLabel": {
+        "description": "Price field label"
+    },
+    "priceHint": "Price with up-to 2 decimals",
+    "@priceHint": {
+        "description": "Price field hint text"
+    },
+    "discountedPrice": "Discounted Price",
+    "@discountedPrice": {
+        "description": "Discounted price field label"
+    },
+    "productThumbnail": "Product Thumbnail",
+    "@productThumbnail": {
+        "description": "Product thumbnail section heading"
+    },
+    "addThumbnail": "Add Thumbnail",
+    "@addThumbnail": {
+        "description": "Add thumbnail button text"
+    },
+    "productType": "Product Type",
+    "@productType": {
+        "description": "Product type label"
+    },
+    "single": "Single",
+    "@single": {
+        "description": "Single product type"
+    },
+    "variable": "Variable",
+    "@variable": {
+        "description": "Variable product type"
+    },
+    "productVariations": "Product Variations",
+    "@productVariations": {
+        "description": "Product variations header"
+    },
+    "removeVariations": "Remove Variations",
+    "@removeVariations": {
+        "description": "Button to remove product variations"
+    },
+    "noVariationsMessage": "There are no Variations added for this product",
+    "@noVariationsMessage": {
+        "description": "Message when no variations are added"
+    },
+    "description": "Description",
+    "@description": {
+        "description": "Description label"
+    },
+    "addDescriptionVariationHint": "Add description of this variation...",
+    "@addDescriptionVariationHint": {
+        "description": "Hint for variation description field"
+    },
+    "visibility": "Visibility",
+    "@visibility": {
+        "description": "Product visibility header"
+    },
+    "published": "Published",
+    "@published": {
+        "description": "Published visibility option"
+    },
+    "hidden": "Hidden",
+    "@hidden": {
+        "description": "Hidden visibility option"
+    },
+    "media_error_upload_images_title": "Error Uploading Images",
+    "@media_error_upload_images_title": {
+        "description": "Title for error when uploading images"
+    },
+    "media_error_upload_images_message": "Something went wrong while uploading your images",
+    "@media_error_upload_images_message": {
+        "description": "Message for error when uploading images"
+    },
+    "media_delete_image_confirmation": "Are you sure you want to delete this image?",
+    "@media_delete_image_confirmation": {
+        "description": "Confirmation message for deleting an image"
+    },
+    "media_image_deleted_title": "Image Deleted",
+    "@media_image_deleted_title": {
+        "description": "Title when image is successfully deleted"
+    },
+    "media_image_deleted_message": "Image successfully deleted from your cloud storage",
+    "@media_image_deleted_message": {
+        "description": "Message when image is successfully deleted"
+    },
+    "media_error_general_title": "Oh Snap",
+    "@media_error_general_title": {
+        "description": "General error title"
+    },
+    "media_folder_others": "Others",
+    "@media_folder_others": {
+        "description": "Default folder name for miscellaneous images"
+    }
+}
