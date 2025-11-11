@@ -7,7 +7,7 @@ import '../../../utils/formatters/formatter.dart';
 
 class UserModel {
   String? id;
-  String username;
+  String name;
   String email;
   String firstName;
   String lastName;
@@ -22,7 +22,7 @@ class UserModel {
   /// Constructor for UserModel
   UserModel({
     this.id,
-    this.username = '',
+    this.name = '',
     required this.email,
     this.firstName = '',
     this.lastName = '',
@@ -68,7 +68,7 @@ class UserModel {
     return {
       'FirstName': firstName,
       'LastName': lastName,
-      'Username': username,
+      'Username': name,
       'Email': email,
       'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
@@ -88,7 +88,7 @@ class UserModel {
         id: document.id,
         firstName: data.containsKey('FirstName') ? data['FirstName'] ?? '' : '',
         lastName: data.containsKey('LastName') ? data['LastName'] ?? '' : '',
-        username: data.containsKey('Username') ? data['Username'] ?? '' : '',
+        name: data.containsKey('Username') ? data['Username'] ?? '' : '',
         email: data.containsKey('Email') ? data['Email'] ?? '' : '',
         phoneNumber: data.containsKey('PhoneNumber')
             ? data['PhoneNumber'] ?? ''
