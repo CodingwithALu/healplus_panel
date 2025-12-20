@@ -1,7 +1,7 @@
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/categories/edit_category_controller.dart';
-import 'package:healplus_panel/features/shop/models/category_model.dart';
+import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/features/shop/screens/category/create_categories/widgets/image_loader.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
@@ -15,13 +15,13 @@ import 'package:iconsax/iconsax.dart';
 class EditCategoryFromScreen extends StatelessWidget {
   const EditCategoryFromScreen({super.key, required this.category});
 
-  final CategoryModel category;
+  final IngredientModel category;
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context)!;
     // implement build
     final controller = Get.put(EditCategoryController());
-    final categoryController = CategoryController.instance;
+    final categoryController = IngredientController.instance;
     controller.init(category);
     return TRoundedContainer(
       width: 500,
@@ -57,16 +57,16 @@ class EditCategoryFromScreen extends StatelessWidget {
                   labelText: local.parentCategoryColumn,
                   prefixIcon: Icon(Iconsax.bezier),
                 ),
-                value: controller.selectedParent.value.id.isNotEmpty
+                value: controller.selectedParent.value.iding.isNotEmpty
                     ? controller.selectedParent.value
                     : null,
                 items: categoryController.allItems
                     .map(
-                      (item) => DropdownMenuItem<CategoryModel>(
+                      (item) => DropdownMenuItem<IngredientModel>(
                         value: item,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [Text(item.name)],
+                          children: [Text(item.title)],
                         ),
                       ),
                     )

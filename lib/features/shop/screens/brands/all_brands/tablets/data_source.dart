@@ -12,7 +12,7 @@ import 'package:get/route_manager.dart';
 import 'package:iconsax/iconsax.dart';
 
 class BrandsRows extends DataTableSource {
-  final controller = BrandController.instance;
+  final controller = CategoryController.instance;
   @override
   DataRow? getRow(int index) {
     final brand = controller.filteredItems[index];
@@ -57,8 +57,8 @@ class BrandsRows extends DataTableSource {
                 direction: TDeviceUtils.isMobileScreen(Get.context!)
                     ? Axis.vertical
                     : Axis.horizontal,
-                children: brand.brandCategories != null
-                    ? brand.brandCategories!
+                children: brand.ingredients != null
+                    ? brand.ingredients!
                           .map(
                             (e) => Padding(
                               padding: EdgeInsets.only(
@@ -68,7 +68,7 @@ class BrandsRows extends DataTableSource {
                                     : TSizes.xs,
                               ),
                               child: Chip(
-                                label: Text(e.name),
+                                label: Text(e.title),
                                 padding: EdgeInsets.all(TSizes.xs),
                               ),
                             ),

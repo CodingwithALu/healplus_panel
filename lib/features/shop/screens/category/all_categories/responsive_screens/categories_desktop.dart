@@ -17,7 +17,7 @@ class CategoriesDesktopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = Get.put(CategoryController());
+    final controller = Get.put(IngredientController());
     final local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(

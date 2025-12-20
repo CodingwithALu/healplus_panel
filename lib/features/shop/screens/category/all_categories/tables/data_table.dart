@@ -13,7 +13,7 @@ class TCategoryTablets extends StatelessWidget {
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context)!;
     // implement build
-    final controller = CategoryController.instance;
+    final controller = IngredientController.instance;
     return Obx(() {
       Text(controller.filteredItems.length.toString());
       Text(controller.selectedRows.length.toString());
@@ -28,12 +28,8 @@ class TCategoryTablets extends StatelessWidget {
             onSort: (columnIndex, ascending) =>
                 controller.sortByName(columnIndex, ascending),
           ),
-          DataColumn2(
-            label: Text(local.parentCategoryColumn),
-            onSort: (columnIndex, ascending) =>
-                controller.sortByParentName(columnIndex, ascending),
-          ),
           DataColumn2(label: Text(local.featuredColumn)),
+          DataColumn2(label: Text("Số lượng")),
           DataColumn2(label: Text(local.dateColumn)),
           DataColumn2(label: Text(local.action), fixedWidth: 100),
         ],

@@ -16,7 +16,7 @@ class ProductCategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    final categoryController = Get.put(CategoryController());
+    final categoryController = Get.put(IngredientController());
     final local = AppLocalizations.of(context)!;
     if (categoryController.allItems.isEmpty) {
       categoryController.fetchItems();
@@ -39,7 +39,7 @@ class ProductCategoriesScreen extends StatelessWidget {
                     buttonText: Text(local.selectCategories),
                     title: Text(local.categories),
                     items: categoryController.allItems
-                        .map((item) => MultiSelectItem(item, item.name))
+                        .map((item) => MultiSelectItem(item, item.title))
                         .toList(),
                     listType: MultiSelectListType.CHIP,
                     onConfirm: (value) {
