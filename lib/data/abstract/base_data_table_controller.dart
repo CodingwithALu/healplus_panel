@@ -155,7 +155,7 @@ abstract class TBaseController<T> extends GetxController {
     final itemIndex = allItems.indexWhere((i) => i == item);
     final filteredItemIndex = filteredItems.indexWhere((i) => i == item);
     if (itemIndex != -1) allItems[itemIndex] = item;
-    if (filteredItemIndex != -1) filteredItems[itemIndex] = item;
+    if (filteredItemIndex != -1) filteredItems[filteredItemIndex] = item;
     filteredItems.refresh();
   }
 

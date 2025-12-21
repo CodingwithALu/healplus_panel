@@ -12,14 +12,11 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class CategoryRows extends DataTableSource {
-  final controller = CategoryController.instance;
+  final controller = IngredientController.instance;
   final local = AppLocalizations.of(Get.context!)!;
   @override
   DataRow? getRow(int index) {
     final category = controller.filteredItems[index];
-    final parentCategory = controller.allItems.firstWhereOrNull(
-      (item) => item.id == category.parentId,
-    );
     return DataRow2(
       selected: controller.selectedRows[index],
       onSelectChanged: (value) =>
@@ -35,12 +32,12 @@ class CategoryRows extends DataTableSource {
                 borderRadius: TSizes.borderRadiusMd,
                 backgroundColor: TColors.primaryBackground,
                 imageType: ImageType.network,
-                imageUrl: category.image,
+                imageUrl: category.url,
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Expanded(
                 child: Text(
-                  category.name,
+                  category.title,
                   style: Theme.of(
                     Get.context!,
                   ).textTheme.bodyLarge!.apply(color: TColors.primary),
@@ -51,12 +48,12 @@ class CategoryRows extends DataTableSource {
             ],
           ),
         ),
-        DataCell(Text(parentCategory != null ? parentCategory.name : '')),
         DataCell(
           category.isFeatured
               ? const Icon(Iconsax.heart5, color: TColors.primary)
               : const Icon(Iconsax.heart),
         ),
+        DataCell(Text(category.quantity.toString())),
         DataCell(
           Text(
             category.createAt == null

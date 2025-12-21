@@ -1,8 +1,8 @@
-import 'package:healplus_panel/data/repositories/categories/category_reponsitory.dart';
+import 'package:healplus_panel/data/repositories/categories/category_repository_new.dart';
 import 'package:healplus_panel/features/media/controllers/media_controllet.dart';
 import 'package:healplus_panel/features/media/models/image_modle.dart';
 import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
-import 'package:healplus_panel/features/shop/models/category_model.dart';
+import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/utils/helpers/network_manager.dart';
 import 'package:healplus_panel/utils/popups/full_screen_loader.dart';
@@ -12,15 +12,15 @@ import 'package:get/get.dart';
 
 class CreateCategoryController extends GetxController {
   static CreateCategoryController get instance => Get.find();
-  final selectedParent = CategoryModel.empty().obs;
+  final selectedParent = IngredientModel.empty().obs;
   final loading = false.obs;
   RxString imageUrl = ''.obs;
   final isFeatured = false.obs;
   final name = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  final _categoryReponsitory = CategoryReponsitory.instance;
-  final categoryController = CategoryController.instance;
+  final _categoryReponsitory = IngredientRepository.instance;
+  final categoryController = IngredientController.instance;
   // Method to reset fields
 
   // Pick Thumbnail Image from Media
@@ -36,25 +36,20 @@ class CreateCategoryController extends GetxController {
         TFullScreenLoader.stopLoading();
         return;
       }
-
       // Form Validation
       if (!formKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
         return;
       }
-
       // Map data
-      final newRecord = CategoryModel(
-        id: '',
-        image: imageUrl.value,
-        name: name.text.trim(),
-        createAt: DateTime.now(),
+      final newRecord = IngredientModel(
+        iding: '',
+        url: imageUrl.value,
+        title: name.text.trim(),
         isFeatured: isFeatured.value,
-        parentId: selectedParent.value.id,
+        idc: selectedParent.value.iding,
       );
-
-      newRecord.id = await _categoryReponsitory.createCategory(newRecord);
-
+      await _categoryReponsitory.createCategory(newRecord);
       // Update all Data List
       categoryController.addItemToList(newRecord);
 
@@ -93,7 +88,7 @@ class CreateCategoryController extends GetxController {
   }
 
   void resetFields() {
-    selectedParent(CategoryModel.empty());
+    selectedParent(IngredientModel.empty());
     loading(false);
     isFeatured(false);
     name.clear();

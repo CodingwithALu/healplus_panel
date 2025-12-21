@@ -1,5 +1,6 @@
+import 'package:healplus_panel/data/services/api_service.dart';
 import 'package:healplus_panel/features/shop/models/brand_category_model.dart';
-import 'package:healplus_panel/features/shop/models/brand_model.dart';
+import 'package:healplus_panel/features/shop/models/category_model.dart';
 import 'package:healplus_panel/utils/exceptions/firebase_exceptions.dart';
 import 'package:healplus_panel/utils/exceptions/platform_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,21 +10,32 @@ import 'package:get/get.dart';
 class BrandRepository extends GetxController {
   static BrandRepository get instance => Get.find();
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-
+  // APi Srevice instace
+  final ApiService _apiService = ApiService();
   // Get all brands from the 'Brands' collection
-  Future<List<BrandModel>> getAllBrands() async {
+  Future<List<CategoryModel>> getAllBrands() async {
+    // try {
+    //   final snapshot = await _db.collection('Brands').get();
+    //   final result = snapshot.docs
+    //       .map((doc) => CategoryModel.fromSnapshot(doc))
+    //       .toList();
+    //   return result;
+    // } on FirebaseException catch (e) {
+    //   throw TFirebaseException(e.code).message;
+    // } on PlatformException catch (e) {
+    //   throw TPlatformException(e.code).message;
+    // } catch (e) {
+    //   throw 'Something went srong. Please try again';
+    // }
     try {
-      final snapshot = await _db.collection('Brands').get();
-      final result = snapshot.docs
-          .map((doc) => BrandModel.fromSnapshot(doc))
+      final response = await _apiService.getCategories();
+      final resultList = response['result'] as List;
+      final result = resultList
+          .map((json) => CategoryModel.formJson(json))
           .toList();
       return result;
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went srong. Please try again';
+      throw 'Failed to fetch categories: ${e.toString()}';
     }
   }
 
@@ -66,16 +78,17 @@ class BrandRepository extends GetxController {
   }
 
   // CreateBrands
-  Future<String> createBrands(BrandModel item) async {
+  Future<ApiResponse> createBrands(CategoryModel item) async {
     try {
-      final data = await _db.collection('Brands').add(item.toJson());
-      return data.id;
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
+      //   final data = await _db.collection('Brands').add(item.toJson());
+      //   return data.id;
+      // } on FirebaseException catch (e) {
+      //   throw TFirebaseException(e.code).message;
+      // } on PlatformException catch (e) {
+      //   throw TPlatformException(e.code).message;
+      return await _apiService.addCategory(item);
     } catch (e) {
-      throw 'Something went srong. Please try again';
+      throw 'Failed to update category: ${e.toString()}';
     }
   }
 
@@ -94,35 +107,9 @@ class BrandRepository extends GetxController {
   }
 
   // Delete an existing category document from the 'Categories' collection
-  Future<void> deleteBrands(BrandModel brands) async {
+  Future<ApiResponse> deleteBrands(CategoryModel item) async {
     try {
-      await _db.runTransaction((transition) async {
-        final brandRef = _db.collection('Brands').doc(brands.id);
-        final brandSnap = await transition.get(brandRef);
-
-        if (!brandSnap.exists) {
-          throw Exception('Brand not foud');
-        }
-        final brandCategoriesSnapshot = await _db
-            .collection('BrandCategories')
-            .where('brandId', isEqualTo: brands.id)
-            .get();
-        final brandCategories = brandCategoriesSnapshot.docs.map(
-          (e) => BrandCategoryModel.fromSnapshot(e),
-        );
-        if (brandCategories.isNotEmpty) {
-          for (var brandCategory in brandCategories) {
-            transition.delete(
-              _db.collection('BrandCategories').doc(brandCategory.id),
-            );
-          }
-        }
-        transition.delete(brandRef);
-      });
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
+      return await _apiService.deleteCategory(item.idc);
     } catch (e) {
       throw 'Something went srong. Please try again';
     }
@@ -141,15 +128,11 @@ class BrandRepository extends GetxController {
   }
 
   // Update Category
-  Future<void> updateBrands(BrandModel item) async {
+  Future<ApiResponse> updateBrands(CategoryModel item) async {
     try {
-      await _db.collection('Brands').doc(item.id).update(item.toJson());
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
+      return await _apiService.updateCategory(item);
     } catch (e) {
-      throw 'Something went srong. Please try again';
+      throw 'Failed to update category: ${e.toString()}';
     }
   }
 }

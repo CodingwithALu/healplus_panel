@@ -4,8 +4,8 @@ import 'package:healplus_panel/features/shop/controllers/products/product_attrib
 import 'package:healplus_panel/features/shop/controllers/products/product_images_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/products_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/products_variation_controller.dart';
-import 'package:healplus_panel/features/shop/models/brand_model.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
+import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/features/shop/models/product_category_model.dart';
 import 'package:healplus_panel/features/shop/models/product_model.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
@@ -43,9 +43,9 @@ class EditProductController extends GetxController {
   TextEditingController description = TextEditingController();
   TextEditingController brandTextField = TextEditingController();
   // Rx obvervable for selected brand and categories
-  final Rx<BrandModel?> selectedBrand = Rx<BrandModel?>(null);
-  final RxList<CategoryModel> selectedCategories = <CategoryModel>[].obs;
-  final List<CategoryModel> alreadyAddedCategories = <CategoryModel>[];
+  final Rx<CategoryModel?> selectedBrand = Rx<CategoryModel?>(null);
+  final RxList<IngredientModel> selectedCategories = <IngredientModel>[].obs;
+  final List<IngredientModel> alreadyAddedCategories = <IngredientModel>[];
   // Flag for tracking different tasks
   RxBool thumbnailUploader = false.obs;
   RxBool additionalImageUploader = false.obs;
@@ -101,20 +101,20 @@ class EditProductController extends GetxController {
     }
   }
 
-  Future<List<CategoryModel>> loadSelectedCategories(String productId) async {
+  Future<List<IngredientModel>> loadSelectedCategories(String productId) async {
     selectedCategoriesLoader.value = true;
     // Product Categories
     final productCategories = await productRepository.fetchProductCategories(
       productId,
     );
-    final categoriesController = Get.put(CategoryController());
+    final categoriesController = Get.put(IngredientController());
     if (categoriesController.allItems.isEmpty) {
       await categoriesController.fetchItems();
     }
 
     final categoriesIds = productCategories.map((e) => e.categoryId).toList();
     final categories = categoriesController.allItems
-        .where((element) => categoriesIds.contains(element.id))
+        .where((element) => categoriesIds.contains(element.iding))
         .toList();
     selectedCategories.assignAll(categories);
     alreadyAddedCategories.assignAll(categories);
@@ -213,14 +213,14 @@ class EditProductController extends GetxController {
         categoriesRelationShipUploader.value = true;
         // Get the exiting category Ids
         List<String> existingCategoryId = alreadyAddedCategories
-            .map((item) => item.id)
+            .map((item) => item.iding)
             .toList();
         for (var category in selectedCategories) {
           // Map Data
-          if (!existingCategoryId.contains(category.id)) {
+          if (!existingCategoryId.contains(category.iding)) {
             final productCategory = ProductCategoryModel(
               productId: product.id,
-              categoryId: category.id,
+              categoryId: category.iding,
             );
             await ProductRepository.instance.createProductCategory(
               productCategory,
@@ -231,7 +231,7 @@ class EditProductController extends GetxController {
         for (var existingCategoryId in existingCategoryId) {
           // Check if the category is not present in the selected categories
           if (!selectedCategories.any(
-            (category) => category.id == existingCategoryId,
+            (category) => category.iding == existingCategoryId,
           )) {
             // Remove the association
             await ProductRepository.instance.removeProductcategory(

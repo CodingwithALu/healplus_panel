@@ -4,7 +4,7 @@ import 'package:healplus_panel/utils/formatters/formatter.dart';
 import 'package:healplus_panel/utils/helpers/helper_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'brand_model.dart';
+import 'category_model.dart';
 
 class ProductModel {
   String id;
@@ -16,7 +16,7 @@ class ProductModel {
   double salePrices;
   String thumbnail;
   bool? isFeatured;
-  BrandModel? brand;
+  CategoryModel? brand;
   String? description;
   List<String>? images;
   String productType;
@@ -97,7 +97,7 @@ class ProductModel {
         thumbnail: data['Thumbnail'] ?? '',
         description: data['Description'] ?? '',
         productType: data['ProductType'] ?? '',
-        brand: BrandModel.formJson(data['Brand']),
+        brand: CategoryModel.formJson(data['Brand']),
         images: data['Image'] != null ? List<String>.from(data['Image']) : [],
         productAttribute: (data['ProductAttributes'] as List<dynamic>)
             .map((e) => ProductAttributeModel.fromJson(e))
@@ -134,7 +134,7 @@ class ProductModel {
         thumbnail: data['Thumbnail'] ?? '',
         description: data['Description'] ?? '',
         productType: data['ProductType'] ?? '',
-        brand: BrandModel.formJson(data['Brand']),
+        brand: CategoryModel.formJson(data['Brand']),
         images: data['Image'] != null ? List<String>.from(data['Image']) : [],
         productAttribute: (data['ProductAttributes'] as List<dynamic>)
             .map((e) => ProductAttributeModel.fromJson(e))

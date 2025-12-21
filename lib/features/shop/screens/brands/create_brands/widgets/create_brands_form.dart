@@ -19,7 +19,7 @@ class CreateBrandsForm extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(CreateBrandsController());
-    final categoryController = CategoryController.instance;
+    final categoryController = IngredientController.instance;
     final localizations = AppLocalizations.of(context)!;
     return TRoundedContainer(
       width: 500,
@@ -62,11 +62,11 @@ class CreateBrandsForm extends StatelessWidget {
                       (item) => Padding(
                         padding: EdgeInsets.only(bottom: TSizes.sm),
                         child: TChoiceChip(
-                          text: item.name,
+                          text: item.title,
                           selected: controller.selectedCategories.contains(
-                            item,
+                            item.iding,
                           ),
-                          onSelected: (value) => controller.toglSelection(item),
+                          onSelected: null,
                         ),
                       ),
                     )
