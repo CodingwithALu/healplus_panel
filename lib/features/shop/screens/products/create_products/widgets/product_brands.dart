@@ -15,7 +15,7 @@ class ProductBrandsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(CreateProductController());
-    final brandsController = Get.put(BrandController());
+    final brandsController = Get.put(CategoryController());
     final local = AppLocalizations.of(context)!;
     if (brandsController.allItems.isEmpty) {
       brandsController.fetchItems();

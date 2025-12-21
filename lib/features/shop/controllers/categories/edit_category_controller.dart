@@ -1,8 +1,8 @@
-import 'package:healplus_panel/data/repositories/categories/category_reponsitory.dart';
+import 'package:healplus_panel/data/repositories/categories/category_repository_new.dart';
 import 'package:healplus_panel/features/media/controllers/media_controllet.dart';
 import 'package:healplus_panel/features/media/models/image_modle.dart';
 import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
-import 'package:healplus_panel/features/shop/models/category_model.dart';
+import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/utils/helpers/network_manager.dart';
 import 'package:healplus_panel/utils/popups/full_screen_loader.dart';
@@ -12,24 +12,24 @@ import 'package:get/get.dart';
 
 class EditCategoryController extends GetxController {
   static EditCategoryController get instance => Get.find();
-  final selectedParent = CategoryModel.empty().obs;
+  final selectedParent = IngredientModel.empty().obs;
   final loading = false.obs;
   RxString imageUrl = ''.obs;
   final isFeatured = false.obs;
   final name = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  final _categoryReponsitory = CategoryReponsitory.instance;
-  final categoryController = CategoryController.instance;
+  final _categoryReponsitory = IngredientRepository.instance;
+  final categoryController = IngredientController.instance;
   // Init Data
-  void init(CategoryModel category) {
+  void init(IngredientModel category) {
     // implement onInit
-    name.text = category.name;
+    name.text = category.title;
     isFeatured.value = category.isFeatured;
-    imageUrl.value = category.image;
-    if (category.parentId.isNotEmpty) {
+    imageUrl.value = category.url;
+    if (category.idc.isNotEmpty) {
       selectedParent.value = categoryController.allItems
-          .where((c) => c.id == category.parentId)
+          .where((c) => c.iding == category.idc)
           .single;
     }
   }
@@ -37,7 +37,7 @@ class EditCategoryController extends GetxController {
   // Pick Thumbnail Image from Media
 
   // Update Category
-  Future<void> updateCategory(CategoryModel category) async {
+  Future<void> updateCategory(IngredientModel category) async {
     try {
       // Start Loading
       TFullScreenLoader.popUpCirular();
@@ -47,19 +47,16 @@ class EditCategoryController extends GetxController {
         TFullScreenLoader.stopLoading();
         return;
       }
-
       // Form Validation
       if (!formKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
         return;
       }
-
       // Map data
-      category.image = imageUrl.value;
-      category.name = name.text.trim();
-      category.updateAt = DateTime.now();
+      category.url = imageUrl.value;
+      category.title = name.text.trim();
       category.isFeatured = isFeatured.value;
-      category.parentId = selectedParent.value.id;
+      // category.parentId = selectedParent.value.idc;
 
       // Call repository to updateCategory
       await _categoryReponsitory.updateCategory(category);
@@ -97,7 +94,7 @@ class EditCategoryController extends GetxController {
   }
 
   void resetFields() {
-    selectedParent(CategoryModel.empty());
+    selectedParent(IngredientModel.empty());
     loading(false);
     isFeatured(false);
     name.clear();

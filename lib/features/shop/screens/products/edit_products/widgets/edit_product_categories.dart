@@ -2,6 +2,7 @@ import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_co
 import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
+import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/features/shop/models/product_model.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
@@ -19,7 +20,7 @@ class EditProductCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = EditProductController.instance;
-    final categoryController = CategoryController.instance;
+    final categoryController = IngredientController.instance;
     final localizations = AppLocalizations.of(context)!;
     return TRoundedContainer(
       child: Column(
@@ -46,11 +47,11 @@ class EditProductCategories extends StatelessWidget {
                   controller.selectedCategories,
                 ),
                 items: categoryController.allItems
-                    .map((item) => MultiSelectItem(item, item.name))
+                    .map((item) => MultiSelectItem(item, item.title))
                     .toList(),
                 listType: MultiSelectListType.CHIP,
                 onConfirm: (value) {
-                  controller.selectedCategories.assignAll(value);
+                  controller.selectedCategories.assignAll(value.cast<IngredientModel>());
                 },
               );
             },

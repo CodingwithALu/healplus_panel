@@ -12,15 +12,14 @@ class BrandTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = Get.put(BrandController());
+    final controller = Get.put(CategoryController());
     final local = AppLocalizations.of(context)!;
     return Obx(() {
       Text(controller.filteredItems.length.toString());
       Text(controller.selectedRows.length.toString());
       final lgTable = controller.filteredItems.any(
         (element) =>
-            element.brandCategories != null &&
-            element.brandCategories!.length > 2,
+            element.ingredients != null && element.ingredients!.length > 2,
       );
       return TPaginateDataTable(
         minWith: 700,

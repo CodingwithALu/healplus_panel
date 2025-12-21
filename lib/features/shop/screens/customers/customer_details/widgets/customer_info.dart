@@ -69,7 +69,7 @@ class CustomerInfo extends StatelessWidget {
               const SizedBox(width: TSizes.spaceBtwItems / 2),
               Expanded(
                 child: Text(
-                  customer.username,
+                  customer.name,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),

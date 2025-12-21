@@ -3,8 +3,8 @@ import 'package:healplus_panel/features/shop/controllers/products/product_attrib
 import 'package:healplus_panel/features/shop/controllers/products/product_images_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/products_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/products_variation_controller.dart';
-import 'package:healplus_panel/features/shop/models/brand_model.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
+import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/features/shop/models/product_category_model.dart';
 import 'package:healplus_panel/features/shop/models/product_model.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
@@ -38,8 +38,8 @@ class CreateProductController extends GetxController {
   TextEditingController description = TextEditingController();
   TextEditingController brandTextField = TextEditingController();
   // Rx obvervable for selected brand and categories
-  final Rx<BrandModel?> selectedBrand = Rx<BrandModel?>(null);
-  final RxList<CategoryModel> selectedCategories = <CategoryModel>[].obs;
+  final Rx<CategoryModel?> selectedBrand = Rx<CategoryModel?>(null);
+  final RxList<IngredientModel> selectedCategories = <IngredientModel>[].obs;
   // Flag for tracking different tasks
   RxBool thumbnailUploader = false.obs;
   RxBool additionalImageUploader = false.obs;
@@ -144,7 +144,7 @@ class CreateProductController extends GetxController {
           // Map Data
           final productCategory = ProductCategoryModel(
             productId: newRecord.id,
-            categoryId: category.id,
+            categoryId: category.iding,
           );
           await ProductRepository.instance.createProductCategory(
             productCategory,

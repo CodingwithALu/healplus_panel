@@ -1,11 +1,11 @@
 import 'package:healplus_panel/data/repositories/brands/brand_repository.dart';
+import 'package:healplus_panel/data/services/api_service.dart';
 import 'package:healplus_panel/features/media/controllers/media_controllet.dart';
 import 'package:healplus_panel/features/media/models/image_modle.dart';
 import 'package:healplus_panel/features/shop/controllers/brands/brand_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
-import 'package:healplus_panel/features/shop/models/brand_category_model.dart';
-import 'package:healplus_panel/features/shop/models/brand_model.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
+import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/utils/helpers/network_manager.dart';
 import 'package:healplus_panel/utils/popups/full_screen_loader.dart';
 import 'package:healplus_panel/utils/popups/loaders.dart';
@@ -20,18 +20,18 @@ class CreateBrandsController extends GetxController {
   final name = TextEditingController();
   final formKey = GlobalKey<FormState>();
   final _brandReponsitory = BrandRepository.instance;
-  final brandController = BrandController.instance;
+  final categoryController = CategoryController.instance;
   // ignore: unused_field
-  final _categoryController = CategoryController.instance;
+  final _ingredientController = IngredientController.instance;
   // List categories
-  final List<CategoryModel> selectedCategories = <CategoryModel>[].obs;
+  final List<String> selectedCategories = <String>[].obs;
 
   // Toggle Category selection
-  void toglSelection(CategoryModel category) {
-    if (selectedCategories.contains(category)) {
-      selectedCategories.remove(category);
+  void toglSelection(IngredientModel ingredient) {
+    if (selectedCategories.contains(ingredient.iding)) {
+      selectedCategories.remove(ingredient.iding);
     } else {
-      selectedCategories.add(category);
+      selectedCategories.add(ingredient.iding);
     }
   }
 
@@ -54,46 +54,44 @@ class CreateBrandsController extends GetxController {
       }
 
       // Map data
-      final newRecord = BrandModel(
-        id: '',
-        productsCount: 0,
+      final newRecord = CategoryModel(
+        idc: '',
+        quantity: 0,
         image: imageUrl.value,
         name: name.text.trim(),
         createAt: DateTime.now(),
         isFeatured: isFeatured.value,
       );
+      ApiResponse result = await _brandReponsitory.createBrands(newRecord);
       // Call Reponsitory to Create New Brand
-      newRecord.id = await _brandReponsitory.createBrands(newRecord);
-
+      newRecord.idc = result.id!;
       // Register brand categoried if any
-      if (selectedCategories.isNotEmpty) {
-        if (newRecord.id.isEmpty) {
-          throw 'Error storing relationd data. Tru again';
-        }
-        for (var category in selectedCategories) {
-          // Map data
-          final brandCategory = BrandCategoryModel(
-            brandId: newRecord.id,
-            categoryId: category.id,
-          );
-          await _brandReponsitory.createBrandCategories(brandCategory);
-        }
-        newRecord.brandCategories ??= [];
-        newRecord.brandCategories!.addAll(selectedCategories);
-      }
+      // if (selectedCategories.isNotEmpty) {
+      //   if (newRecord.idc.isEmpty) {
+      //     throw 'Error storing relationd data. Tru again';
+      //   }
+      //   for (var category in selectedCategories) {
+      //     // Map data
+      //     final brandCategory = BrandCategoryModel(
+      //       brandId: newRecord.idc,
+      //       categoryId: category.idc,
+      //     );
+      //     await _brandReponsitory.createBrandCategories(brandCategory);
+      //   }
+      //   newRecord.ingredients ??= [];
+      //   newRecord.ingredients!.addAll(selectedCategories);
+      // }
       // Update all Data list
-      brandController.addItemToList(newRecord);
-
+      categoryController.addItemToList(newRecord);
       resetFields();
-
       // Stop loader
       TFullScreenLoader.stopLoading();
       // Back
       Get.back();
       // Success
       TLoaders.successSnackBar(
-        title: 'Congratulations',
-        message: 'New Record has been added',
+        title: result.success ? 'Thành công' : "Thất bại!",
+        message: result.message,
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();

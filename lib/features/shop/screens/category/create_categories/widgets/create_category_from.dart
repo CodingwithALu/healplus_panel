@@ -19,7 +19,7 @@ class CreateCategoryFrom extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(CreateCategoryController());
-    final categoryController = CategoryController.instance;
+    final categoryController = IngredientController.instance;
     final local = AppLocalizations.of(context)!;
     return TRoundedContainer(
       width: 500,
@@ -63,7 +63,7 @@ class CreateCategoryFrom extends StatelessWidget {
                               value: item,
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [Text(item.name)],
+                                children: [Text(item.title)],
                               ),
                             ),
                           )

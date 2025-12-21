@@ -17,7 +17,7 @@ class BrandsDesktopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = Get.put(BrandController());
+    final controller = Get.put(CategoryController());
     final local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(

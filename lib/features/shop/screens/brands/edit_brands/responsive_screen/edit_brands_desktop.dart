@@ -1,5 +1,5 @@
 import 'package:healplus_panel/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import 'package:healplus_panel/features/shop/models/brand_model.dart';
+import 'package:healplus_panel/features/shop/models/category_model.dart';
 import 'package:healplus_panel/features/shop/screens/brands/edit_brands/widgets/edit_brands_form.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/route/route.dart';
@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class EditBrandsDesktop extends StatelessWidget {
   const EditBrandsDesktop({super.key, required this.brands});
-  final BrandModel brands;
+  final CategoryModel brands;
   @override
   Widget build(BuildContext context) {
     // implement build

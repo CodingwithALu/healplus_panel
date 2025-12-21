@@ -2,7 +2,7 @@ import 'package:healplus_panel/common/widgets/chips/choice_chip.dart';
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:healplus_panel/features/shop/controllers/brands/edit_brands_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
-import 'package:healplus_panel/features/shop/models/brand_model.dart';
+import 'package:healplus_panel/features/shop/models/category_model.dart';
 import 'package:healplus_panel/features/shop/screens/category/create_categories/widgets/image_loader.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
@@ -15,12 +15,12 @@ import 'package:iconsax/iconsax.dart';
 
 class EditBrandsForm extends StatelessWidget {
   const EditBrandsForm({super.key, required this.brands});
-  final BrandModel brands;
+  final CategoryModel brands;
   @override
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(EditBrandsController());
-    final categoryController = CategoryController.instance;
+    final ingredientController = IngredientController.instance;
     final localizations = AppLocalizations.of(context)!;
     controller.init(brands);
     return TRoundedContainer(
@@ -59,17 +59,17 @@ class EditBrandsForm extends StatelessWidget {
             Obx(
               () => Wrap(
                 spacing: TSizes.xs,
-                children: categoryController.allItems
+                children: ingredientController.allItems
                     .map(
                       (item) => Padding(
                         padding: EdgeInsets.only(bottom: TSizes.sm),
                         child: TChoiceChip(
-                          text: item.name,
-                          selected: controller.selectedCategories.contains(
-                            item,
+                          text: item.title,
+                          selected: controller.selectedIngredient.contains(
+                            item.iding,
                           ),
-                          onSelected: (value) =>
-                              controller.toggleSelection(item),
+                          onSelected: null,
+                          // controller.toggleSelection(item),
                         ),
                       ),
                     )
