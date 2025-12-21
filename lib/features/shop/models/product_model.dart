@@ -115,38 +115,26 @@ class ProductModel {
       return ProductModel.empty();
     }
   }
-  // Map Jon-oriented document snapshot from Firebase to Model
-  factory ProductModel.fromQuerySnapshot(
-    QueryDocumentSnapshot<Object?> document,
-  ) {
-    if (document.data() != null) {
-      final data = document.data() as Map<String, dynamic>;
-      return ProductModel(
-        id: document.id,
-        sku: data['SKU'] ?? '',
-        title: data['Title'] ?? '',
-        stock: data['Stock'] ?? 0,
-        soldQuantity: data.containsKey('SoldQuantity')
-            ? data['SoldQuantity'] ?? 0
-            : 0,
-        price: double.parse((data['Price'] ?? 0.0).toString()),
-        salePrices: double.parse((data['SalePrice'] ?? 0.0).toString()),
-        thumbnail: data['Thumbnail'] ?? '',
-        description: data['Description'] ?? '',
-        productType: data['ProductType'] ?? '',
-        brand: CategoryModel.formJson(data['Brand']),
-        images: data['Image'] != null ? List<String>.from(data['Image']) : [],
-        productAttribute: (data['ProductAttributes'] as List<dynamic>)
-            .map((e) => ProductAttributeModel.fromJson(e))
-            .toList(),
-        productVariations: (data['ProductVariations'] as List<dynamic>)
-            .map((e) => ProductVariationModel.fromJson(e))
-            .toList(),
-        isFeatured: data['IsFeatured'] ?? false,
-        date: data['Date'] ?? DateTime.now(),
-      );
-    } else {
-      return ProductModel.empty();
-    }
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel.empty();
+    // return ProductModel(
+    //   id: json['ide']?.toString() ?? '',
+    //   sku: json['sku'] ?? '',
+    //   title: json['title'] ?? '',
+    //   stock: json['url'] ?? '',
+    //   isFeatured: json['isFeatured'] == 1 || json['isFeatured'] == true,
+    //   price: json['iding'] ?? '',
+    //   salePrices: json['quantity'] ?? 0,
+    //   thumbnail: json['percentage'] ?? 0,
+    //   createAt: json.containsKey('createAt') && json['createAt'] != null
+    //       ? DateTime.parse(json['createAt'])
+    //       : null,
+    //   updateAt: json.containsKey('updateAt') && json['updateAt'] != null
+    //       ? DateTime.parse(json['updateAt'])
+    //       : null,
+    //   products: (json['products'] as List<dynamic>?)
+    //     ?.map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
+    //     .toList(),
+    // );
   }
 }

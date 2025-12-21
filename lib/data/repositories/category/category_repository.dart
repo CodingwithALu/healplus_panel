@@ -7,8 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class BrandRepository extends GetxController {
-  static BrandRepository get instance => Get.find();
+class CategoryRepository extends GetxController {
+  static CategoryRepository get instance => Get.find();
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   // APi Srevice instace
   final ApiService _apiService = ApiService();
@@ -114,19 +114,6 @@ class BrandRepository extends GetxController {
       throw 'Something went srong. Please try again';
     }
   }
-
-  Future<void> deleteBrandCategories(String categoryId) async {
-    try {
-      await _db.collection('BrandCategories').doc(categoryId).delete();
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
-    } catch (e) {
-      throw 'Something went srong. Please try again';
-    }
-  }
-
   // Update Category
   Future<ApiResponse> updateBrands(CategoryModel item) async {
     try {

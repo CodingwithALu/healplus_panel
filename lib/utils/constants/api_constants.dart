@@ -19,9 +19,9 @@ class ApiConstants {
   // Ingredient
   static const String ingredientsEndpoint = "fetchIngredient.php";
   static const String ingredientCountEndpoint = "get_ingredient_count.php";
-  static const String addIngredientEndpoint = "add_ingrident.php";
+  static const String addIngredientEndpoint = "add_ingredient.php";
   static const String updateIngredientEndpoint = "update_ingredient.php";
-  static const String deleteIngredientEndpoint = "deldelete_ingredient.php";
+  static const String deleteIngredientEndpoint = "delete_ingredient.php";
   static const String ingredientByCategoryEndpoint =
       "get_ingredient_by_category.php";
 

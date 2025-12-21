@@ -1,14 +1,15 @@
 import 'package:healplus_panel/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import 'package:healplus_panel/features/shop/screens/category/create_categories/widgets/create_category_from.dart';
+import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/edit_categories/widgets/edit_category_from.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/route/route.dart';
 import 'package:healplus_panel/utils/constants/breadcrumb_item.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class CreateCategorieDesktopScreen extends StatelessWidget {
-  const CreateCategorieDesktopScreen({super.key});
-
+class EditCategoryDesktopScreen extends StatelessWidget {
+  const EditCategoryDesktopScreen({super.key, required this.ingredient});
+  final IngredientModel ingredient;
   @override
   Widget build(BuildContext context) {
     // implement build
@@ -20,20 +21,21 @@ class CreateCategorieDesktopScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Breadcrombs
               TBreadcrumbWithHeading(
                 returnToPreviousScreen: true,
-                heading: local.categoryBreadcrumbCreate,
+                heading: local.categoryBreadcrumbEdit,
                 breadcrumbItems: [
                   BreadcrumbItem(
                     local.categoriesStoragePath,
                     route: TRoutes.categories,
                   ),
-                  BreadcrumbItem(local.categoryBreadcrumbCreate),
+                  BreadcrumbItem(local.categoryBreadcrumbEdit),
                 ],
               ),
-              SizedBox(height: TSizes.spaceBtwSections),
-              // From
-              CreateCategoryFrom(),
+              const SizedBox(height: TSizes.spaceBtwSections),
+              // Form(s)
+              EditCategoryFromScreen(category: ingredient),
             ],
           ),
         ),

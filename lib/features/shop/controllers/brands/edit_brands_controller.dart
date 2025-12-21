@@ -1,9 +1,9 @@
-import 'package:healplus_panel/data/repositories/brands/brand_repository.dart';
+import 'package:healplus_panel/data/repositories/category/category_repository.dart';
 import 'package:healplus_panel/data/services/api_service.dart';
 import 'package:healplus_panel/features/media/controllers/media_controllet.dart';
 import 'package:healplus_panel/features/media/models/image_modle.dart';
 import 'package:healplus_panel/features/shop/controllers/brands/brand_controller.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
 import 'package:healplus_panel/features/shop/models/brand_category_model.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
 import 'package:healplus_panel/utils/helpers/network_manager.dart';
@@ -19,7 +19,7 @@ class EditBrandsController extends GetxController {
   final isFeatured = false.obs;
   final name = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  final _barndRepository = BrandRepository.instance;
+  final _barndRepository = CategoryRepository.instance;
   final List<String> selectedIngredient = <String>[].obs;
   final controller = CategoryController.instance;
   final ingredientController = IngredientController.instance;
@@ -30,8 +30,9 @@ class EditBrandsController extends GetxController {
     isFeatured.value = brands.isFeatured;
     imageUrl.value = brands.image;
     if (brands.ingredients != null) {
-      selectedIngredient.addAll
-      (brands.ingredients!.map((e) => e.iding).whereType<String>());
+      selectedIngredient.addAll(
+        brands.ingredients!.map((e) => e.iding).whereType<String>(),
+      );
     }
   }
 
@@ -128,8 +129,7 @@ class EditBrandsController extends GetxController {
     final newCategoriesToAdd = selectedIngredient
         .where(
           (newCategory) => !brandCategories.any(
-            (existingCategory) =>
-                existingCategory.categoryId == newCategory,
+            (existingCategory) => existingCategory.categoryId == newCategory,
           ),
         )
         .toList();

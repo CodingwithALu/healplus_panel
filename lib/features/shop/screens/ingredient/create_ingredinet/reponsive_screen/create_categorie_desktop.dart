@@ -1,15 +1,14 @@
 import 'package:healplus_panel/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
-import 'package:healplus_panel/features/shop/screens/category/edit_categories/widgets/edit_category_from.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/create_ingredinet/widgets/create_category_from.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/route/route.dart';
 import 'package:healplus_panel/utils/constants/breadcrumb_item.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class EditCategoryDesktopScreen extends StatelessWidget {
-  const EditCategoryDesktopScreen({super.key, required this.catedoryModel});
-  final IngredientModel catedoryModel;
+class CreateCategorieDesktopScreen extends StatelessWidget {
+  const CreateCategorieDesktopScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     // implement build
@@ -21,21 +20,20 @@ class EditCategoryDesktopScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Breadcrombs
               TBreadcrumbWithHeading(
                 returnToPreviousScreen: true,
-                heading: local.categoryBreadcrumbEdit,
+                heading: local.categoryBreadcrumbCreate,
                 breadcrumbItems: [
                   BreadcrumbItem(
                     local.categoriesStoragePath,
                     route: TRoutes.categories,
                   ),
-                  BreadcrumbItem(local.categoryBreadcrumbEdit),
+                  BreadcrumbItem(local.categoryBreadcrumbCreate),
                 ],
               ),
-              const SizedBox(height: TSizes.spaceBtwSections),
-              // Form
-              EditCategoryFromScreen(category: catedoryModel),
+              SizedBox(height: TSizes.spaceBtwSections),
+              // From
+              CreateCategoryFrom(),
             ],
           ),
         ),

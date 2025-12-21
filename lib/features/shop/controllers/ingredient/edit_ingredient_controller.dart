@@ -1,7 +1,9 @@
-import 'package:healplus_panel/data/repositories/categories/category_repository_new.dart';
+import 'package:healplus_panel/data/repositories/categories/ingredient_repository.dart';
 import 'package:healplus_panel/features/media/controllers/media_controllet.dart';
 import 'package:healplus_panel/features/media/models/image_modle.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
+import 'package:healplus_panel/features/shop/controllers/brands/brand_controller.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
+import 'package:healplus_panel/features/shop/models/category_model.dart';
 import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/utils/helpers/network_manager.dart';
@@ -10,23 +12,41 @@ import 'package:healplus_panel/utils/popups/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CreateCategoryController extends GetxController {
-  static CreateCategoryController get instance => Get.find();
-  final selectedParent = IngredientModel.empty().obs;
+class EditIngredientController extends GetxController {
+  static EditIngredientController get instance => Get.find();
+  final selectedParent = CategoryModel.empty().obs;
   final loading = false.obs;
   RxString imageUrl = ''.obs;
   final isFeatured = false.obs;
   final name = TextEditingController();
   final formKey = GlobalKey<FormState>();
-
-  final _categoryReponsitory = IngredientRepository.instance;
-  final categoryController = IngredientController.instance;
-  // Method to reset fields
+  final _categoryIngredint = IngredientRepository.instance;
+  final List<String> selectedElement = <String>[].obs;
+  final controller = Get.put(IngredientController());
+  final categoryController = Get.put(CategoryController());
+  // Init Data
+  void init(IngredientModel item) {
+    // implement onInit
+    name.text = item.title;
+    isFeatured.value = item.isFeatured;
+    imageUrl.value = item.url;
+    if (item.idc.isNotEmpty) {
+      selectedParent.value = categoryController.allItems
+          .where((c) => c.idc == item.idc)
+          .single;
+    }
+    // selecElement
+    if (item.elements != null) {
+      selectedElement.addAll(
+        item.elements!.map((e) => e.ide).whereType<String>(),
+      );
+    }
+  }
 
   // Pick Thumbnail Image from Media
 
-  // Register new Category
-  Future<void> createCategory() async {
+  // Update Category
+  Future<void> updateIngredient(IngredientModel item) async {
     try {
       // Start Loading
       TFullScreenLoader.popUpCirular();
@@ -42,28 +62,23 @@ class CreateCategoryController extends GetxController {
         return;
       }
       // Map data
-      final newRecord = IngredientModel(
-        iding: '',
-        url: imageUrl.value,
-        title: name.text.trim(),
-        isFeatured: isFeatured.value,
-        idc: selectedParent.value.iding,
-      );
-      await _categoryReponsitory.createCategory(newRecord);
-      // Update all Data List
-      categoryController.addItemToList(newRecord);
+      item.url = imageUrl.value;
+      item.title = name.text.trim();
+      item.isFeatured = isFeatured.value;
+      item.idc = selectedParent.value.idc;
 
-      // Reset Form
+      // Call repository to updateCategory
+      await _categoryIngredint.updateIngredient(item);
+      // Update All Data List
+      controller.updateItemFormList(item);
       resetFields();
       // Remove Loader
       TFullScreenLoader.stopLoading();
-
-      // Back
       Get.back();
       // Success
       TLoaders.successSnackBar(
         title: AppLocalizations.of(Get.context!)!.congratulations,
-        message: AppLocalizations.of(Get.context!)!.newRecordAdded,
+        message: AppLocalizations.of(Get.context!)!.recordUpdatedSuccessfully,
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();
@@ -88,7 +103,7 @@ class CreateCategoryController extends GetxController {
   }
 
   void resetFields() {
-    selectedParent(IngredientModel.empty());
+    selectedParent(CategoryModel.empty());
     loading(false);
     isFeatured(false);
     name.clear();

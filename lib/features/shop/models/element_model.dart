@@ -11,7 +11,7 @@ class ElementModel {
   String url;
   bool isFeatured;
   int? quantity;
-  int? percentage;
+  double? percentage;
   DateTime? createAt;
   DateTime? updateAt;
   List<ProductModel>? products;
@@ -40,32 +40,35 @@ class ElementModel {
   // Convert Models to Json structure so that you can store data in Firebase
   Map<String, dynamic> toJson() {
     return {
-      'Title': title,
-      'Image': url,
-      'IsFeatures': isFeatured,
-      'Ide': ide,
-      'CreateAt': createAt,
-      'UpdateAt': updateAt,
+      'ide': ide,
+      'title': title,
+      'url': url,
+      'isFeatured': isFeatured,
+      'iding': iding,
+      'createAt': createAt,
+      'updateAt': updateAt,
     };
   }
 
   // Map Jdon oriented document snapshot for Firebase to CategoryModels
   factory ElementModel.fromJson(Map<String, dynamic> json) {
     return ElementModel(
-      iding: json['iding']?.toString() ?? '',
+      ide: json['ide']?.toString() ?? '',
       title: json['title'] ?? '',
       url: json['url'] ?? '',
       isFeatured: json['isFeatured'] == 1 || json['isFeatured'] == true,
-      ide: json['ide'] ?? '',
+      iding: json['iding'] ?? '',
       quantity: json['quantity'] ?? 0,
-      percentage: json['percentage'] ?? 0,
-      createAt: json['createAt'] != null
-          ? DateTime.tryParse(json['createAt'])
+      percentage: json['percentage'] ?? 0.0,
+      createAt: json.containsKey('createAt') && json['createAt'] != null
+          ? DateTime.parse(json['createAt'])
           : null,
-      updateAt: json['updateAt'] != null
-          ? DateTime.tryParse(json['updateAt'])
+      updateAt: json.containsKey('updateAt') && json['updateAt'] != null
+          ? DateTime.parse(json['updateAt'])
           : null,
-      products: json['products'],
+      products: (json['products'] as List<dynamic>?)
+        ?.map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
+        .toList(),
     );
   }
 }

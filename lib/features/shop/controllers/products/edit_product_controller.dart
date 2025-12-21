@@ -1,5 +1,5 @@
 import 'package:healplus_panel/data/repositories/products/produts_repository.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/product_attribute_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/product_images_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/products_controller.dart';

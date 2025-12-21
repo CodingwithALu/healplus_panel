@@ -1,6 +1,7 @@
 import 'package:healplus_panel/common/widgets/images/t_rounded_image.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
-import 'package:healplus_panel/features/shop/screens/category/all_categories/widgets/tablet_action_button.dart';
+import 'package:healplus_panel/features/shop/controllers/brands/brand_controller.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/all_categories/widgets/tablet_action_button.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/route/route.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';
@@ -13,10 +14,14 @@ import 'package:iconsax/iconsax.dart';
 
 class CategoryRows extends DataTableSource {
   final controller = IngredientController.instance;
+  final categoryController = Get.put(CategoryController());
   final local = AppLocalizations.of(Get.context!)!;
   @override
   DataRow? getRow(int index) {
-    final category = controller.filteredItems[index];
+    final ingredient = controller.filteredItems[index];
+    final parentCategory = categoryController.allItems.firstWhereOrNull(
+      (item) => item.idc == ingredient.idc,
+    );
     return DataRow2(
       selected: controller.selectedRows[index],
       onSelectChanged: (value) =>
@@ -32,12 +37,12 @@ class CategoryRows extends DataTableSource {
                 borderRadius: TSizes.borderRadiusMd,
                 backgroundColor: TColors.primaryBackground,
                 imageType: ImageType.network,
-                imageUrl: category.url,
+                imageUrl: ingredient.url,
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Expanded(
                 child: Text(
-                  category.title,
+                  ingredient.title,
                   style: Theme.of(
                     Get.context!,
                   ).textTheme.bodyLarge!.apply(color: TColors.primary),
@@ -48,24 +53,25 @@ class CategoryRows extends DataTableSource {
             ],
           ),
         ),
+        DataCell(Text(parentCategory != null ? parentCategory.name : '')),
         DataCell(
-          category.isFeatured
+          ingredient.isFeatured
               ? const Icon(Iconsax.heart5, color: TColors.primary)
               : const Icon(Iconsax.heart),
         ),
-        DataCell(Text(category.quantity.toString())),
+        DataCell(Text(ingredient.quantity.toString())),
         DataCell(
           Text(
-            category.createAt == null
+            ingredient.createAt == null
                 ? ''
-                : category.formattedOrderDate(local.localeName),
+                : ingredient.formattedOrderDate(local.localeName),
           ),
         ),
         DataCell(
           TTabletActionButtons(
             onEditPressed: () =>
-                Get.toNamed(TRoutes.editCategory, arguments: category),
-            onDeletePressed: () => controller.confirmAndDeleteItem(category),
+                Get.toNamed(TRoutes.editCategory, arguments: ingredient),
+            onDeletePressed: () => controller.confirmAndDeleteItem(ingredient),
           ),
         ),
       ],
