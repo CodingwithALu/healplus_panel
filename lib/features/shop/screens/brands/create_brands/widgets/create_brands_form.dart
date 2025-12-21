@@ -64,11 +64,9 @@ class CreateBrandsForm extends StatelessWidget {
                         child: TChoiceChip(
                           text: item.title,
                           selected: controller.selectedCategories.contains(
-                            item,
+                            item.iding,
                           ),
-                          onSelected: (value) => {
-                            // controller.toglSelection(item)
-                          },
+                          onSelected: null,
                         ),
                       ),
                     )

@@ -78,16 +78,17 @@ class BrandRepository extends GetxController {
   }
 
   // CreateBrands
-  Future<String> createBrands(CategoryModel item) async {
+  Future<ApiResponse> createBrands(CategoryModel item) async {
     try {
-      final data = await _db.collection('Brands').add(item.toJson());
-      return data.id;
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
+      //   final data = await _db.collection('Brands').add(item.toJson());
+      //   return data.id;
+      // } on FirebaseException catch (e) {
+      //   throw TFirebaseException(e.code).message;
+      // } on PlatformException catch (e) {
+      //   throw TPlatformException(e.code).message;
+      return await _apiService.addCategory(item);
     } catch (e) {
-      throw 'Something went srong. Please try again';
+      throw 'Failed to update category: ${e.toString()}';
     }
   }
 
@@ -106,35 +107,9 @@ class BrandRepository extends GetxController {
   }
 
   // Delete an existing category document from the 'Categories' collection
-  Future<void> deleteBrands(CategoryModel brands) async {
+  Future<ApiResponse> deleteBrands(CategoryModel item) async {
     try {
-      await _db.runTransaction((transition) async {
-        final brandRef = _db.collection('Brands').doc(brands.idc);
-        final brandSnap = await transition.get(brandRef);
-
-        if (!brandSnap.exists) {
-          throw Exception('Brand not foud');
-        }
-        final brandCategoriesSnapshot = await _db
-            .collection('BrandCategories')
-            .where('brandId', isEqualTo: brands.idc)
-            .get();
-        final brandCategories = brandCategoriesSnapshot.docs.map(
-          (e) => BrandCategoryModel.fromSnapshot(e),
-        );
-        if (brandCategories.isNotEmpty) {
-          for (var brandCategory in brandCategories) {
-            transition.delete(
-              _db.collection('BrandCategories').doc(brandCategory.id),
-            );
-          }
-        }
-        transition.delete(brandRef);
-      });
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
+      return await _apiService.deleteCategory(item.idc);
     } catch (e) {
       throw 'Something went srong. Please try again';
     }
@@ -153,15 +128,11 @@ class BrandRepository extends GetxController {
   }
 
   // Update Category
-  Future<void> updateBrands(CategoryModel item) async {
+  Future<ApiResponse> updateBrands(CategoryModel item) async {
     try {
-      await _db.collection('Brands').doc(item.idc).update(item.toJson());
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
+      return await _apiService.updateCategory(item);
     } catch (e) {
-      throw 'Something went srong. Please try again';
+      throw 'Failed to update category: ${e.toString()}';
     }
   }
 }

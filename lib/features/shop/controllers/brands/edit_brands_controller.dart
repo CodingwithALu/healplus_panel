@@ -1,11 +1,11 @@
 import 'package:healplus_panel/data/repositories/brands/brand_repository.dart';
+import 'package:healplus_panel/data/services/api_service.dart';
 import 'package:healplus_panel/features/media/controllers/media_controllet.dart';
 import 'package:healplus_panel/features/media/models/image_modle.dart';
 import 'package:healplus_panel/features/shop/controllers/brands/brand_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
 import 'package:healplus_panel/features/shop/models/brand_category_model.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
-import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/utils/helpers/network_manager.dart';
 import 'package:healplus_panel/utils/popups/full_screen_loader.dart';
 import 'package:healplus_panel/utils/popups/loaders.dart';
@@ -20,8 +20,8 @@ class EditBrandsController extends GetxController {
   final name = TextEditingController();
   final formKey = GlobalKey<FormState>();
   final _barndRepository = BrandRepository.instance;
-  final List<IngredientModel> selectedCategories = <IngredientModel>[].obs;
-  final brandCotorller = CategoryController.instance;
+  final List<String> selectedIngredient = <String>[].obs;
+  final controller = CategoryController.instance;
   final ingredientController = IngredientController.instance;
   // Init Data
   void init(CategoryModel brands) {
@@ -30,21 +30,22 @@ class EditBrandsController extends GetxController {
     isFeatured.value = brands.isFeatured;
     imageUrl.value = brands.image;
     if (brands.ingredients != null) {
-      selectedCategories.addAll(brands.ingredients ?? []);
+      selectedIngredient.addAll
+      (brands.ingredients!.map((e) => e.iding).whereType<String>());
     }
   }
 
   // Toggle Category Selection
-  void toggleSelection(IngredientModel category) {
-    if (selectedCategories.contains(category)) {
-      selectedCategories.remove(category);
-    } else {
-      selectedCategories.add(category);
-    }
-  }
+  // void toggleSelection(IngredientModel category) {
+  //   if (selectedIngredient.contains(category.iding)) {
+  //     selectedIngredient.remove(category.iding);
+  //   } else {
+  //     selectedIngredient.add(category.iding);
+  //   }
+  // }
 
   // Update Category
-  Future<void> updateBrands(CategoryModel brands) async {
+  Future<void> updateBrands(CategoryModel category) async {
     try {
       // Start Loading
       TFullScreenLoader.popUpCirular();
@@ -60,26 +61,25 @@ class EditBrandsController extends GetxController {
         TFullScreenLoader.stopLoading();
         return;
       }
-
-      bool isBrandUpdate = false;
-      if (brands.image != imageUrl.value ||
-          brands.name != name.text.trim() ||
-          brands.isFeatured != isFeatured.value) {
-        isBrandUpdate = true;
+      ApiResponse result = ApiResponse.empty();
+      // bool isBrandUpdate = false;
+      if (category.image != imageUrl.value ||
+          category.name != name.text.trim() ||
+          category.isFeatured != isFeatured.value) {
+        // isBrandUpdate = true;
         // Map data
-        brands.image = imageUrl.value;
-        brands.name = name.text.trim();
-        brands.updateAt = DateTime.now();
-        brands.isFeatured = isFeatured.value;
+        category.image = imageUrl.value;
+        category.name = name.text.trim();
+        category.isFeatured = isFeatured.value;
         // Call repository to updateCategory
-        await _barndRepository.updateBrands(brands);
+        result = await _barndRepository.updateBrands(category);
       }
       // Update BrandCategories
-      if (selectedCategories.isNotEmpty) await updateBrandCategories(brands);
+      // if (selectedIngredient.isNotEmpty) await updateBrandCategories(category);
       // Update Brand in Products
-      if (isBrandUpdate) await updateBrandInProducts(brands);
+      // if (isBrandUpdate) await updateBrandInProducts(brands);
       // Update All data list
-      brandCotorller.updateItemFormList(brands);
+      controller.updateItemFormList(category);
       // Update Ui Listeners
       update();
       // Remove Loader
@@ -87,8 +87,8 @@ class EditBrandsController extends GetxController {
       Get.back();
       // Success
       TLoaders.successSnackBar(
-        title: 'Congratulations',
-        message: 'New Record has been added',
+        title: result.success ? 'Cập nhật thành công' : 'Thất bại!',
+        message: result.message,
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();
@@ -114,7 +114,7 @@ class EditBrandsController extends GetxController {
     isFeatured(false);
     name.clear();
     imageUrl.value = '';
-    selectedCategories.clear();
+    selectedIngredient.clear();
   }
 
   Future<void> updateBrandCategories(CategoryModel item) async {
@@ -123,12 +123,13 @@ class EditBrandsController extends GetxController {
       item.idc,
     );
     // SelectedCategoriIds
-    selectedCategories.map((e) => e.idc);
+    selectedIngredient.map((e) => e);
     // Identify new categories to add
-    final newCategoriesToAdd = selectedCategories
+    final newCategoriesToAdd = selectedIngredient
         .where(
           (newCategory) => !brandCategories.any(
-            (existingCategory) => existingCategory.categoryId == newCategory.idc,
+            (existingCategory) =>
+                existingCategory.categoryId == newCategory,
           ),
         )
         .toList();
@@ -136,14 +137,14 @@ class EditBrandsController extends GetxController {
     for (var newCategory in newCategoriesToAdd) {
       var brandCategory = BrandCategoryModel(
         brandId: item.idc,
-        categoryId: newCategory.idc,
+        categoryId: newCategory,
       );
       brandCategory.id = await _barndRepository.createBrandCategories(
         brandCategory,
       );
     }
-    item.ingredients!.assignAll(selectedCategories);
-    brandCotorller.updateItemFormList(item);
+    // item.ingredients!.assignAll(selectedIngredient);
+    controller.updateItemFormList(item);
   }
 
   Future<void> updateBrandInProducts(CategoryModel brands) async {

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:healplus_panel/features/shop/models/category_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:healplus_panel/utils/constants/api_constants.dart';
 
@@ -7,14 +8,31 @@ class ApiResponse {
   final bool success;
   final String message;
   final dynamic result;
+  final String? id;
 
-  ApiResponse({required this.success, required this.message, this.result});
+  ApiResponse({
+    required this.success,
+    required this.message,
+    this.result,
+    this.id,
+  });
+
+  static ApiResponse empty() {
+    return ApiResponse(success: false, message: '', result: null);
+  }
 
   factory ApiResponse.fromJson(Map<String, dynamic> json) {
+    String? id =
+        json['id']?.toString() ??
+        json['idc']?.toString() ??
+        json['iding']?.toString() ??
+        json['ide']?.toString() ??
+        json['idp']?.toString();
     return ApiResponse(
       success: json['success'] ?? false,
       message: json['message'] ?? '',
       result: json['result'],
+      id: id,
     );
   }
 }
@@ -115,37 +133,32 @@ class ApiService {
   }
 
   /// Add a new category
-  Future<ApiResponse> addCategory(
-    String title,
-    String image,
-    bool isFeatured,
-  ) async {
+  Future<ApiResponse> addCategory(CategoryModel item) async {
+    final data = item.toJson();
+    final fields = {
+      'title': (data['Name'] ?? '').toString(),
+      'image': (data['Image'] ?? '').toString(),
+      'isFeatured': (data['IsFeatured'] ?? false).toString(),
+    };
     final result = await postForm(
       ApiConstants.addCategoryEndpoint,
-      fields: {
-        'title': title,
-        'image': image,
-        'isFeatured': isFeatured.toString(),
-      },
+      fields: fields,
     );
     return ApiResponse.fromJson(result);
   }
 
   /// Update category
-  Future<ApiResponse> updateCategory(
-    String id,
-    String title,
-    String image,
-    bool isFeatured,
-  ) async {
+  Future<ApiResponse> updateCategory(CategoryModel item) async {
+    final data = item.toJson();
+    final fields = {
+      'idc': (data['Idc'] ?? '').toString(),
+      'title': (data['Name'] ?? '').toString(),
+      'image': (data['Image'] ?? '').toString(),
+      'isFeatured': (data['IsFeatured'] ?? false).toString(),
+    };
     final result = await postForm(
       ApiConstants.updateCategoryEndpoint,
-      fields: {
-        'idc': id,
-        'title': title,
-        'image': image,
-        'isFeatured': isFeatured.toString(),
-      },
+      fields: fields,
     );
     return ApiResponse.fromJson(result);
   }
@@ -182,11 +195,11 @@ class ApiService {
   Future<ApiResponse> addIngredient(
     String title,
     String url,
-    String categoryId,
+    String idc,
   ) async {
     final result = await postForm(
       ApiConstants.addIngredientEndpoint,
-      fields: {'title': title, 'url': url, 'idc': categoryId},
+      fields: {'title': title, 'url': url, 'idc': idc},
     );
     return ApiResponse.fromJson(result);
   }

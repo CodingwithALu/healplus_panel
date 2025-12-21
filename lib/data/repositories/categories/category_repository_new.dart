@@ -37,10 +37,10 @@ class IngredientRepository extends GetxController {
   // Create Category via API
   Future<ApiResponse> createCategory(IngredientModel category) async {
     try {
-      final response = await _apiService.addCategory(
+      final response = await _apiService.addIngredient(
         category.title,
         category.url,
-        category.isFeatured,
+        category.idc,
       );
 
       // Add the missing if statement
@@ -56,18 +56,18 @@ class IngredientRepository extends GetxController {
 
   // Update Category via API
   Future<void> updateCategory(IngredientModel category) async {
-    try {
-      final response = await _apiService.updateCategory(
-        category.iding,
-        category.title,
-        category.url,
-        category.isFeatured,
-      );
-      if (!response.success) {
-        throw response.message;
-      }
-    } catch (e) {
-      throw 'Failed to update category: ${e.toString()}';
-    }
+    // try {
+    //   final response = await _apiService.updateCategory(
+    //     category.iding,
+    //     category.title,
+    //     category.url,
+    //     category.isFeatured,
+    //   );
+    //   if (!response.success) {
+    //     throw response.message;
+    //   }
+    // } catch (e) {
+    //   throw 'Failed to update category: ${e.toString()}';
+    // }
   }
 }

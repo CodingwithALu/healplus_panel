@@ -35,11 +35,11 @@ class CategoryModel {
   // Convert Models to Json structure so that you can store data in Firebase
   Map<String, dynamic> toJson() {
     return {
-      'Id': idc,
+      'Idc': idc,
       'Name': name,
       'Image': image,
-      'IsFeatures': isFeatured,
-      'ProductCount': quantity = 0,
+      'IsFeatured': isFeatured,
+      'Quantity': quantity = 0,
       'CreateAt': createAt,
       'UpdateAt': updateAt,
       'ingredinet': ingredients,
@@ -88,8 +88,8 @@ class CategoryModel {
           ? DateTime.parse(data['updateAt'])
           : null,
       ingredients: (data['ingredients'] as List<dynamic>?)
-        ?.map((e) => IngredientModel.fromJson(e as Map<String, dynamic>))
-        .toList(),
+          ?.map((e) => IngredientModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 }

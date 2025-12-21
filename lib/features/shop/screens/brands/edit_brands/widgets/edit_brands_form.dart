@@ -20,7 +20,7 @@ class EditBrandsForm extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(EditBrandsController());
-    final categoryController = IngredientController.instance;
+    final ingredientController = IngredientController.instance;
     final localizations = AppLocalizations.of(context)!;
     controller.init(brands);
     return TRoundedContainer(
@@ -59,19 +59,17 @@ class EditBrandsForm extends StatelessWidget {
             Obx(
               () => Wrap(
                 spacing: TSizes.xs,
-                children: categoryController.allItems
+                children: ingredientController.allItems
                     .map(
                       (item) => Padding(
                         padding: EdgeInsets.only(bottom: TSizes.sm),
                         child: TChoiceChip(
                           text: item.title,
-                          selected: controller.selectedCategories.contains(
-                            item,
+                          selected: controller.selectedIngredient.contains(
+                            item.iding,
                           ),
-                          onSelected: (value) =>{
-                            
-                          }
-                              // controller.toggleSelection(item),
+                          onSelected: null,
+                          // controller.toggleSelection(item),
                         ),
                       ),
                     )
