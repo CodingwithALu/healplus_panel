@@ -17,6 +17,7 @@ class ElementRepository extends GetxController {
       throw 'Failed to fetch categories: ${e.toString()}';
     }
   }
+
   // CreateElement
   Future<ApiResponse> createElement(ElementModel item) async {
     try {
@@ -24,12 +25,13 @@ class ElementRepository extends GetxController {
         item.title,
         item.url,
         item.isFeatured,
-        item.iding
+        item.iding,
       );
     } catch (e) {
       throw 'Failed to update category: ${e.toString()}';
     }
   }
+
   // Delete an existing category document from the 'Categories' collection
   Future<ApiResponse> deleteElement(ElementModel item) async {
     try {
@@ -38,6 +40,7 @@ class ElementRepository extends GetxController {
       throw 'Something went srong. Please try again';
     }
   }
+
   // Update Category
   Future<ApiResponse> updateElement(ElementModel item) async {
     try {

@@ -289,8 +289,13 @@ class ApiService {
   // ========== PRODUCT ENDPOINTS ==========
 
   /// Get recommended products
-  Future<List<dynamic>> getRecommendedProducts() async {
+  Future<Map<String, dynamic>> getRecommendedProducts() async {
     return await get(ApiConstants.productsEndpoint);
+  }
+
+  /// Get all product
+  Future<Map<String, dynamic>> getAllProduct() async {
+    return await get(ApiConstants.productsAll);
   }
 
   /// Get product by ID

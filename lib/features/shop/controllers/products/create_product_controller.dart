@@ -113,37 +113,37 @@ class CreateProductController extends GetxController {
       }
 
       // Map Product Data to ProductModel
-      final newRecord = ProductModel(
-        id: '',
-        sku: '',
-        isFeatured: true,
-        title: title.text.trim(),
-        brand: selectedBrand.value,
-        productVariations: variations,
-        description: description.text.trim(),
-        productType: productType.value.toString(),
-        stock: int.tryParse(stock.text.trim()) ?? 0,
-        price: double.tryParse(price.text.trim()) ?? 0,
-        images: imagesController.additionalProductImagesUrl,
-        salePrices: double.tryParse(salePrice.text.trim()) ?? 0,
-        thumbnail: imagesController.selectedThubnailImageUrl.value ?? '',
-        productAttribute: ProductAttributeController.instance.productAttributes,
-        date: DateTime.now(),
-      );
+      final newRecord = ProductModel.empty();
+      // id: '',
+      // sku: '',
+      // isFeatured: true,
+      // title: title.text.trim(),
+      // brand: selectedBrand.value,
+      // productVariations: variations,
+      // description: description.text.trim(),
+      // productType: productType.value.toString(),
+      // stock: int.tryParse(stock.text.trim()) ?? 0,
+      // price: double.tryParse(price.text.trim()) ?? 0,
+      // images: imagesController.additionalProductImagesUrl,
+      // salePrices: double.tryParse(salePrice.text.trim()) ?? 0,
+      // thumbnail: imagesController.selectedThubnailImageUrl.value ?? '',
+      // productAttribute: ProductAttributeController.instance.productAttributes,
+      // date: DateTime.now(),
+      // );
       // Call Repository to Create New Product
       productDataUploader.value = true;
-      newRecord.id = await ProductRepository.instance.createProducts(newRecord);
+      newRecord.idp = await ProductRepository.instance.createProducts(newRecord);
 
       // Register product categories if any
       if (selectedCategories.isNotEmpty) {
-        if (newRecord.id.isEmpty) throw 'Error storing data. Try again';
+        if (newRecord.idp.isEmpty) throw 'Error storing data. Try again';
 
         // Loop through selected Product Categories
         categoriesRelationShipUploader.value = true;
         for (var category in selectedCategories) {
           // Map Data
           final productCategory = ProductCategoryModel(
-            productId: newRecord.id,
+            productId: newRecord.idp,
             categoryId: category.iding,
           );
           await ProductRepository.instance.createProductCategory(

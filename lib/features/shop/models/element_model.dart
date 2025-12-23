@@ -1,4 +1,3 @@
-import 'package:healplus_panel/features/shop/models/product_model.dart';
 import 'package:healplus_panel/utils/formatters/formatter.dart';
 import 'package:healplus_panel/utils/helpers/helper_functions.dart';
 // ignore: unused_import
@@ -14,7 +13,6 @@ class ElementModel {
   double? percentage;
   DateTime? createAt;
   DateTime? updateAt;
-  List<ProductModel>? products;
   ElementModel({
     required this.ide,
     required this.iding,
@@ -25,7 +23,6 @@ class ElementModel {
     this.createAt,
     this.percentage,
     this.updateAt,
-    this.products,
   });
   String formattedOrderDate([String? locale]) =>
       THelperFunctions.getFormattedDate(createAt!, locale: locale);
@@ -66,9 +63,6 @@ class ElementModel {
       updateAt: json.containsKey('updateAt') && json['updateAt'] != null
           ? DateTime.parse(json['updateAt'])
           : null,
-      products: (json['products'] as List<dynamic>?)
-        ?.map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
-        .toList(),
     );
   }
 }

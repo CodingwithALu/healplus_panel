@@ -36,6 +36,7 @@ class ApiConstants {
       "get_elements_by_ingredient.php";
 
   // Product
+  static const String productsAll = "get_product_all.php";
   static const String productsEndpoint = "get_product_showRecomment.php";
   static const String productByIdEndpoint = "route/get/fetch_product_by_id.php";
   static const String productsByCategoryEndpoint =

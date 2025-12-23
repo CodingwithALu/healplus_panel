@@ -34,7 +34,7 @@ class EditProductCategories extends StatelessWidget {
           const SizedBox(height: TSizes.spaceBtwItems),
           // MultiSelectDialogField for selecting categories
           FutureBuilder(
-            future: controller.loadSelectedCategories(product.id),
+            future: controller.loadSelectedCategories(product.idp),
             builder: (context, snapshot) {
               final widget = TCloudHelperFunctions.checkMultiRecordState(
                 snapshot: snapshot,

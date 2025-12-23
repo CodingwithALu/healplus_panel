@@ -57,45 +57,45 @@ class EditProductController extends GetxController {
       isLoading.value = true; // Set loading state while initializing data
 
       // Basic Information
-      title.text = product.title;
-      description.text = product.description ?? '';
-      productType.value = product.productType == ProductType.single.toString()
-          ? ProductType.single
-          : ProductType.variable;
+      title.text = product.name;
+      description.text = product.description;
+      // productType.value = product.productType == ProductType.single.toString()
+      //     ? ProductType.single
+      //     : ProductType.variable;
 
       // Stock & Pricing (assuming productType and productVisibility are handled elsewhere)
-      if (product.productType == ProductType.single.toString()) {
-        stock.text = product.stock.toString();
-        price.text = product.price.toString();
-        salePrice.text = product.salePrices.toString();
-      }
+      // if (product.productType == ProductType.single.toString()) {
+      //   stock.text = product.stock.toString();
+      //   price.text = product.price.toString();
+      //   salePrice.text = product.salePrices.toString();
+      // }
       // Product Brand
-      selectedBrand.value = product.brand;
-      brandTextField.text = product.brand?.name ?? '';
+      // selectedBrand.value = product.brand;
+      // brandTextField.text = product.brand?.name ?? '';
 
       // Product Thumbnail and Images
-      if (product.images != null) {
-        // Set the first image as the thumbnail
-        imagesController.selectedThubnailImageUrl.value = product.thumbnail;
-        imagesController.additionalProductImagesUrl.assignAll(
-          product.images ?? [],
-        );
+      // if (product.images != null) {
+      //   // Set the first image as the thumbnail
+      //   imagesController.selectedThubnailImageUrl.value = product.thumbnail;
+      //   imagesController.additionalProductImagesUrl.assignAll(
+      //     product.images ?? [],
+      //   );
 
-        // Product Attributes & Variations
-        attributesController.productAttributes.assignAll(
-          product.productAttribute ?? [],
-        );
-        variationsController.productVariations.assignAll(
-          product.productVariations ?? [],
-        );
-        variationsController.initializeVariationController(
-          product.productVariations ?? [],
-        );
+      //   // Product Attributes & Variations
+      //   attributesController.productAttributes.assignAll(
+      //     product.productAttribute ?? [],
+      //   );
+      //   variationsController.productVariations.assignAll(
+      //     product.productVariations ?? [],
+      //   );
+      //   variationsController.initializeVariationController(
+      //     product.productVariations ?? [],
+      //   );
 
-        isLoading.value = false;
+      //   isLoading.value = false;
 
-        update();
-      }
+      //   update();
+      // }
     } catch (e) {
       if (kDebugMode) print(e);
     }
@@ -189,20 +189,20 @@ class EditProductController extends GetxController {
       }
 
       // Map Product Data to ProductModel
-      product.sku = '';
-      product.isFeatured = true;
-      product.title = title.text.trim();
-      product.brand = selectedBrand.value;
-      product.description = description.text.trim();
-      product.productType = productType.value.toString();
-      product.stock = int.tryParse(stock.text.trim()) ?? 0;
-      product.price = double.tryParse(price.text.trim()) ?? 0;
-      product.images = imagesController.additionalProductImagesUrl;
-      product.salePrices = double.tryParse(salePrice.text.trim()) ?? 0;
-      product.thumbnail = imagesController.selectedThubnailImageUrl.value ?? '';
-      product.productAttribute =
-          ProductAttributeController.instance.productAttributes;
-      product.productVariations = variations;
+      // product.sku = '';
+      // product.isFeatured = true;
+      // product.title = title.text.trim();
+      // product.brand = selectedBrand.value;
+      // product.description = description.text.trim();
+      // product.productType = productType.value.toString();
+      // product.stock = int.tryParse(stock.text.trim()) ?? 0;
+      // product.price = double.tryParse(price.text.trim()) ?? 0;
+      // product.images = imagesController.additionalProductImagesUrl;
+      // product.salePrices = double.tryParse(salePrice.text.trim()) ?? 0;
+      // product.thumbnail = imagesController.selectedThubnailImageUrl.value ?? '';
+      // product.productAttribute =
+      //     ProductAttributeController.instance.productAttributes;
+      // product.productVariations = variations;
       // Call Repository to Create New Product
       productDataUploader.value = true;
       await ProductRepository.instance.updateProducts(product);
@@ -219,7 +219,7 @@ class EditProductController extends GetxController {
           // Map Data
           if (!existingCategoryId.contains(category.iding)) {
             final productCategory = ProductCategoryModel(
-              productId: product.id,
+              productId: product.idp,
               categoryId: category.iding,
             );
             await ProductRepository.instance.createProductCategory(
@@ -235,7 +235,7 @@ class EditProductController extends GetxController {
           )) {
             // Remove the association
             await ProductRepository.instance.removeProductcategory(
-              product.id,
+              product.idp,
               existingCategoryId,
             );
           }

@@ -1,5 +1,6 @@
 import 'package:healplus_panel/common/widgets/chips/choice_chip.dart';
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:healplus_panel/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:healplus_panel/features/shop/controllers/brands/brand_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/element/element_controller.dart';
 // ignore: unused_import
@@ -139,20 +140,27 @@ class EditCategoryFromScreen extends StatelessWidget {
                     style: Theme.of(Get.context!).textTheme.titleMedium,
                   ),
                   const SizedBox(height: TSizes.spaceBtwInputFields / 2),
-                  Wrap(
-                    spacing: TSizes.xs,
-                    children: elementController.allItems.map((element) {
-                      return Padding(
-                        padding: EdgeInsets.only(bottom: TSizes.sm),
-                        child: TChoiceChip(
-                          text: element.title,
-                          selected: controller.selectedElement.contains(
-                            element.ide,
-                          ),
-                          onSelected: null,
-                        ),
-                      );
-                    }).toList(),
+                  Obx(
+                    () => Wrap(
+                      spacing: TSizes.xs,
+                      children: elementController.allItems.map((element) {
+                        print("element: $element");
+                        if (elementController.isLoading.value) {
+                          return const TLoaderAnimation();
+                        } else {
+                          return Padding(
+                            padding: EdgeInsets.only(bottom: TSizes.sm),
+                            child: TChoiceChip(
+                              text: element.title,
+                              selected: controller.selectedElement.contains(
+                                element.ide,
+                              ),
+                              onSelected: null,
+                            ),
+                          );
+                        }
+                      }).toList(),
+                    ),
                   ),
                 ],
               ),
