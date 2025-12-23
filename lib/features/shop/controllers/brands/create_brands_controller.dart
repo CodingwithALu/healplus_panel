@@ -1,11 +1,10 @@
-import 'package:healplus_panel/data/repositories/brands/brand_repository.dart';
+import 'package:healplus_panel/data/repositories/category/category_repository.dart';
 import 'package:healplus_panel/data/services/api_service.dart';
 import 'package:healplus_panel/features/media/controllers/media_controllet.dart';
 import 'package:healplus_panel/features/media/models/image_modle.dart';
 import 'package:healplus_panel/features/shop/controllers/brands/brand_controller.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
-import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:healplus_panel/utils/helpers/network_manager.dart';
 import 'package:healplus_panel/utils/popups/full_screen_loader.dart';
 import 'package:healplus_panel/utils/popups/loaders.dart';
@@ -19,7 +18,7 @@ class CreateBrandsController extends GetxController {
   final isFeatured = false.obs;
   final name = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  final _brandReponsitory = BrandRepository.instance;
+  final _brandReponsitory = CategoryRepository.instance;
   final categoryController = CategoryController.instance;
   // ignore: unused_field
   final _ingredientController = IngredientController.instance;
@@ -27,13 +26,13 @@ class CreateBrandsController extends GetxController {
   final List<String> selectedCategories = <String>[].obs;
 
   // Toggle Category selection
-  void toglSelection(IngredientModel ingredient) {
-    if (selectedCategories.contains(ingredient.iding)) {
-      selectedCategories.remove(ingredient.iding);
-    } else {
-      selectedCategories.add(ingredient.iding);
-    }
-  }
+  // void toglSelection(IngredientModel ingredient) {
+  //   if (selectedCategories.contains(ingredient.iding)) {
+  //     selectedCategories.remove(ingredient.iding);
+  //   } else {
+  //     selectedCategories.add(ingredient.iding);
+  //   }
+  // }
 
   // create new Brands
   Future<void> createBrands() async {

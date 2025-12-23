@@ -1,5 +1,5 @@
 import 'package:healplus_panel/data/abstract/base_data_table_controller.dart';
-import 'package:healplus_panel/data/repositories/categories/category_repository_new.dart';
+import 'package:healplus_panel/data/repositories/categories/ingredient_repository.dart';
 import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +14,7 @@ class IngredientController extends TBaseController<IngredientModel> {
 
   @override
   Future<void> deleteItem(item) async {
-    await _categoryRepository.deleteCategory(item.iding);
+    await _categoryRepository.deleteIngredient(item);
   }
 
   @override
@@ -32,11 +32,11 @@ class IngredientController extends TBaseController<IngredientModel> {
   }
 
   // sort by ParentName
-  // void sortByParentName(int sortColumnIndex, bool ascending) {
-  //   sortByProperty(
-  //     sortColumnIndex,
-  //     ascending,
-  //     ((CategoryModel category) => category.parentId.toLowerCase()),
-  //   );
-  // }
+  void sortByParentName(int sortColumnIndex, bool ascending) {
+    sortByProperty(
+      sortColumnIndex,
+      ascending,
+      ((IngredientModel ingredient) => ingredient.idc.toLowerCase()),
+    );
+  }
 }

@@ -19,9 +19,9 @@ class ApiConstants {
   // Ingredient
   static const String ingredientsEndpoint = "fetchIngredient.php";
   static const String ingredientCountEndpoint = "get_ingredient_count.php";
-  static const String addIngredientEndpoint = "add_ingrident.php";
+  static const String addIngredientEndpoint = "add_ingredient.php";
   static const String updateIngredientEndpoint = "update_ingredient.php";
-  static const String deleteIngredientEndpoint = "deldelete_ingredient.php";
+  static const String deleteIngredientEndpoint = "delete_ingredient.php";
   static const String ingredientByCategoryEndpoint =
       "get_ingredient_by_category.php";
 
@@ -36,6 +36,7 @@ class ApiConstants {
       "get_elements_by_ingredient.php";
 
   // Product
+  static const String productsAll = "get_product_all.php";
   static const String productsEndpoint = "get_product_showRecomment.php";
   static const String productByIdEndpoint = "route/get/fetch_product_by_id.php";
   static const String productsByCategoryEndpoint =

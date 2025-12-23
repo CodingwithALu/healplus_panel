@@ -1,6 +1,6 @@
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:healplus_panel/features/shop/controllers/order/oder_controller.dart';
-import 'package:healplus_panel/features/shop/screens/category/all_categories/widgets/tablet_action_button.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/all_categories/widgets/tablet_action_button.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/route/route.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';

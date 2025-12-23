@@ -1,8 +1,8 @@
 import 'package:healplus_panel/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:healplus_panel/common/widgets/layouts/templates/loader_animation.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
-import 'package:healplus_panel/features/shop/screens/category/all_categories/tables/data_table.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/all_categories/tables/data_table.dart';
 import 'package:healplus_panel/common/widgets/data_table/tables_header.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/route/route.dart';

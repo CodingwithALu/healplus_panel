@@ -1,5 +1,5 @@
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
 import 'package:healplus_panel/features/shop/models/ingredient_model.dart';
@@ -34,7 +34,7 @@ class EditProductCategories extends StatelessWidget {
           const SizedBox(height: TSizes.spaceBtwItems),
           // MultiSelectDialogField for selecting categories
           FutureBuilder(
-            future: controller.loadSelectedCategories(product.id),
+            future: controller.loadSelectedCategories(product.idp),
             builder: (context, snapshot) {
               final widget = TCloudHelperFunctions.checkMultiRecordState(
                 snapshot: snapshot,

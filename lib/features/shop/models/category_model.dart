@@ -8,7 +8,7 @@ class CategoryModel {
   String name;
   bool isFeatured;
   int? quantity;
-  int? percentage;
+  double? percentage;
   DateTime? createAt;
   DateTime? updateAt;
   List<IngredientModel>? ingredients;
@@ -80,7 +80,7 @@ class CategoryModel {
       image: data['imgae'] ?? '',
       isFeatured: data['isFeatures'] ?? false,
       quantity: int.parse((data['quantity'] ?? 0).toString()),
-      percentage: int.parse((data['percentage'] ?? 0).toString()),
+      percentage: double.parse((data['percentage'] ?? 0.0).toString()),
       createAt: data.containsKey('createAt') && data['createAt'] != null
           ? DateTime.parse(data['createAt'])
           : null,

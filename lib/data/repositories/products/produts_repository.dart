@@ -1,3 +1,4 @@
+import 'package:healplus_panel/data/services/api_service.dart';
 import 'package:healplus_panel/features/shop/models/product_category_model.dart';
 import 'package:healplus_panel/features/shop/models/product_model.dart';
 import 'package:healplus_panel/utils/exceptions/firebase_exceptions.dart';
@@ -10,7 +11,7 @@ import 'package:get/get.dart';
 class ProductRepository extends GetxController {
   static ProductRepository get instance => Get.find();
   final _db = FirebaseFirestore.instance;
-
+  final ApiService _apiService = ApiService();
   // create product
   Future<String> createProducts(ProductModel produts) async {
     try {
@@ -48,19 +49,14 @@ class ProductRepository extends GetxController {
   // fetch Products
   Future<List<ProductModel>> fetchProducts() async {
     try {
-      final snapshot = await _db.collection('Products').get();
-      final result = snapshot.docs
-          .map((item) => ProductModel.fromSnapshot(item))
+      final response = await _apiService.getAllProduct();
+      final resultList = response['result'] as List;
+      final result = resultList
+          .map((json) => ProductModel.fromJson(json))
           .toList();
       return result;
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on FormatException catch (e) {
-      throw TFormatException(e.message);
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
     } catch (e) {
-      throw 'something went wrong. Please try again';
+      throw 'something went wrong. Please try again $e';
     }
   }
 
@@ -90,54 +86,54 @@ class ProductRepository extends GetxController {
 
   // update product
   Future<void> updateProducts(ProductModel item) async {
-    try {
-      await _db.collection('Products').doc(item.id).update(item.toJson());
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on FormatException catch (e) {
-      throw TFormatException(e.message);
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
-    } catch (e) {
-      throw 'something went wrong. Please try again';
-    }
+    // try {
+    //   await _db.collection('Products').doc(item.id).update(item.toJson());
+    // } on FirebaseException catch (e) {
+    //   throw TFirebaseException(e.code).message;
+    // } on FormatException catch (e) {
+    //   throw TFormatException(e.message);
+    // } on PlatformException catch (e) {
+    //   throw TPlatformException(e.code).message;
+    // } catch (e) {
+    //   throw 'something went wrong. Please try again';
+    // }
   }
 
   // dalete product
   Future<void> delateProducts(ProductModel products) async {
-    try {
-      await _db.runTransaction((transition) async {
-        final brandRef = _db.collection('Products').doc(products.id);
-        final brandSnap = await transition.get(brandRef);
+    // try {
+    //   await _db.runTransaction((transition) async {
+    //     final brandRef = _db.collection('Products').doc(products.id);
+    //     final brandSnap = await transition.get(brandRef);
 
-        if (!brandSnap.exists) {
-          throw Exception('Brand not foud');
-        }
-        final brandCategoriesSnapshot = await _db
-            .collection('ProductCategories')
-            .where('ProductId', isEqualTo: products.id)
-            .get();
-        final brandCategories = brandCategoriesSnapshot.docs.map(
-          (e) => ProductCategoryModel.fromSnapshot(e),
-        );
-        if (brandCategories.isNotEmpty) {
-          for (var brandCategory in brandCategories) {
-            transition.delete(
-              _db.collection('ProductCategories').doc(brandCategory.id),
-            );
-          }
-        }
-        transition.delete(brandRef);
-      });
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on FormatException catch (e) {
-      throw TFormatException(e.message);
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
-    } catch (e) {
-      throw 'something went wrong. Please try again';
-    }
+    //     if (!brandSnap.exists) {
+    //       throw Exception('Brand not foud');
+    //     }
+    //     final brandCategoriesSnapshot = await _db
+    //         .collection('ProductCategories')
+    //         .where('ProductId', isEqualTo: products.id)
+    //         .get();
+    //     final brandCategories = brandCategoriesSnapshot.docs.map(
+    //       (e) => ProductCategoryModel.fromSnapshot(e),
+    //     );
+    //     if (brandCategories.isNotEmpty) {
+    //       for (var brandCategory in brandCategories) {
+    //         transition.delete(
+    //           _db.collection('ProductCategories').doc(brandCategory.id),
+    //         );
+    //       }
+    //     }
+    //     transition.delete(brandRef);
+    //   });
+    // } on FirebaseException catch (e) {
+    //   throw TFirebaseException(e.code).message;
+    // } on FormatException catch (e) {
+    //   throw TFormatException(e.message);
+    // } on PlatformException catch (e) {
+    //   throw TPlatformException(e.code).message;
+    // } catch (e) {
+    //   throw 'something went wrong. Please try again';
+    // }
   }
 
   // Remove Products Category

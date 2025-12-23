@@ -1,5 +1,5 @@
 import 'package:healplus_panel/common/widgets/layouts/templates/site_layouts.dart';
-import 'package:healplus_panel/features/shop/screens/category/all_categories/responsive_screens/categories_desktop.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/all_categories/responsive_screens/categories_desktop.dart';
 import 'package:flutter/material.dart';
 
 class CategoryScreen extends StatelessWidget {

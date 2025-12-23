@@ -21,26 +21,23 @@ class IngredientRepository extends GetxController {
       throw 'Failed to fetch categories: ${e.toString()}';
     }
   }
-
   // Delete an existing category via API
-  Future<void> deleteCategory(String categoryId) async {
+  Future<ApiResponse> deleteIngredient(IngredientModel item) async {
     try {
-      final response = await _apiService.deleteCategory(categoryId);
-      if (!response.success) {
-        throw response.message;
-      }
+      return await _apiService.deleteIngredient(item.iding);
     } catch (e) {
       throw 'Failed to delete category: ${e.toString()}';
     }
   }
 
   // Create Category via API
-  Future<ApiResponse> createCategory(IngredientModel category) async {
+  Future<ApiResponse> createIngredient(IngredientModel item) async {
     try {
       final response = await _apiService.addIngredient(
-        category.title,
-        category.url,
-        category.idc,
+        item.title,
+        item.url,
+        item.isFeatured,
+        item.idc,
       );
 
       // Add the missing if statement
@@ -54,20 +51,20 @@ class IngredientRepository extends GetxController {
     }
   }
 
-  // Update Category via API
-  Future<void> updateCategory(IngredientModel category) async {
-    // try {
-    //   final response = await _apiService.updateCategory(
-    //     category.iding,
-    //     category.title,
-    //     category.url,
-    //     category.isFeatured,
-    //   );
-    //   if (!response.success) {
-    //     throw response.message;
-    //   }
-    // } catch (e) {
-    //   throw 'Failed to update category: ${e.toString()}';
-    // }
+  // Update ingredient
+  Future<void> updateIngredient(IngredientModel item) async {
+    try {
+      final response = await _apiService.updateIngredient(
+        item.iding,
+        item.title,
+        item.url,
+        item.idc,
+      );
+      if (!response.success) {
+        throw response.message;
+      }
+    } catch (e) {
+      throw 'Failed to update ingredient: ${e.toString()}';
+    }
   }
 }

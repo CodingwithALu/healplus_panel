@@ -11,7 +11,7 @@ class IngredientModel {
   String idc;
   bool isFeatured;
   int? quantity;
-  int? percentage;
+  double? percentage;
   DateTime? createAt;
   DateTime? updateAt;
   List<ElementModel>? elements;
@@ -58,7 +58,7 @@ class IngredientModel {
       isFeatured: json['isFeatured'] == 1 || json['isFeatured'] == true,
       idc: json['idc'] ?? '',
       quantity: json['quantity'] ?? 0,
-      percentage: json['percentage'] ?? 0,
+      percentage: json['percentage'] ?? 0.0,
       createAt: json.containsKey('createAt') && json['createAt'] != null
           ? DateTime.parse(json['createAt'])
           : null,

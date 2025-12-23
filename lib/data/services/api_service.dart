@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
+import 'package:healplus_panel/features/shop/models/element_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:healplus_panel/utils/constants/api_constants.dart';
 
@@ -195,11 +196,17 @@ class ApiService {
   Future<ApiResponse> addIngredient(
     String title,
     String url,
+    bool isFeatured,
     String idc,
   ) async {
     final result = await postForm(
       ApiConstants.addIngredientEndpoint,
-      fields: {'title': title, 'url': url, 'idc': idc},
+      fields: {
+        'title': title,
+        'url': url,
+        'isFeatured': isFeatured.toString(),
+        'idc': idc,
+      },
     );
     return ApiResponse.fromJson(result);
   }
@@ -209,11 +216,11 @@ class ApiService {
     String id,
     String title,
     String url,
-    String categoryId,
+    String idc,
   ) async {
     final result = await postForm(
       ApiConstants.updateIngredientEndpoint,
-      fields: {'iding': id, 'title': title, 'url': url, 'idc': categoryId},
+      fields: {'iding': id, 'title': title, 'url': url, 'idc': idc},
     );
     return ApiResponse.fromJson(result);
   }
@@ -230,7 +237,7 @@ class ApiService {
   // ========== ELEMENT ENDPOINTS ==========
 
   /// Get all elements
-  Future<List<dynamic>> getElements() async {
+  Future<Map<String, dynamic>> getElements() async {
     return await get(ApiConstants.elementsEndpoint);
   }
 
@@ -238,7 +245,7 @@ class ApiService {
   Future<ApiResponse> addElement(
     String title,
     String url,
-    String quantity,
+    bool isFeatured,
     String ingredientId,
   ) async {
     final result = await postForm(
@@ -246,7 +253,7 @@ class ApiService {
       fields: {
         'title': title,
         'url': url,
-        'quantity': quantity,
+        'isFeatured': isFeatured.toString(),
         'iding': ingredientId,
       },
     );
@@ -254,22 +261,18 @@ class ApiService {
   }
 
   /// Update element
-  Future<ApiResponse> updateElement(
-    String id,
-    String title,
-    String url,
-    String quantity,
-    String ingredientId,
-  ) async {
+  Future<ApiResponse> updateElement(ElementModel item) async {
+    final data = item.toJson();
+    final fields = {
+      'ide': (data['ide'] ?? '').toString(),
+      'title': (data['title'] ?? '').toString(),
+      'url': (data['url'] ?? '').toString(),
+      'isFeatured': (data['isFeatured'] ?? false).toString(),
+      'iding': (data['iding'] ?? '').toString(),
+    };
     final result = await postForm(
       ApiConstants.updateElementEndpoint,
-      fields: {
-        'ide': id,
-        'title': title,
-        'url': url,
-        'quantity': quantity,
-        'iding': ingredientId,
-      },
+      fields: fields,
     );
     return ApiResponse.fromJson(result);
   }
@@ -286,8 +289,13 @@ class ApiService {
   // ========== PRODUCT ENDPOINTS ==========
 
   /// Get recommended products
-  Future<List<dynamic>> getRecommendedProducts() async {
+  Future<Map<String, dynamic>> getRecommendedProducts() async {
     return await get(ApiConstants.productsEndpoint);
+  }
+
+  /// Get all product
+  Future<Map<String, dynamic>> getAllProduct() async {
+    return await get(ApiConstants.productsAll);
   }
 
   /// Get product by ID

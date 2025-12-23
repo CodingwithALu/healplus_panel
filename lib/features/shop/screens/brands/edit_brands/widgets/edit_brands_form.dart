@@ -1,9 +1,9 @@
 import 'package:healplus_panel/common/widgets/chips/choice_chip.dart';
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:healplus_panel/features/shop/controllers/brands/edit_brands_controller.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
-import 'package:healplus_panel/features/shop/screens/category/create_categories/widgets/image_loader.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/create_ingredinet/widgets/image_loader.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
 import 'package:healplus_panel/utils/constants/image_strings.dart';

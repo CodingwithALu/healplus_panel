@@ -1,6 +1,6 @@
 import 'package:healplus_panel/data/abstract/base_data_table_controller.dart';
-import 'package:healplus_panel/data/repositories/brands/brand_repository.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
+import 'package:healplus_panel/data/repositories/category/category_repository.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/route_manager.dart';
@@ -8,7 +8,7 @@ import 'package:get/route_manager.dart';
 class CategoryController extends TBaseController<CategoryModel> {
   static CategoryController get instance => Get.find();
 
-  final _brandRepository = Get.put(BrandRepository());
+  final _brandRepository = Get.put(CategoryRepository());
   final ingredientController = Get.put(IngredientController());
 
   @override

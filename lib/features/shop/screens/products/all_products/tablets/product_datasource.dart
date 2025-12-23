@@ -1,7 +1,6 @@
 import 'package:healplus_panel/common/widgets/images/t_rounded_image.dart';
 import 'package:healplus_panel/features/shop/controllers/products/products_controller.dart';
-import 'package:healplus_panel/features/shop/screens/category/all_categories/widgets/tablet_action_button.dart';
-import 'package:healplus_panel/l10n/app_localizations.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/all_categories/widgets/tablet_action_button.dart';
 import 'package:healplus_panel/route/route.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
@@ -31,14 +30,14 @@ class ProductDatasource extends DataTableSource {
                 height: 50,
                 padding: TSizes.xs,
                 imageType: ImageType.network,
-                imageUrl: product.thumbnail,
+                imageUrl: product.urls?.first,
                 borderRadius: TSizes.borderRadiusMd,
                 backgroundColor: TColors.primaryBackground,
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Flexible(
                 child: Text(
-                  product.title,
+                  product.name,
                   style: Theme.of(
                     Get.context!,
                   ).textTheme.bodyLarge!.apply(color: TColors.primary),
@@ -56,19 +55,17 @@ class ProductDatasource extends DataTableSource {
                 width: 35,
                 height: 35,
                 padding: TSizes.xs,
-                imageType: product.brand != null
+                imageType: product.urls?.last != null
                     ? ImageType.network
                     : ImageType.asset,
-                imageUrl: product.brand != null
-                    ? product.brand!.image
-                    : TImages.nikeLogo,
+                imageUrl: product.urls?.last ?? TImages.nikeLogo,
                 borderRadius: TSizes.borderRadiusMd,
                 backgroundColor: TColors.primaryBackground,
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Flexible(
                 child: Text(
-                  product.brand != null ? product.brand!.name : '',
+                  product.elements != null ? product.elements! : '',
                   style: Theme.of(
                     Get.context!,
                   ).textTheme.bodyLarge!.apply(color: TColors.primary),
@@ -77,14 +74,8 @@ class ProductDatasource extends DataTableSource {
             ],
           ),
         ),
-        DataCell(Text('\$${controller.getProductPrice(product)}')),
-        DataCell(
-          Text(
-            product.formattedOrderDate(
-              AppLocalizations.of(Get.context!)!.localeName,
-            ),
-          ),
-        ),
+        DataCell(Text(product.price)),
+        DataCell(Text(product.productionDate)),
         DataCell(
           TTabletActionButtons(
             onEditPressed: () =>

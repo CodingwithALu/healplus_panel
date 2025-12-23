@@ -4,7 +4,7 @@ import 'package:healplus_panel/features/shop/controllers/products/edit_product_c
 import 'package:healplus_panel/features/shop/controllers/products/product_images_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/products_variation_controller.dart';
 import 'package:healplus_panel/features/shop/models/product_variation_model.dart';
-import 'package:healplus_panel/features/shop/screens/category/create_categories/widgets/image_loader.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/create_ingredinet/widgets/image_loader.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';

@@ -1,152 +1,166 @@
-import 'package:healplus_panel/features/shop/models/product_attribute_model.dart';
-import 'package:healplus_panel/features/shop/models/product_variation_model.dart';
-import 'package:healplus_panel/utils/formatters/formatter.dart';
-import 'package:healplus_panel/utils/helpers/helper_functions.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import 'category_model.dart';
+import 'package:healplus_panel/features/shop/models/product_ingre_model.dart';
+import 'package:healplus_panel/features/shop/models/review_item_model.dart';
+import 'package:healplus_panel/features/shop/models/unit_name_model.dart';
 
 class ProductModel {
-  String id;
-  int stock;
-  String? sku;
-  double price;
-  String title;
-  DateTime? date;
-  double salePrices;
-  String thumbnail;
-  bool? isFeatured;
-  CategoryModel? brand;
-  String? description;
-  List<String>? images;
-  String productType;
-  int soldQuantity;
-  List<ProductAttributeModel>? productAttribute;
-  List<ProductVariationModel>? productVariations;
+  String idp;
+  String name;
+  String trademark;
+  double rating;
+  int review;
+  int sold;
+  String expiry;
+  String price;
+  String preparation;
+  String origin;
+  String manufacturer;
+  String description;
+  String ide;
+  String productionDate;
+  String specification;
+  String ingredient;
+  int quantity;
+  String uses;
+  String toUse;
+  String sideEffects;
+  String preserver;
+  List<String>? urls;
+  List<UnitNameModel>? unitNames;
+  String? elements;
+  List<ProductIngreModel>? ingredients;
+  List<ReviewItemModel>? reviewItems;
 
   ProductModel({
-    required this.id,
-    required this.title,
-    required this.stock,
+    required this.idp,
+    required this.name,
+    required this.trademark,
+    required this.rating,
+    required this.review,
+    required this.sold,
+    required this.expiry,
     required this.price,
-    required this.thumbnail,
-    required this.productType,
-    this.soldQuantity = 0,
-    this.sku,
-    this.brand,
-    this.date,
-    this.images,
-    this.salePrices = 0.0,
-    this.isFeatured,
-    this.description,
-    this.productAttribute,
-    this.productVariations,
+    required this.preparation,
+    required this.origin,
+    required this.manufacturer,
+    required this.description,
+    required this.ide,
+    required this.productionDate,
+    required this.specification,
+    required this.ingredient,
+    required this.quantity,
+    required this.uses,
+    required this.toUse,
+    required this.sideEffects,
+    required this.preserver,
+    this.urls,
+    this.unitNames,
+    this.elements,
+    this.ingredients,
+    this.reviewItems,
   });
-  String formattedOrderDate([String? locale]) =>
-      THelperFunctions.getFormattedDate(date!, locale: locale);
-  String get formattedDate => TFormatter.formatDate(date);
+  // String formattedOrderDate([String? locale]) =>
+  //     THelperFunctions.getFormattedDate(productionDate, locale: locale);
+  // String get formattedDate => TFormatter.formatDate(productionDate);
 
   /// Create Empty func for clean code
   static ProductModel empty() => ProductModel(
-    id: '',
-    title: '',
-    stock: 0,
-    price: 0,
-    thumbnail: '',
-    productType: '',
+    idp: '',
+    name: '',
+    trademark: '',
+    rating: 0.0,
+    review: 0,
+    sold: 0,
+    expiry: '',
+    price: '',
+    preparation: '',
+    origin: '',
+    manufacturer: '',
+    description: '',
+    ide: '',
+    productionDate: '',
+    specification: '',
+    ingredient: '',
+    quantity: 0,
+    uses: '',
+    toUse: '',
+    sideEffects: '',
+    preserver: '',
+    urls: [],
+    unitNames: [],
+    elements: '',
+    ingredients: [],
+    reviewItems: [],
   );
 
   /// Json Format
-  toJson() {
+  Map<String, dynamic> toJson() {
     return {
-      'Title': title,
-      'SKU': sku,
-      'Stock': stock,
-      'Price': price,
-      'Image': images ?? [],
-      'Thumbnail': thumbnail,
-      'SalePrice': salePrices,
-      'IsFeatured': isFeatured,
-      'Brand': brand!.toJson(),
-      'Description': description,
-      'ProductType': productType,
-      'SoldQuantity': soldQuantity,
-      'ProductAttributes': productAttribute != null
-          ? productAttribute!.map((item) => item.toJson()).toList()
-          : [],
-      'ProductVariations': productVariations != null
-          ? productVariations!.map((item) => item.toJson()).toList()
-          : [],
-      'Data': date,
+      'idp': idp,
+      'name': name,
+      'trademark': trademark,
+      'rating': rating,
+      'review': review,
+      'sold': sold,
+      'expiry': expiry,
+      'price': price,
+      'preparation': preparation,
+      'origin': origin,
+      'manufacturer': manufacturer,
+      'description': description,
+      'ide': ide,
+      'productionDate': productionDate,
+      'specification': specification,
+      'ingredient': ingredient,
+      'quantity': quantity,
+      'uses': uses,
+      'toUse': toUse,
+      'sideEffects': sideEffects,
+      'preserver': preserver,
+      'urls': urls,
+      'unitNames': unitNames?.map((e) => e.toJson()).toList(),
+      'elements': elements,
+      'ingredients': ingredients?.map((e) => e.toJson()).toList(),
+      'reviewItems': reviewItems?.map((e) => e.toJson()).toList(),
     };
   }
 
-  // Map Jon oriented document snapshot from Firebase to Model
-  factory ProductModel.fromSnapshot(
-    DocumentSnapshot<Map<String, dynamic>> document,
-  ) {
-    if (document.data() != null) {
-      final data = document.data()!;
-      return ProductModel(
-        id: document.id,
-        sku: data['SKU'] ?? '',
-        title: data['Title'] ?? '',
-        stock: data['Stock'] ?? 0,
-        price: double.parse((data['Price'] ?? 0.0).toString()),
-        salePrices: double.parse((data['SalePrice'] ?? 0.0).toString()),
-        thumbnail: data['Thumbnail'] ?? '',
-        description: data['Description'] ?? '',
-        productType: data['ProductType'] ?? '',
-        brand: CategoryModel.formJson(data['Brand']),
-        images: data['Image'] != null ? List<String>.from(data['Image']) : [],
-        productAttribute: (data['ProductAttributes'] as List<dynamic>)
-            .map((e) => ProductAttributeModel.fromJson(e))
-            .toList(),
-        productVariations: (data['ProductVariations'] as List<dynamic>)
-            .map((e) => ProductVariationModel.fromJson(e))
-            .toList(),
-        soldQuantity: data.containsKey('SoldQuantity')
-            ? data['SoldQuantity'] ?? 0
-            : 0,
-        isFeatured: data['IsFeatured'] ?? false,
-        date: data['Date'] ?? DateTime.now(),
-      );
-    } else {
-      return ProductModel.empty();
-    }
-  }
-  // Map Jon-oriented document snapshot from Firebase to Model
-  factory ProductModel.fromQuerySnapshot(
-    QueryDocumentSnapshot<Object?> document,
-  ) {
-    if (document.data() != null) {
-      final data = document.data() as Map<String, dynamic>;
-      return ProductModel(
-        id: document.id,
-        sku: data['SKU'] ?? '',
-        title: data['Title'] ?? '',
-        stock: data['Stock'] ?? 0,
-        soldQuantity: data.containsKey('SoldQuantity')
-            ? data['SoldQuantity'] ?? 0
-            : 0,
-        price: double.parse((data['Price'] ?? 0.0).toString()),
-        salePrices: double.parse((data['SalePrice'] ?? 0.0).toString()),
-        thumbnail: data['Thumbnail'] ?? '',
-        description: data['Description'] ?? '',
-        productType: data['ProductType'] ?? '',
-        brand: CategoryModel.formJson(data['Brand']),
-        images: data['Image'] != null ? List<String>.from(data['Image']) : [],
-        productAttribute: (data['ProductAttributes'] as List<dynamic>)
-            .map((e) => ProductAttributeModel.fromJson(e))
-            .toList(),
-        productVariations: (data['ProductVariations'] as List<dynamic>)
-            .map((e) => ProductVariationModel.fromJson(e))
-            .toList(),
-        isFeatured: data['IsFeatured'] ?? false,
-        date: data['Date'] ?? DateTime.now(),
-      );
-    } else {
-      return ProductModel.empty();
-    }
+  // Map JSON to Model
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      idp: json['idp'].toString(),
+      name: json['name'] ?? '',
+      trademark: json['trademark'] ?? '',
+      rating: json['rating'] ?? 0.0,
+      review: json['review'] ?? 0,
+      sold: json['sold'] ?? 0,
+      expiry: json['expiry'] ?? '',
+      price: json['price'] ?? '',
+      preparation: json['preparation'] ?? '',
+      origin: json['origin'] ?? '',
+      manufacturer: json['manufacturer'] ?? '',
+      description: json['description'] ?? '',
+      ide: json['ide'] ?? '',
+      productionDate: json['productionDate'] ?? '',
+      specification: json['specification'] ?? '',
+      ingredient: json['ingredient'] ?? '',
+      quantity: json['quantity'] ?? 0,
+      uses: json['uses'] ?? '',
+      toUse: json['toUse'] ?? '',
+      sideEffects: json['sideEffects'] ?? '',
+      preserver: json['preserver'] ?? '',
+      urls: (json['urls'] as List<dynamic>? ?? [])
+          .map((e) => e.toString())
+          .toList(),
+      unitNames: (json['unitNames'] as List<dynamic>? ?? [])
+          .map((e) => UnitNameModel.formJson(e as Map<String, dynamic>))
+          .toList(),
+      elements: json['elements'] ?? '',
+      ingredients: (json['ingredients'] as List<dynamic>? ?? [])
+          .map((e) => ProductIngreModel.formJson(e as Map<String, dynamic>))
+          .toList(),
+      reviewItems: (json['reviewItems'] as List<dynamic>? ?? [])
+          .map((e) => ReviewItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
   }
 }

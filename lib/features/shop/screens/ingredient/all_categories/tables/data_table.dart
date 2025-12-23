@@ -1,6 +1,6 @@
 import 'package:healplus_panel/common/widgets/data_table/paginated_data_table.dart';
-import 'package:healplus_panel/features/shop/controllers/categories/category_controller.dart';
-import 'package:healplus_panel/features/shop/screens/category/all_categories/tables/table_source.dart';
+import 'package:healplus_panel/features/shop/controllers/ingredient/category_controller.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/all_categories/tables/table_source.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +28,13 @@ class TCategoryTablets extends StatelessWidget {
             onSort: (columnIndex, ascending) =>
                 controller.sortByName(columnIndex, ascending),
           ),
+          DataColumn2(
+            label: Text(local.parentCategoryColumn),
+            onSort: (columnIndex, ascending) =>
+                controller.sortByParentName(columnIndex, ascending),
+          ),
           DataColumn2(label: Text(local.featuredColumn)),
-          DataColumn2(label: Text("Số lượng")),
+          DataColumn2(label: Text("Số lượng sản phẩm")),
           DataColumn2(label: Text(local.dateColumn)),
           DataColumn2(label: Text(local.action), fixedWidth: 100),
         ],

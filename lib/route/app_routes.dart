@@ -10,9 +10,9 @@ import 'package:healplus_panel/features/shop/screens/banners/edit_banners/edit_b
 import 'package:healplus_panel/features/shop/screens/brands/all_brands/all_brands.dart';
 import 'package:healplus_panel/features/shop/screens/brands/create_brands/create_brands.dart';
 import 'package:healplus_panel/features/shop/screens/brands/edit_brands/edit_brands.dart';
-import 'package:healplus_panel/features/shop/screens/category/all_categories/category_screen.dart';
-import 'package:healplus_panel/features/shop/screens/category/create_categories/categoris_create.dart';
-import 'package:healplus_panel/features/shop/screens/category/edit_categories/edit_category.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/all_categories/category_screen.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/create_ingredinet/categoris_create.dart';
+import 'package:healplus_panel/features/shop/screens/ingredient/edit_categories/edit_category.dart';
 import 'package:healplus_panel/features/shop/screens/customers/all_customers/customer_screen.dart';
 import 'package:healplus_panel/features/shop/screens/customers/customer_details/customer_details_screen.dart';
 import 'package:healplus_panel/features/shop/screens/dashboard/dashboard_screen.dart';
