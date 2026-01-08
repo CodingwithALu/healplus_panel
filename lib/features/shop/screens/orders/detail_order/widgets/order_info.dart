@@ -3,6 +3,7 @@ import 'package:healplus_panel/common/widgets/shimmer/shimmer.dart';
 import 'package:healplus_panel/features/shop/controllers/order/oder_controller.dart';
 import 'package:healplus_panel/features/shop/models/order_model.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
+import 'package:healplus_panel/utils/constants/Tcurrency_formatter.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:healplus_panel/utils/devices/device_utility.dart';
@@ -38,24 +39,26 @@ class OrderInfoScreen extends StatelessWidget {
                   children: [
                     Text(local.orderDate),
                     Text(
-                      orderModel.formattedOrderDate(local.localeName),
+                      orderModel.orderDate,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
                 ),
               ),
+              // lenght
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(local.orderItems),
                     Text(
-                      '${orderModel.items.length}',
+                      '${orderModel.quantity}',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
                 ),
               ),
+              //status
               Expanded(
                 flex: TDeviceUtils.isMobileScreen(context) ? 2 : 1,
                 child: Column(
@@ -116,8 +119,7 @@ class OrderInfoScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(local.orderTotal),
-                    Text(
-                      '\$${orderModel.totalAmount}',
+                    Text(TCurrencyFormatter.formatVND(orderModel.sumMoney.toInt()),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],

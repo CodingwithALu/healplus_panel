@@ -15,7 +15,7 @@ class OrderDetailController extends GetxController {
     try {
       loading.value = true;
       final user = await UserRepository.instance.fetchUsersDetails(
-        order.value.userId,
+        order.value.idauth,
       );
       users.value = user;
     } catch (e) {

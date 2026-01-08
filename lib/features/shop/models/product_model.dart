@@ -29,6 +29,7 @@ class ProductModel {
   String? elements;
   List<ProductIngreModel>? ingredients;
   List<ReviewItemModel>? reviewItems;
+  int? total = 0;
 
   ProductModel({
     required this.idp,
@@ -57,6 +58,7 @@ class ProductModel {
     this.elements,
     this.ingredients,
     this.reviewItems,
+    this.total,
   });
   // String formattedOrderDate([String? locale]) =>
   //     THelperFunctions.getFormattedDate(productionDate, locale: locale);
@@ -95,7 +97,6 @@ class ProductModel {
   /// Json Format
   Map<String, dynamic> toJson() {
     return {
-      'idp': idp,
       'name': name,
       'trademark': trademark,
       'rating': rating,
@@ -161,6 +162,7 @@ class ProductModel {
       reviewItems: (json['reviewItems'] as List<dynamic>? ?? [])
           .map((e) => ReviewItemModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      total: json['total'] ?? 0,
     );
   }
 }

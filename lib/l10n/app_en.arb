@@ -1,4 +1,4 @@
-{
+    {
     "@@locale": "en",
     "adminEmail": "support@codingwitht.com",
     "@adminEmail": {
@@ -1165,5 +1165,13 @@
     "media_folder_others": "Others",
     "@media_folder_others": {
         "description": "Default folder name for miscellaneous images"
+    },
+    "productPreparation": "Preparation",
+    "@productPreparation": {
+        "description": "Product preparation field label"
+    },
+    "productSpecification": "Specification",
+    "@productSpecification": {
+        "description": "Product specification field label"
     }
 }

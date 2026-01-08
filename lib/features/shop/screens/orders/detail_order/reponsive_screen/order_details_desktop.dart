@@ -26,7 +26,7 @@ class OrderDetailsDesktop extends StatelessWidget {
             // Breandcrombs
             TBreadcrumbWithHeading(
               returnToPreviousScreen: true,
-              heading: orderModel.id,
+              heading: orderModel.docId,
               breadcrumbItems: [
                 BreadcrumbItem(local.ordersStoragePath, route: TRoutes.orders),
                 BreadcrumbItem(local.orderDetailsBreadcrumb),

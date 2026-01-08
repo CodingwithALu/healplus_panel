@@ -67,7 +67,7 @@ class CreateProductMobileScreen extends StatelessWidget {
                     const ProductStockAndPricing(),
                     const SizedBox(height: TSizes.spaceBtwSections),
                     // Attributes
-                    const ProductAttributes(),
+                    const ProductIngredient(),
                     const SizedBox(height: TSizes.spaceBtwSections),
                   ],
                 ),

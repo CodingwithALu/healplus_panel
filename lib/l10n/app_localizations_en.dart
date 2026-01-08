@@ -858,4 +858,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get hidden => 'Hidden';
+
+  @override
+  String get media_error_upload_images_title => 'Error Uploading Images';
+
+  @override
+  String get media_error_upload_images_message => 'Something went wrong while uploading your images';
+
+  @override
+  String get media_delete_image_confirmation => 'Are you sure you want to delete this image?';
+
+  @override
+  String get media_image_deleted_title => 'Image Deleted';
+
+  @override
+  String get media_image_deleted_message => 'Image successfully deleted from your cloud storage';
+
+  @override
+  String get media_error_general_title => 'Oh Snap';
+
+  @override
+  String get media_folder_others => 'Others';
+
+  @override
+  String get productPreparation => 'Preparation';
+
+  @override
+  String get productSpecification => 'Specification';
 }

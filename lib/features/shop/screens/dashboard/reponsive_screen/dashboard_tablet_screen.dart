@@ -43,7 +43,7 @@ class DashboardTabletScreen extends StatelessWidget {
                         stas: 25,
                         title: local.salesTotal,
                         subtitle:
-                            '\$${controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.totalAmount).toStringAsFixed(2)}',
+                            '\$${controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.sumMoney).toStringAsFixed(2)}',
                       ),
                     ),
                   ),
@@ -59,7 +59,7 @@ class DashboardTabletScreen extends StatelessWidget {
                         stas: 15,
                         title: local.averageOrder,
                         subtitle:
-                            '\$${(controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.totalAmount) / controller.orderController.allItems.length).toStringAsFixed(2)}',
+                            '\$${(controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.sumMoney) / controller.orderController.allItems.length).toStringAsFixed(2)}',
                       ),
                     ),
                   ),

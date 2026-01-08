@@ -1014,11 +1014,11 @@
     "@saveChanges": {
         "description": "Văn bản nút lưu thay đổi"
     },
-    "brand": "Thương hiệu",
+    "brand": "Danh mục",
     "@brand": {
         "description": "Tiêu đề phần thương hiệu"
     },
-    "selectBrand": "Chọn thương hiệu",
+    "selectBrand": "Chọn Danh mục",
     "@selectBrand": {
         "description": "Nhãn trường chọn thương hiệu"
     },
@@ -1030,7 +1030,7 @@
     "@add": {
         "description": "Văn bản nút thêm"
     },
-    "attributeName": "Tên thuộc tính",
+    "attributeName": "Tên thành phần",
     "@attributeName": {
         "description": "Nhãn trường tên thuộc tính"
     },
@@ -1038,7 +1038,7 @@
     "@attributeNameHint": {
         "description": "Gợi ý cho trường tên thuộc tính"
     },
-    "attribute": "Thuộc tính",
+    "attribute": "Thành phần",
     "@attribute": {
         "description": "Nhãn trường thuộc tính"
     },
@@ -1058,7 +1058,7 @@
     "@generateVariations": {
         "description": "Văn bản nút tạo biến thể"
     },
-    "allAttribute": "Tất cả thuộc tính",
+    "allAttribute": "Danh sách",
     "@allAttribute": {
         "description": "Tiêu đề phần tất cả thuộc tính"
     },
@@ -1114,7 +1114,7 @@
     "@removeVariations": {
         "description": "Nút xóa biến thể sản phẩm"
     },
-    "noVariationsMessage": "Chưa có biến thể nào được thêm cho sản phẩm này",
+    "noVariationsMessage": "Chưa có đơn vị nào được thêm cho sản phẩm này",
     "@noVariationsMessage": {
         "description": "Thông báo khi chưa có biến thể nào được thêm"
     },
@@ -1165,5 +1165,13 @@
     "media_folder_others": "Khác",
     "@media_folder_others": {
         "description": "Tên thư mục mặc định cho ảnh khác"
+    },
+    "productPreparation": "Dạng bào chế",
+    "@productPreparation": {
+        "description": "Nhãn trường chuẩn bị sản phẩm"
+    },
+    "productSpecification": "Quy cách",
+    "@productSpecification": {
+        "description": "Nhãn trường thông số kỹ thuật sản phẩm"
     }
 }

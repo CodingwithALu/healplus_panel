@@ -120,13 +120,14 @@ class UserRepository extends GetxController {
 
   Future<List<OrderModel>> fetchUserOrders(String userId) async {
     try {
-      final docSnapsnot = await _db
-          .collection('Orders')
-          .where('userId', isEqualTo: userId)
-          .get();
-      return docSnapsnot.docs
-          .map((item) => OrderModel.fromSnapshot(item))
-          .toList();
+      // final docSnapsnot = await _db
+      //     .collection('Orders')
+      //     .where('userId', isEqualTo: userId)
+      //     .get();
+      // return docSnapsnot.docs
+      //     .map((item) => OrderModel.fromJson)
+      //     .toList();
+      return [];
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FormatException catch (_) {

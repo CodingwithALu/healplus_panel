@@ -16,8 +16,14 @@ class OrderTableScreen extends StatelessWidget {
     final controller = OrderController.instance;
     final local = AppLocalizations.of(context)!;
     return Obx(() {
-      Text(controller.filteredItems.length.toString());
-      Text(controller.selectedRows.length.toString());
+      Visibility(
+        visible: false,
+        child: Text(controller.filteredItems.length.toString()),
+      );
+      Visibility(
+        visible: false,
+        child: Text(controller.selectedRows.length.toString()),
+      );
       return TPaginateDataTable(
         sortAscending: controller.sortAscending.value,
         sortColumnIndex: controller.sortColumnIndex.value,

@@ -74,7 +74,7 @@ class ProductDatasource extends DataTableSource {
             ],
           ),
         ),
-        DataCell(Text(product.price)),
+        DataCell(Text(product.price.toString())),
         DataCell(Text(product.productionDate)),
         DataCell(
           TTabletActionButtons(

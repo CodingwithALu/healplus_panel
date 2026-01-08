@@ -1,4 +1,3 @@
-import 'package:healplus_panel/utils/constants/image_strings.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -15,12 +14,8 @@ class TLoginHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Image(
-            image: AssetImage(TImages.hmoobLogos),
-            width: 130,
-            height: 130,
-          ),
-          const SizedBox(height: TSizes.spaceBtwSections),
+          // Image(image: AssetImage(TImages.hmoobLogos), width: 130, height: 55),
+          // const SizedBox(height: TSizes.spaceBtwSections),
           Text(
             local.loginTitle,
             style: Theme.of(context).textTheme.headlineMedium,

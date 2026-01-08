@@ -45,15 +45,15 @@ class DashboardController extends TBaseController<OrderModel> {
     weeklySales.value = List<double>.filled(7, 0.0);
     for (var order in orderController.allItems) {
       final DateTime orderWeekStart = THelperFunctions.getStartOfWeek(
-        order.orderDate,
+        DateTime.parse(order.orderDate),
       );
       // Check if the order is within the current week
       if (orderWeekStart.isBefore(DateTime.now()) &&
           orderWeekStart.add(const Duration(days: 7)).isAfter(DateTime.now())) {
-        int index = (order.orderDate.weekday - 1) % 7;
+        int index = (DateTime.parse(order.orderDate).weekday - 1) % 7;
         // Ensure the index is non-negative
         index = index < 0 ? index + 7 : index;
-        weeklySales[index] += order.totalAmount;
+        weeklySales[index] += order.sumMoney;
       }
     }
   }
@@ -71,7 +71,7 @@ class DashboardController extends TBaseController<OrderModel> {
       // Cap nhat so luong don hang bang khoa trang thai
       orderStatusData[status] = (orderStatusData[status] ?? 0) + 1;
       // Tinh  toan tong so tien theo trang thai don hang
-      totalAmounts[status] = (totalAmounts[status] ?? 0) + order.totalAmount;
+      totalAmounts[status] = (totalAmounts[status] ?? 0) + order.sumMoney;
     }
   }
 

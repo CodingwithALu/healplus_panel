@@ -32,7 +32,7 @@ class EditProductController extends GetxController {
   final productRepository = Get.put(ProductRepository());
   final titleDescriptionFromKey = GlobalKey<FormState>();
   final imagesController = Get.put(ProductImagesController());
-  final attributesController = Get.put(ProductAttributeController());
+  final attributesController = Get.put(ProductIngradientController());
   final variationsController = Get.put(ProductVariationController());
 
   // Text editing controlller for input fields
@@ -147,7 +147,7 @@ class EditProductController extends GetxController {
       if (selectedBrand.value == null) throw 'Select Brand for this product';
       // Check variation data if ProductType = Variable
       if (productType.value == ProductType.variable &&
-          ProductVariationController.instance.productVariations.isEmpty) {
+          variationsController.productVariations.isEmpty) {
         throw 'There are no variations for the Product Type Variable. Create some variations or change Product type.';
       }
 

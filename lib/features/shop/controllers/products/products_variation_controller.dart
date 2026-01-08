@@ -30,7 +30,7 @@ class ProductVariationController extends GetxController {
   descriprionControllerList = [];
 
   // instance AttributeController
-  final attributeController = Get.put(ProductAttributeController());
+  final attributeController = Get.put(ProductIngradientController());
 
   // Method to ensure controllers are in sync with variations
   void _ensureControllersSync() {
@@ -124,30 +124,30 @@ class ProductVariationController extends GetxController {
     final List<ProductVariationModel> variations = [];
 
     // Check if there are attributes
-    if (attributeController.productAttributes.isNotEmpty) {
-      // Get all combinations of attribute values, e.g., [Green, Blue], [Small, Large]
-      final List<List<String>> attributeCombinations = getCombinations(
-        attributeController.productAttributes
-            .map((attr) => attr.value ?? <String>[])
-            .toList(),
-      );
+    // if (attributeController.productAttributes.isNotEmpty) {
+    //   // Get all combinations of attribute values, e.g., [Green, Blue], [Small, Large]
+    //   final List<List<String>> attributeCombinations = getCombinations(
+    //     attributeController.productAttributes
+    //         .map((attr) => attr.value ?? <String>[])
+    //         .toList(),
+    //   );
 
-      // Generate ProductVariationModel for each combination
-      for (final combination in attributeCombinations) {
-        final Map<String, String> attributeValues = Map.fromIterables(
-          attributeController.productAttributes.map((attr) => attr.name ?? ''),
-          combination,
-        );
+    //   // Generate ProductVariationModel for each combination
+    //   for (final combination in attributeCombinations) {
+    //     final Map<String, String> attributeValues = Map.fromIterables(
+    //       attributeController.productAttributes.map((attr) => attr.title),
+    //       combination,
+    //     );
 
-        // You can set default values for other properties if needed
-        final ProductVariationModel variation = ProductVariationModel(
-          id: UniqueKey().toString(),
-          attributeValue: attributeValues,
-        );
+    //     // You can set default values for other properties if needed
+    //     final ProductVariationModel variation = ProductVariationModel(
+    //       id: UniqueKey().toString(),
+    //       attributeValue: attributeValues,
+    //     );
 
-        variations.add(variation);
-      }
-    }
+    //     variations.add(variation);
+    //   }
+    // }
 
     // Assign variations and sync controllers
     productVariations.assignAll(variations);

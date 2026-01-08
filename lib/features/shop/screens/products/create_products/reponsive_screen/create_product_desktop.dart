@@ -7,10 +7,13 @@ import 'package:healplus_panel/features/shop/screens/products/create_products/wi
 import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_bottom_navigation_button.dart';
 import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_brands.dart';
 import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_categories.dart';
+import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_expiry.dart';
+import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_manufacturer.dart';
+import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_origin.dart';
 import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_stock_pricing.dart';
 import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_thumbnail_image.dart';
 import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_title_and_description.dart';
-import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_type_widget.dart';
+import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_trademark.dart';
 import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_variations.dart';
 import 'package:healplus_panel/features/shop/screens/products/create_products/widgets/product_visibility_widgets.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
@@ -77,15 +80,15 @@ class CreateProductDesktopScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: TSizes.spaceBtwItems),
                               // Product Type
-                              const ProductTypeWidget(),
-                              const SizedBox(
-                                height: TSizes.spaceBtwInputFields,
-                              ),
-                              // Stock
+                              // const ProductTypeWidget(),
+                              // const SizedBox(
+                              //   height: TSizes.spaceBtwInputFields,
+                              // ),
+                              //Stock
                               const ProductStockAndPricing(),
                               const SizedBox(height: TSizes.spaceBtwSections),
                               // Attributes
-                              const ProductAttributes(),
+                              const ProductIngredient(),
                               const SizedBox(height: TSizes.spaceBtwSections),
                             ],
                           ),
@@ -138,6 +141,13 @@ class CreateProductDesktopScreen extends StatelessWidget {
                         const ProductCategoriesScreen(),
                         const SizedBox(height: TSizes.spaceBtwSections),
                         // Product Visibility
+                        const ProductTrademarkScreen(),
+                        const SizedBox(height: TSizes.spaceBtwSections),
+                        const ProductOriginScreen(),
+                        const SizedBox(height: TSizes.spaceBtwSections),
+                        const ProductManufacturerScreen(),
+                        const SizedBox(height: TSizes.spaceBtwSections),
+                        const ProductExpiryScreen(),
                         const ProductVisibilityWidgets(),
                         const SizedBox(height: TSizes.spaceBtwSections),
                       ],

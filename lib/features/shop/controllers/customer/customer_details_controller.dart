@@ -79,7 +79,7 @@ class CustomerDetailController extends GetxController {
     filteredCustomerOrders.assignAll(
       allCustomerOrders.where(
         (customer) =>
-            customer.id.toLowerCase().contains(query.toLowerCase()) ||
+            customer.id.toString().toLowerCase().contains(query.toLowerCase()) ||
             customer.orderDate.toString().contains(query.toLowerCase()),
       ),
     );
@@ -93,9 +93,9 @@ class CustomerDetailController extends GetxController {
     sortAscending.value = ascending;
     filteredCustomerOrders.sort((a, b) {
       if (ascending) {
-        return a.id.toLowerCase().compareTo(b.id.toLowerCase());
+        return a.id.toString().toLowerCase().compareTo(b.id.toString().toLowerCase());
       } else {
-        return b.id.toLowerCase().compareTo(a.id.toLowerCase());
+        return b.id.toString().toLowerCase().compareTo(a.id.toString().toLowerCase());
       }
     });
     this.sortColumnIndex.value = sortColumnIndex;

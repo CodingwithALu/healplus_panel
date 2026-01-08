@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'package:healplus_panel/features/media/models/image_modle.dart';
 import 'package:healplus_panel/features/shop/models/category_model.dart';
 import 'package:healplus_panel/features/shop/models/element_model.dart';
+import 'package:healplus_panel/features/shop/models/product_model.dart';
+import 'package:healplus_panel/utils/constants/enums.dart';
 import 'package:http/http.dart' as http;
 import 'package:healplus_panel/utils/constants/api_constants.dart';
 
@@ -180,6 +183,44 @@ class ApiService {
     return await get(ApiConstants.bannersEndpoint);
   }
 
+  // ========== IMAGES ENDPOINTS ==========
+  Future<ApiResponse> addImages(ImageModel item) async {
+    final data = item.toJSon();
+    final fields = <String, String>{
+      'url': (data['url'] ?? '').toString(),
+      'folder': (data['folder'] ?? '').toString(),
+      'fileName': (data['fileName'] ?? '').toString(),
+      'fullPath': (data['fullPath'] ?? '').toString(),
+      'createAt': (data['createAt'] ?? '').toString(),
+      'updateAt': (data['updateAt'] ?? '').toString(),
+      'contentType': (data['contentType'] ?? '').toString(),
+      'sizeBytes': (data['sizeBytes'] ?? 0).toString(),
+      'mediaCategory': (data['mediaCategory'] ?? '').toString(),
+    };
+    final result = await postForm(
+      ApiConstants.addImageEndpoint,
+      fields: fields,
+    );
+    print("result: ${ApiResponse.fromJson(result)}");
+    return ApiResponse.fromJson(result);
+  }
+
+  // Fetch Image
+  Future<Map<String, dynamic>> fetchImages(
+    MediaCategory mediaCategory,
+    int loadCount,
+  ) async {
+    final fields = <String, String>{
+      'mediaCategory': mediaCategory.name.toString(),
+      'loadCount': loadCount.toString(),
+    };
+    final result = await get(
+      ApiConstants.fetchImageEndpoint,
+      queryParams: fields,
+    );
+    print("result: $result");
+    return result;
+  }
   // ========== INGREDIENT ENDPOINTS ==========
 
   /// Get all ingredients
@@ -323,11 +364,8 @@ class ApiService {
   }
 
   /// Get products by element
-  Future<List<dynamic>> getProductsByElement(String elementId) async {
-    return await get(
-      ApiConstants.productsByElementEndpoint,
-      queryParams: {'id': elementId},
-    );
+  Future<void> deleteProduct(String idp) async {
+    return await postForm(ApiConstants.deteleProduct, fields: {'idp': idp});
   }
 
   /// Search products
@@ -336,6 +374,35 @@ class ApiService {
       ApiConstants.searchEndpoint,
       queryParams: {'search': query},
     );
+  }
+
+  /// Create products
+  Future<ApiResponse> createProduct(ProductModel product) async {
+    final data = product.toJson();
+    final fields = <String, String>{
+      'name': (data['name'] ?? '').toString(),
+      'trademark': (data['trademark'] ?? '').toString(),
+      'expiry': (data['expiry'] ?? '').toString(),
+      'preparation': (data['preparation'] ?? '').toString(),
+      'specification': (data['specification'] ?? '').toString(),
+      'origin': (data['origin'] ?? '').toString(),
+      'manufacturer': (data['manufacturer'] ?? '').toString(),
+      'production': (data['production'] ?? '').toString(),
+      'ingredient': (data['ingredient'] ?? false).toString(),
+      'description': (data['description'] ?? '').toString(),
+      'quantity': (data['quantity'] ?? 0).toString(),
+      'ide': (data['ide'] ?? '').toString(),
+      'productiondate': (data['productionDate'] ?? '').toString(),
+      'uses': (data['uses'] ?? false).toString(),
+      'toUse': (data['toUse'] ?? '').toString(),
+      'sideEffects': (data['sideEffects'] ?? '').toString(),
+      'preserver': (data['preserver'] ?? '').toString(),
+      'urls': jsonEncode(data['urls'] ?? []),
+      'unitNames': jsonEncode(data['unitNames'] ?? []),
+      'ingredients': jsonEncode(data['ingredients'] ?? []),
+    };
+    final result = await postForm(ApiConstants.createProduct, fields: fields);
+    return ApiResponse.fromJson(result);
   }
 
   // ========== ORDER ENDPOINTS ==========
@@ -370,6 +437,10 @@ class ApiService {
       fields: {'id': orderId.toString(), 'status': status},
     );
     return ApiResponse.fromJson(result);
+  }
+
+  Future<void> deleteOrder(String idp) async {
+    return await postForm(ApiConstants.deleteOrder, fields: {'id': idp});
   }
 
   // ========== USER ENDPOINTS ==========

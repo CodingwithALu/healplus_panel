@@ -43,12 +43,12 @@ class OrderTransactions extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${local.paymentVia} ${orders.paymentMethod.capitalize}',
+                            '${local.paymentVia} ${orders.address.capitalize}',
                             style: Theme.of(context).textTheme.labelLarge,
                           ),
                           // Adjust your Payment Method Fee if any
                           Text(
-                            '${orders.paymentMethod.capitalize} ${local.fee} \$25',
+                            '${orders.address.capitalize} ${local.fee} \$25',
                             style: Theme.of(context).textTheme.labelMedium,
                           ),
                         ],
@@ -66,7 +66,7 @@ class OrderTransactions extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                     Text(
-                      orders.formattedOrderDate(local.localeName),
+                      orders.orderDate,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
@@ -81,7 +81,7 @@ class OrderTransactions extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                     Text(
-                      '\$${orders.totalAmount}',
+                      '${orders.sumMoney} vnd',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],

@@ -4,6 +4,7 @@ import 'package:healplus_panel/features/shop/screens/dashboard/widgets/order_sta
 import 'package:healplus_panel/features/shop/screens/dashboard/widgets/recent_order.dart';
 import 'package:healplus_panel/features/shop/screens/dashboard/widgets/week_sales.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
+import 'package:healplus_panel/utils/constants/Tcurrency_formatter.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -43,7 +44,7 @@ class DashboardDesktopScreen extends StatelessWidget {
                         stas: 25,
                         title: local.salesTotal,
                         subtitle:
-                            '\$${controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.totalAmount).toStringAsFixed(2)}',
+                        TCurrencyFormatter.formatVND(controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.sumMoney).toInt()),
                       ),
                     ),
                   ),
@@ -59,7 +60,9 @@ class DashboardDesktopScreen extends StatelessWidget {
                         stas: 15,
                         title: local.averageOrder,
                         subtitle:
-                            '\$${(controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.totalAmount) / controller.orderController.allItems.length).toStringAsFixed(2)}',
+                        TCurrencyFormatter.formatVND(
+                          (controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.sumMoney) / controller.orderController.allItems.length).toInt()
+                        ),
                       ),
                     ),
                   ),
@@ -75,7 +78,7 @@ class DashboardDesktopScreen extends StatelessWidget {
                         stas: 45,
                         title: local.totalOrders,
                         subtitle:
-                            '\$${controller.orderController.allItems.length}',
+                            controller.orderController.allItems.length.toString(),
                       ),
                     ),
                   ),
@@ -91,7 +94,7 @@ class DashboardDesktopScreen extends StatelessWidget {
                         title: local.visitors,
                         comparedText: local.comparedTo,
                         subtitle:
-                            '\$${controller.customerContrller.allItems.length.toString()}',
+                            controller.customerContrller.allItems.length.toString(),
                       ),
                     ),
                   ),

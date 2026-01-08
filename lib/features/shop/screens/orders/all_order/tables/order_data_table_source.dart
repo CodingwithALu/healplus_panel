@@ -1,8 +1,8 @@
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:healplus_panel/features/shop/controllers/order/oder_controller.dart';
 import 'package:healplus_panel/features/shop/screens/ingredient/all_categories/widgets/tablet_action_button.dart';
-import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/route/route.dart';
+import 'package:healplus_panel/utils/constants/Tcurrency_formatter.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:healplus_panel/utils/helpers/helper_functions.dart';
@@ -15,7 +15,6 @@ class OrderRows extends DataTableSource {
   @override
   DataRow? getRow(int index) {
     final orders = controller.filteredItems[index];
-    final local = AppLocalizations.of(Get.context!)!;
     return DataRow2(
       onTap: () => Get.toNamed(
         TRoutes.detailsOrders,
@@ -23,18 +22,18 @@ class OrderRows extends DataTableSource {
         parameters: {'orderId': orders.docId},
       ),
       selected: controller.selectedRows[index],
-      onSelectChanged: (value) => controller.selectedRows[index] == value,
+      onSelectChanged: (value) => controller.selectedRows[index] = value ?? false,
       cells: [
         DataCell(
           Text(
-            orders.id,
+            orders.docId.toString(),
             style: Theme.of(
               Get.context!,
             ).textTheme.bodyLarge!.apply(color: TColors.primary),
           ),
         ),
-        DataCell(Text(orders.formattedOrderDate(local.localeName))),
-        DataCell(Text('${orders.items.length}')),
+        DataCell(Text(orders.orderDate)),
+        DataCell(Text('${orders.quantity} sản phẩm')),
         DataCell(
           TRoundedContainer(
             radius: TSizes.cardRadiusSm,
@@ -55,7 +54,7 @@ class OrderRows extends DataTableSource {
             ),
           ),
         ),
-        DataCell(Text('\$${orders.totalAmount}')),
+        DataCell(Text(TCurrencyFormatter.formatVND(orders.sumMoney.toInt()))),
         DataCell(
           TTabletActionButtons(
             view: true,

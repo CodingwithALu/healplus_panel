@@ -1,62 +1,26 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:healplus_panel/data/services/api_service.dart';
 import 'package:healplus_panel/features/media/models/image_modle.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
 import 'package:healplus_panel/utils/exceptions/firebase_exceptions.dart';
 import 'package:healplus_panel/utils/exceptions/format_exceptions.dart';
 import 'package:healplus_panel/utils/exceptions/platform_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:universal_html/html.dart' as html;
 
 class MediaRepository extends GetxController {
   static MediaRepository get onstance => Get.find();
   //Firebase Storage instance
-  final FirebaseStorage _storage = FirebaseStorage.instance;
   //Firebase Firestore íntance
   final FirebaseFirestore _store = FirebaseFirestore.instance;
+  final ApiService _apiService = ApiService();
   // Connect Cloudinary use HTTP
   final String cloudName = 'dhl2sbjo5';
   final String uploadPreset = 't_stores';
-  //Upload any Image using File
-  Future<ImageModel> uploadImageFileInStorage({
-    required Uint8List file,
-    required String path,
-    required String imageName,
-  }) async {
-    try {
-      // Tao Blob
-      final blob = html.Blob([file]);
-      // Refernce to the storage location
-      final Reference ref = _storage.ref('$path/$imageName');
-      // Upload Image
-      await ref.putBlob(blob);
-      // Get doeload URL
-      final String downloadUrl = await ref.getDownloadURL();
-
-      // Fetch metadata
-      final FullMetadata metadata = await ref.getMetadata();
-      return ImageModel.fromFirebaseMatedate(
-        metadata,
-        path,
-        imageName,
-        downloadUrl,
-      );
-    } on SocketException catch (e) {
-      throw e.message;
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on FormatException catch (_) {
-      throw TFormatException();
-    } catch (e) {
-      throw 'Something went wrong. Please try again';
-    }
-  }
-
   // Upload Images to Cloudinary
   Future<ImageModel> uploadImageToCloudinary({
     required Uint8List file,
@@ -89,10 +53,10 @@ class MediaRepository extends GetxController {
   }
 
   // Upload Image data in Firestore
-  Future<String> uploadImageFileInDatabase(ImageModel image) async {
+  Future<ApiResponse> uploadImageFileInDatabase(ImageModel image) async {
     try {
-      final data = await _store.collection("Images").add(image.toJSon());
-      return data.id;
+      final result = await _apiService.addImages(image);
+      return result;
     } on SocketException catch (e) {
       throw e.message;
     } on FirebaseException catch (e) {
@@ -110,21 +74,14 @@ class MediaRepository extends GetxController {
     int loadCount,
   ) async {
     try {
-      final querySnapshot = await _store
-          .collection("Images")
-          .where('mediaCategory', isEqualTo: mediaCategory.name)
-          .orderBy('createAt', descending: true)
-          .limit(loadCount)
-          .get();
-      return querySnapshot.docs.map((e) => ImageModel.fromSapshot(e)).toList();
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on SocketException catch (e) {
-      throw e.message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
+      final response = await _apiService.fetchImages(mediaCategory, loadCount);
+      final resultList = response['result'] as List;
+      final result = resultList
+          .map((json) => ImageModel.fromJson(json))
+          .toList();
+      return result;
     } catch (e) {
-      throw e.toString();
+      throw 'Failed to fetch categories: ${e.toString()}';
     }
   }
 

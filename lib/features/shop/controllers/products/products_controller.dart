@@ -16,7 +16,7 @@ class ProductController extends TBaseController<ProductModel> {
 
   @override
   Future<void> deleteItem(ProductModel item) async {
-    return await _productRepository.delateProducts(item);
+    return await _productRepository.deleteProducts(item.idp);
   }
 
   @override
@@ -99,7 +99,7 @@ class ProductController extends TBaseController<ProductModel> {
 
   // Calulate Product Stock
   String getProductStockTotal(ProductModel product) {
-    return product.ide.toString();
+    return product.quantity.toString();
     // return product.productType == ProductType.single.toString()
     //     ? product.quantity.toString()
     //     : product.productVariations!
@@ -112,7 +112,7 @@ class ProductController extends TBaseController<ProductModel> {
 
   // Calulate Product Sold Quantity
   String getProductSoldQuantity(ProductModel product) {
-    return product.ide.toString();
+    return product.sold.toString();
     // return product.productType == ProductType.single.toString()
     //     ? product.soldQuantity.toString()
     //     : product.productVariations!

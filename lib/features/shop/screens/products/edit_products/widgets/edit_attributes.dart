@@ -2,7 +2,6 @@ import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_co
 import 'package:healplus_panel/common/widgets/images/t_rounded_image.dart';
 import 'package:healplus_panel/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:healplus_panel/features/shop/controllers/products/product_attribute_controller.dart';
-import 'package:healplus_panel/features/shop/controllers/products/products_variation_controller.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
@@ -14,15 +13,60 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class EditProductAttributes extends StatelessWidget {
+class EditProductAttributes extends StatefulWidget {
   const EditProductAttributes({super.key});
+
+  @override
+  State<EditProductAttributes> createState() => _EditProductAttributesState();
+}
+
+class _EditProductAttributesState extends State<EditProductAttributes> {
+  final _extraInfoFormKey = GlobalKey<FormState>();
+
+  final _usesController = TextEditingController();
+  final _toUseController = TextEditingController();
+  final _sideEffectsController = TextEditingController();
+  final _preserverController = TextEditingController();
+
+  @override
+  void dispose() {
+    _usesController.dispose();
+    _toUseController.dispose();
+    _sideEffectsController.dispose();
+    _preserverController.dispose();
+    super.dispose();
+  }
+
+  SizedBox _buildLongTextField({
+    required TextEditingController controller,
+    required String label,
+    required String hint,
+  }) {
+    return SizedBox(
+      height: 220,
+      child: TextFormField(
+        controller: controller,
+        expands: false,
+        maxLines: null,
+        minLines: 10,
+        textAlign: TextAlign.start,
+        keyboardType: TextInputType.multiline,
+        textAlignVertical: TextAlignVertical.top,
+        validator: (value) => TValidator.validateEmptyText(label, value),
+        decoration: InputDecoration(
+          labelText: label,
+          hintText: hint,
+          alignLabelWithHint: true,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     // implement build
     final controller = EditProductController.instance;
-    final attributeController = Get.put(ProductAttributeController());
-    final variationController = Get.put(ProductVariationController());
+    final attributeController = Get.put(ProductIngradientController());
     final localizations = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,23 +144,44 @@ class EditProductAttributes extends StatelessWidget {
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwSections),
-        // Generate Variations Button
-        Obx(
-          () =>
-              controller.productType.value == ProductType.single &&
-                  variationController.productVariations.isEmpty
-              ? Center(
-                  child: SizedBox(
-                    width: 200,
-                    child: ElevatedButton.icon(
-                      onPressed: () => variationController
-                          .generateVariationsConfirmation(context),
-                      label: Text(localizations.generateVariations),
-                      icon: const Icon(Iconsax.activity),
-                    ),
-                  ),
-                )
-              : const SizedBox.shrink(),
+        // Generate Variations Button (REMOVED)
+
+        // 4 ô nhập bổ sung (giống style "Mô tả sản phẩm")
+        const SizedBox(height: TSizes.spaceBtwSections),
+        Text(
+          'Thông tin bổ sung',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+        const SizedBox(height: TSizes.spaceBtwItems),
+        Form(
+          key: _extraInfoFormKey,
+          child: Column(
+            children: [
+              _buildLongTextField(
+                controller: _usesController,
+                label: 'Công dụng (uses)',
+                hint: 'Nhập công dụng của sản phẩm...',
+              ),
+              const SizedBox(height: TSizes.spaceBtwInputFields),
+              _buildLongTextField(
+                controller: _toUseController,
+                label: 'Cách dùng (toUse)',
+                hint: 'Nhập cách dùng...',
+              ),
+              const SizedBox(height: TSizes.spaceBtwInputFields),
+              _buildLongTextField(
+                controller: _sideEffectsController,
+                label: 'Tác dụng phụ (sideEffects)',
+                hint: 'Nhập tác dụng phụ...',
+              ),
+              const SizedBox(height: TSizes.spaceBtwInputFields),
+              _buildLongTextField(
+                controller: _preserverController,
+                label: 'Bảo quản (preserver)',
+                hint: 'Nhập thông tin bảo quản...',
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -124,7 +189,7 @@ class EditProductAttributes extends StatelessWidget {
 
   // Build button to add a new attribute
   SizedBox _buildAddAttributeButton(
-    ProductAttributeController controller,
+    ProductIngradientController controller,
     AppLocalizations localizations,
   ) {
     return SizedBox(
@@ -144,11 +209,11 @@ class EditProductAttributes extends StatelessWidget {
   // Build text form field for attribute name
 
   TextFormField _buildAttrbuteName(
-    ProductAttributeController controller,
+    ProductIngradientController controller,
     AppLocalizations localizations,
   ) {
     return TextFormField(
-      controller: controller.attributeNames,
+      controller: controller.inagredientNames,
       validator: (value) =>
           TValidator.validateEmptyText(localizations.attributeName, value),
       decoration: InputDecoration(
@@ -160,13 +225,13 @@ class EditProductAttributes extends StatelessWidget {
   // Build text form field for attribute values
 
   SizedBox _buildAttributes(
-    ProductAttributeController controller,
+    ProductIngradientController controller,
     AppLocalizations localizations,
   ) {
     return SizedBox(
       height: 80,
       child: TextFormField(
-        controller: controller.attributes,
+        controller: controller.body,
         expands: true,
         maxLines: null,
         textAlign: TextAlign.start,
@@ -185,7 +250,7 @@ class EditProductAttributes extends StatelessWidget {
 
   Widget buildAttributesList(
     BuildContext context,
-    ProductAttributeController controller,
+    ProductIngradientController controller,
     AppLocalizations localizations,
   ) {
     return Obx(
@@ -199,11 +264,9 @@ class EditProductAttributes extends StatelessWidget {
                     borderRadius: BorderRadius.circular(TSizes.borderRadiusLg),
                   ),
                   child: ListTile(
-                    title: Text(controller.productAttributes[index].name ?? ''),
+                    title: Text(controller.productAttributes[index].title),
                     subtitle: Text(
-                      controller.productAttributes[index].value!
-                          .map((item) => item.trim())
-                          .toString(),
+                      controller.productAttributes[index].body,
                     ),
                     trailing: IconButton(
                       onPressed: () =>

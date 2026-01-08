@@ -327,10 +327,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get mediaEmptySelection => 'Chưa chọn ảnh nào.';
 
   @override
-  String get mediaSelect => 'Xem thêm';
+  String get mediaSelect => 'Tải lên';
 
   @override
-  String get mediaCancel => 'Hủ';
+  String get mediaCancel => 'Hủy';
 
   @override
   String get mediaDelete => 'Xóa';
@@ -767,10 +767,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get saveChanges => 'Lưu thay đổi';
 
   @override
-  String get brand => 'Thương hiệu';
+  String get brand => 'Danh mục';
 
   @override
-  String get selectBrand => 'Chọn thương hiệu';
+  String get selectBrand => 'Chọn Danh mục';
 
   @override
   String get addProductAttributes => 'Thêm thuộc tính sản phẩm';
@@ -779,13 +779,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get add => 'Thêm';
 
   @override
-  String get attributeName => 'Tên thuộc tính';
+  String get attributeName => 'Tên thành phần';
 
   @override
   String get attributeNameHint => 'Màu sắc, Kích cỡ, Chất liệu';
 
   @override
-  String get attribute => 'Thuộc tính';
+  String get attribute => 'Thành phần';
 
   @override
   String get attributeHint => 'Thêm thuộc tính cách nhau bằng | Ví dụ: Xanh lá | Xanh dương | Vàng';
@@ -800,7 +800,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get generateVariations => 'Tạo biến thể';
 
   @override
-  String get allAttribute => 'Tất cả thuộc tính';
+  String get allAttribute => 'Danh sách';
 
   @override
   String get selectCategories => 'Chọn danh mục';
@@ -842,7 +842,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get removeVariations => 'Xóa biến thể';
 
   @override
-  String get noVariationsMessage => 'Chưa có biến thể nào được thêm cho sản phẩm này';
+  String get noVariationsMessage => 'Chưa có đơn vị nào được thêm cho sản phẩm này';
 
   @override
   String get description => 'Mô tả';
@@ -858,4 +858,31 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get hidden => 'Ẩn';
+
+  @override
+  String get media_error_upload_images_title => 'Lỗi tải ảnh lên';
+
+  @override
+  String get media_error_upload_images_message => 'Có lỗi khi tải ảnh lên';
+
+  @override
+  String get media_delete_image_confirmation => 'Bạn có chắc muốn xóa ảnh này không?';
+
+  @override
+  String get media_image_deleted_title => 'Đã xóa ảnh';
+
+  @override
+  String get media_image_deleted_message => 'Ảnh đã được xóa khỏi lưu trữ đám mây';
+
+  @override
+  String get media_error_general_title => 'Có lỗi';
+
+  @override
+  String get media_folder_others => 'Khác';
+
+  @override
+  String get productPreparation => 'Dạng bào chế';
+
+  @override
+  String get productSpecification => 'Quy cách';
 }

@@ -206,10 +206,10 @@ class MediaController extends GetxController {
             );
         // Upload Image to the Firestỏe
         uploadeImage.mediaCategory = selectedCategory.name;
-        final id = await mediaRepository.uploadImageFileInDatabase(
+        final result = await mediaRepository.uploadImageFileInDatabase(
           uploadeImage,
         );
-        uploadeImage.id = id;
+        uploadeImage.id = result.id!;
         selectedImagesTopUpload.removeAt(i);
         targetList.add(uploadeImage);
       }

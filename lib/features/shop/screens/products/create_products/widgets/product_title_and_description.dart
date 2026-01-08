@@ -16,6 +16,7 @@ class ProductTitleAndDescription extends StatelessWidget {
     return TRoundedContainer(
       child: Form(
         key: controller.titleDescriptionFromKey,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,6 +32,41 @@ class ProductTitleAndDescription extends StatelessWidget {
               validator: (value) =>
                   TValidator.validateEmptyText(local.productTitle, value),
               decoration: InputDecoration(labelText: local.productTitle),
+            ),
+            const SizedBox(height: TSizes.spaceBtwInputFields),
+            // preparation and specification
+            Row(
+              children: [
+                // Price
+                Expanded(
+                  child: TextFormField(
+                    controller: controller.preparation,
+                    validator: (value) => TValidator.validateEmptyText(
+                      local.productPreparation,
+                      value,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: local.productPreparation,
+                      hintText: "Ví du: Dạng kem"
+                    ),
+                  ),
+                ),
+                const SizedBox(width: TSizes.spaceBtwItems),
+                // Sale Price
+                Expanded(
+                  child: TextFormField(
+                    controller: controller.specfication,
+                    validator: (value) => TValidator.validateEmptyText(
+                      local.productSpecification,
+                      value,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: local.productSpecification,
+                      hintText: 'Ví dụ: Hộp 60 viên',
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
             // Product Description Input Field

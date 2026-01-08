@@ -1792,6 +1792,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hidden'**
   String get hidden;
+
+  /// Title for error when uploading images
+  ///
+  /// In en, this message translates to:
+  /// **'Error Uploading Images'**
+  String get media_error_upload_images_title;
+
+  /// Message for error when uploading images
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong while uploading your images'**
+  String get media_error_upload_images_message;
+
+  /// Confirmation message for deleting an image
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this image?'**
+  String get media_delete_image_confirmation;
+
+  /// Title when image is successfully deleted
+  ///
+  /// In en, this message translates to:
+  /// **'Image Deleted'**
+  String get media_image_deleted_title;
+
+  /// Message when image is successfully deleted
+  ///
+  /// In en, this message translates to:
+  /// **'Image successfully deleted from your cloud storage'**
+  String get media_image_deleted_message;
+
+  /// General error title
+  ///
+  /// In en, this message translates to:
+  /// **'Oh Snap'**
+  String get media_error_general_title;
+
+  /// Default folder name for miscellaneous images
+  ///
+  /// In en, this message translates to:
+  /// **'Others'**
+  String get media_folder_others;
+
+  /// Product preparation field label
+  ///
+  /// In en, this message translates to:
+  /// **'Preparation'**
+  String get productPreparation;
+
+  /// Product specification field label
+  ///
+  /// In en, this message translates to:
+  /// **'Specification'**
+  String get productSpecification;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

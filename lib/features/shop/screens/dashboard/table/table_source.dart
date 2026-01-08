@@ -2,6 +2,7 @@ import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_co
 import 'package:healplus_panel/features/shop/controllers/order/oder_controller.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/route/route.dart';
+import 'package:healplus_panel/utils/constants/Tcurrency_formatter.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:healplus_panel/utils/helpers/helper_functions.dart';
@@ -13,8 +14,8 @@ class OrderRows extends DataTableSource {
   final controller = OrderController.instance;
   @override
   DataRow? getRow(int index) {
-    final orders = controller.filteredItems[index];
     final local = AppLocalizations.of(Get.context!)!;
+    final orders = controller.filteredItems[index];
     return DataRow2(
       onTap: () => Get.toNamed(
         TRoutes.detailsOrders,
@@ -27,7 +28,7 @@ class OrderRows extends DataTableSource {
       cells: [
         DataCell(
           Text(
-            orders.id,
+            orders.docId.toString(),
             style: Theme.of(
               Get.context!,
             ).textTheme.bodyLarge!.apply(color: TColors.primary),
@@ -53,7 +54,7 @@ class OrderRows extends DataTableSource {
             ),
           ),
         ),
-        DataCell(Text('\$${orders.totalAmount}')),
+        DataCell(Text(TCurrencyFormatter.formatVND(orders.sumMoney.toInt()))),
       ],
     );
   }

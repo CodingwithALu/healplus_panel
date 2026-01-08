@@ -13,10 +13,10 @@ class ProductRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
   final ApiService _apiService = ApiService();
   // create product
-  Future<String> createProducts(ProductModel produts) async {
+  Future<ApiResponse> createProducts(ProductModel produts) async {
     try {
-      final result = await _db.collection('Products').add(produts.toJson());
-      return result.id;
+      final result = await _apiService.createProduct(produts);
+      return result;
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (e) {
@@ -50,13 +50,19 @@ class ProductRepository extends GetxController {
   Future<List<ProductModel>> fetchProducts() async {
     try {
       final response = await _apiService.getAllProduct();
+      print('API getAllProduct response:');
+      print(response);
       final resultList = response['result'] as List;
       final result = resultList
           .map((json) => ProductModel.fromJson(json))
           .toList();
+      print('Parsed ProductModel list:');
+      print(result);
       return result;
-    } catch (e) {
-      throw 'something went wrong. Please try again $e';
+    } catch (e, stack) {
+      print('Error in fetchProducts: $e');
+      print('StackTrace: $stack');
+      throw 'something went wrong. Please try again. Error: $e';
     }
   }
 
@@ -100,40 +106,41 @@ class ProductRepository extends GetxController {
   }
 
   // dalete product
-  Future<void> delateProducts(ProductModel products) async {
-    // try {
-    //   await _db.runTransaction((transition) async {
-    //     final brandRef = _db.collection('Products').doc(products.id);
-    //     final brandSnap = await transition.get(brandRef);
+  Future<void> deleteProducts(String products) async {
+    try {
+      return _apiService.deleteProduct(products);
+      // await _db.runTransaction((transition) async {
+      //   final brandRef = _db.collection('Products').doc(products.id);
+      //   final brandSnap = await transition.get(brandRef);
 
-    //     if (!brandSnap.exists) {
-    //       throw Exception('Brand not foud');
-    //     }
-    //     final brandCategoriesSnapshot = await _db
-    //         .collection('ProductCategories')
-    //         .where('ProductId', isEqualTo: products.id)
-    //         .get();
-    //     final brandCategories = brandCategoriesSnapshot.docs.map(
-    //       (e) => ProductCategoryModel.fromSnapshot(e),
-    //     );
-    //     if (brandCategories.isNotEmpty) {
-    //       for (var brandCategory in brandCategories) {
-    //         transition.delete(
-    //           _db.collection('ProductCategories').doc(brandCategory.id),
-    //         );
-    //       }
-    //     }
-    //     transition.delete(brandRef);
-    //   });
-    // } on FirebaseException catch (e) {
-    //   throw TFirebaseException(e.code).message;
-    // } on FormatException catch (e) {
-    //   throw TFormatException(e.message);
-    // } on PlatformException catch (e) {
-    //   throw TPlatformException(e.code).message;
-    // } catch (e) {
-    //   throw 'something went wrong. Please try again';
-    // }
+      //   if (!brandSnap.exists) {
+      //     throw Exception('Brand not foud');
+      //   }
+      //   final brandCategoriesSnapshot = await _db
+      //       .collection('ProductCategories')
+      //       .where('ProductId', isEqualTo: products.id)
+      //       .get();
+      //   final brandCategories = brandCategoriesSnapshot.docs.map(
+      //     (e) => ProductCategoryModel.fromSnapshot(e),
+      //   );
+      //   if (brandCategories.isNotEmpty) {
+      //     for (var brandCategory in brandCategories) {
+      //       transition.delete(
+      //         _db.collection('ProductCategories').doc(brandCategory.id),
+      //       );
+      //     }
+      //   }
+      //   transition.delete(brandRef);
+      // });
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (e) {
+      throw TFormatException(e.message);
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
   }
 
   // Remove Products Category

@@ -1,13 +1,14 @@
+
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:healplus_panel/common/widgets/images/t_rounded_image.dart';
 import 'package:healplus_panel/features/shop/models/order_model.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
+import 'package:healplus_panel/utils/constants/Tcurrency_formatter.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';
 import 'package:healplus_panel/utils/constants/enums.dart';
 import 'package:healplus_panel/utils/constants/image_strings.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:healplus_panel/utils/devices/device_utility.dart';
-import 'package:healplus_panel/utils/helpers/pricing_calculator.dart';
 import 'package:flutter/material.dart';
 
 class OrderItems extends StatelessWidget {
@@ -20,7 +21,9 @@ class OrderItems extends StatelessWidget {
     final subTotal = orderModel.items.fold(
       0.0,
       (previousValue, element) =>
-          previousValue + (element.price * element.quantity),
+          previousValue +
+          (double.tryParse(element.price.toString()) ?? 0) *
+              (int.tryParse(element.quantity.toString()) ?? 0),
     );
     return TRoundedContainer(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -45,10 +48,10 @@ class OrderItems extends StatelessWidget {
                       children: [
                         TRoundedImage(
                           backgroundColor: TColors.primaryBackground,
-                          imageType: item.image != null
+                          imageType: item.urls?.first != null
                               ? ImageType.network
                               : ImageType.asset,
-                          imageUrl: item.image ?? TImages.defaultImage,
+                          imageUrl: item.urls?.first ?? TImages.defaultImage,
                         ),
                         const SizedBox(width: TSizes.spaceBtwItems),
                         Expanded(
@@ -56,19 +59,19 @@ class OrderItems extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                item.title,
+                                item.name,
                                 style: Theme.of(context).textTheme.titleMedium,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                               ),
-                              if (item.selectedVariation != null)
+                              if (item.unitNames != null)
                                 Text(
-                                  item.selectedVariation!.entries
+                                  item.unitNames!
                                       .map(
-                                        (item) =>
-                                            ('${item.key} : ${item.value}'),
+                                        (unit) =>
+                                            ('${unit.name} : ${unit.price}'),
                                       )
-                                      .toString(),
+                                      .join(', '),
                                 ),
                             ],
                           ),
@@ -77,29 +80,46 @@ class OrderItems extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: TSizes.spaceBtwItems),
-                  SizedBox(
-                    width: TSizes.xl * 2,
-                    child: Text(
-                      '\$${item.price.toStringAsFixed(1)}',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  ),
-                  SizedBox(
-                    width: TDeviceUtils.isMobileScreen(context)
-                        ? TSizes.xl * 1.4
-                        : TSizes.xl * 2,
-                    child: Text(
-                      item.quantity.toString(),
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  ),
-                  SizedBox(
-                    width: TDeviceUtils.isMobileScreen(context)
-                        ? TSizes.xl * 1.4
-                        : TSizes.xl * 2,
-                    child: Text(
-                      '\$${item.totalAmount}',
-                      style: Theme.of(context).textTheme.bodyLarge,
+                  Expanded(
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: TSizes.xl * 2,
+                          child: Text(
+                            TCurrencyFormatter.formatVND(
+                              int.tryParse(item.price.toString()) ?? 0,
+                            ),
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ),
+                        SizedBox(
+                          width: TDeviceUtils.isMobileScreen(context)
+                              ? TSizes.xl * 1.4
+                              : TSizes.xl * 2,
+                          child: Text(
+                            item.quantity.toString(),
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ),
+                        SizedBox(
+                          width: TDeviceUtils.isMobileScreen(context)
+                              ? TSizes.xl * 1.4
+                              : TSizes.xl * 2,
+                          child: Text(
+                            TCurrencyFormatter.formatVND(item.quantity),
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ),
+                        SizedBox(
+                          width: TDeviceUtils.isMobileScreen(context)
+                              ? TSizes.xl * 1.4
+                              : TSizes.xl * 2,
+                          child: Text(
+                            TCurrencyFormatter.formatVND(item.total!),
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -121,7 +141,7 @@ class OrderItems extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      '\$$subTotal',
+                      TCurrencyFormatter.formatVND(subTotal.toInt()),
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
@@ -135,7 +155,7 @@ class OrderItems extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      '\$0.00',
+                      '0.00 d',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
@@ -149,7 +169,9 @@ class OrderItems extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      '\$${orderModel.shippingCost.toStringAsFixed(2)}',
+                      TCurrencyFormatter.formatVND(
+                        (orderModel.shippingCost ?? 0.0).toInt(),
+                      ),
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
@@ -163,7 +185,7 @@ class OrderItems extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      '\$${TPricingCalculator.calculateTax(subTotal, '')}',
+                      TCurrencyFormatter.formatVND(subTotal.toInt()),
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
@@ -179,7 +201,7 @@ class OrderItems extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      '\$${orderModel.totalAmount.toStringAsFixed(2)}',
+                      TCurrencyFormatter.formatVND(orderModel.sumMoney.toInt()),
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],

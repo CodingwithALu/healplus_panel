@@ -2,6 +2,7 @@ import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_co
 import 'package:healplus_panel/features/shop/controllers/customer/customer_details_controller.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
 import 'package:healplus_panel/route/route.dart';
+import 'package:healplus_panel/utils/constants/Tcurrency_formatter.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:healplus_panel/utils/helpers/helper_functions.dart';
@@ -11,13 +12,14 @@ import 'package:get/get.dart';
 
 class CustomerDataTableSource extends DataTableSource {
   final controller = CustomerDetailController.instance;
+  
   @override
   DataRow? getRow(int index) {
     final local = AppLocalizations.of(Get.context!)!;
     final order = controller.filteredCustomerOrders[index];
     final totleamount = order.items.fold<double>(
       0,
-      (previousValue, element) => previousValue + element.price,
+      (previousValue, element) => previousValue + double.parse(element.price),
     );
     return DataRow2(
       selected: false,
@@ -29,7 +31,7 @@ class CustomerDataTableSource extends DataTableSource {
       cells: [
         DataCell(
           Text(
-            order.id,
+            order.docId,
             style: Theme.of(
               Get.context!,
             ).textTheme.bodyLarge!.apply(color: TColors.primary),
@@ -57,7 +59,7 @@ class CustomerDataTableSource extends DataTableSource {
             ),
           ),
         ),
-        DataCell(Text('\$$totleamount')),
+        DataCell(Text(TCurrencyFormatter.formatVND(totleamount.toInt()))),
       ],
     );
   }

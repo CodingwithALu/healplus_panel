@@ -126,4 +126,22 @@ class ImageModel {
       contentType: "image/${json['format']}",
     );
   }
+  factory ImageModel.fromJson(Map<String, dynamic> json) {
+    return ImageModel(
+      id: json['id']?.toString() ?? '',
+      url: json['url'] ?? '',
+      folder: json['folder'] ?? '',
+      sizeBytes: json['sizeBytes'] ?? 0,
+      mediaCategory: json['mediaCategory'] ?? '',
+      filename: json['filename'] ?? '',
+      fullPath: json['fullPath'] ?? '',
+      contentType: json['contentType'] ?? '',
+      createAt: json.containsKey('createAt') && json['createAt'] != null
+          ? DateTime.parse(json['createAt'])
+          : null,
+      updateAt: json.containsKey('updateAt') && json['updateAt'] != null
+          ? DateTime.parse(json['updateAt'])
+          : null,
+    );
+  }
 }

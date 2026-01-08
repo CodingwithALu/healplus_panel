@@ -5,7 +5,7 @@ const String tSecretAPIKey = "cwt_live_b2da6ds3df3e785v8ddc59198f7615ba";
 
 class ApiConstants {
   // Base URL (update as needed)
-  static const String baseUrl = "http://localhost:8000/";
+  static const String baseUrl = "http://192.168.173.44:8000/";
 
   // Category
   static const String categoriesEndpoint = "fetchCategory.php";
@@ -15,7 +15,9 @@ class ApiConstants {
 
   // Banner
   static const String bannersEndpoint = "fetchBanner.php";
-
+  // Images
+  static const String addImageEndpoint = "add_images.php";
+  static const String fetchImageEndpoint = "fetch_images.php";
   // Ingredient
   static const String ingredientsEndpoint = "fetchIngredient.php";
   static const String ingredientCountEndpoint = "get_ingredient_count.php";
@@ -43,9 +45,10 @@ class ApiConstants {
       "route/get/fetch_products_from_category.php";
   static const String productsByIngredientEndpoint =
       "get_products_by_ingredient.php";
-  static const String productsByElementEndpoint = "get_products_by_element.php";
+  static const String deteleProduct = "delete_product.php";
   static const String addProductEndpoint = "add_product.php";
   static const String searchEndpoint = "getsearch.php";
+  static const String createProduct = "add_product.php";
 
   // Order
   static const String ordersEndpoint = "get_oder.php";
@@ -54,6 +57,7 @@ class ApiConstants {
   static const String ordersByStatusEndpoint = "get_oder_by_status.php";
   static const String ordersByUserEndpoint = "get_oder_by_user.php";
   static const String ordersByUserStatusEndpoint = "get_oder_by_userstatus.php";
+  static const String deleteOrder = "delete_order.php";
 
   // User
   static const String userEndpoint = "route/get/fetch_user.php";

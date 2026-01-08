@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:healplus_panel/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:healplus_panel/common/widgets/images/t_rounded_image.dart';
 import 'package:healplus_panel/features/shop/controllers/products/create_product_controller.dart';
@@ -12,14 +13,13 @@ import 'package:healplus_panel/utils/constants/image_strings.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/state_manager.dart';
 
 class ProductVariations extends StatelessWidget {
   const ProductVariations({super.key});
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = ProductVariationController.instance;
+    final controller = Get.put(ProductVariationController());
     final creteProductCotroller = CreateProductController.instance;
     final localizations = AppLocalizations.of(context)!;
     return Obx(

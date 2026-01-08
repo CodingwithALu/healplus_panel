@@ -4,6 +4,7 @@ import 'package:healplus_panel/common/widgets/icons/t_circular_icon.dart';
 import 'package:healplus_panel/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:healplus_panel/features/shop/controllers/dashboard/dashboard_controller.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
+import 'package:healplus_panel/utils/constants/Tcurrency_formatter.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
 import 'package:healplus_panel/utils/helpers/helper_functions.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -124,7 +125,7 @@ class OrderStatusPiechart extends StatelessWidget {
                         DataCell(Text(' $count')),
                         DataCell(
                           Text(
-                            ' \$${totalAmount.toStringAsFixed(2)}',
+                            TCurrencyFormatter.formatVND(totalAmount.toInt()),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),

@@ -45,7 +45,7 @@ class TabletProductsScreen extends StatelessWidget {
             onSort: (columnIndex, ascending) =>
                 controller.sortBySoldItem(columnIndex, ascending),
           ),
-          DataColumn2(label: Text(local.brands)),
+          DataColumn2(label: Text(local.categories)),
           DataColumn2(
             label: Text(local.price),
             onSort: (columnIndex, ascending) =>

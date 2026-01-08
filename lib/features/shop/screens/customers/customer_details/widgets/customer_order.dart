@@ -3,6 +3,7 @@ import 'package:healplus_panel/common/widgets/layouts/templates/loader_animation
 import 'package:healplus_panel/features/shop/controllers/customer/customer_details_controller.dart';
 import 'package:healplus_panel/features/shop/screens/customers/customer_details/tables/customer_tables_order.dart';
 import 'package:healplus_panel/l10n/app_localizations.dart';
+import 'package:healplus_panel/utils/constants/Tcurrency_formatter.dart';
 import 'package:healplus_panel/utils/constants/colors.dart';
 import 'package:healplus_panel/utils/constants/image_strings.dart';
 import 'package:healplus_panel/utils/constants/sizes.dart';
@@ -33,7 +34,7 @@ class CustomerOrders extends StatelessWidget {
 
         final totalAmount = controller.allCustomerOrders.fold(
           0.0,
-          (previousValue, element) => previousValue + element.totalAmount,
+          (previousValue, element) => previousValue + element.sumMoney,
         );
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +51,7 @@ class CustomerOrders extends StatelessWidget {
                     children: [
                       TextSpan(text: '${local.totalSpent} '),
                       TextSpan(
-                        text: '\$${totalAmount.toStringAsFixed(2)}',
+                        text: TCurrencyFormatter.formatVND(totalAmount.toInt()),
                         style: Theme.of(
                           context,
                         ).textTheme.bodyLarge!.apply(color: TColors.primary),

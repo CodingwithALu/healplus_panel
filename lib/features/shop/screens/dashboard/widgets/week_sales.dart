@@ -63,7 +63,7 @@ class TWeeklySalesGraph extends StatelessWidget {
                           show: true,
                           drawHorizontalLine: true,
                           drawVerticalLine: true,
-                          horizontalInterval: 200,
+                          horizontalInterval: 2000000,
                         ),
                         barGroups: controller.weeklySales
                             .asMap()

@@ -144,7 +144,6 @@ class EditCategoryFromScreen extends StatelessWidget {
                     () => Wrap(
                       spacing: TSizes.xs,
                       children: elementController.allItems.map((element) {
-                        print("element: $element");
                         if (elementController.isLoading.value) {
                           return const TLoaderAnimation();
                         } else {

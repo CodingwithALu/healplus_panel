@@ -24,7 +24,7 @@ class OrderController extends TBaseController<OrderModel> {
 
   @override
   bool containsSearchQuery(OrderModel item, String query) {
-    return item.id.toLowerCase().contains(query.toLowerCase());
+    return item.id.toString().toLowerCase().contains(query.toLowerCase());
   }
 
   @override
@@ -36,7 +36,7 @@ class OrderController extends TBaseController<OrderModel> {
     sortByProperty(
       sortColumnIndex,
       ascending,
-      (OrderModel o) => o.totalAmount.toString().toLowerCase(),
+      (OrderModel o) => o.sumMoney.toString().toLowerCase(),
     );
   }
 
@@ -58,9 +58,10 @@ class OrderController extends TBaseController<OrderModel> {
       final local = AppLocalizations.of(context)!;
       statusLoader.value = true;
       order.status = newStatus;
-      await _orderRepository.updateOrderSpecificValue(order.docId, {
-        'status': newStatus.toString(),
-      });
+      await _orderRepository.updateOrderSpecificValue(
+        order.id,
+        _parseOrder(newStatus),
+      );
       updateItemFormList(order);
       orderStatus.value = newStatus;
       TLoaders.successSnackBar(
@@ -75,5 +76,20 @@ class OrderController extends TBaseController<OrderModel> {
     } finally {
       statusLoader.value = false;
     }
+  }
+
+  static String _parseOrder(OrderStatus status) {
+    switch (status) {
+      case OrderStatus.pending:
+        return '';
+      case OrderStatus.processing:
+        return 'Đang xử lý';
+      case OrderStatus.shipped:
+        return 'Đang vận chuyển';
+      case OrderStatus.delivered:
+        return 'Đã giao hàng';
+      case OrderStatus.cancelled:
+        return 'Đã hủy';
+      }
   }
 }
